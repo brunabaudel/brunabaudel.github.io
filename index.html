@@ -1,122 +1,265 @@
-	<!DOCTYPE html>
-<html>
-<head>
-<title>Bruna Carolina Baudel de Santana - Curriculum Vitae</title>
 
-<meta name="viewport" content="width=device-width"/>
-<meta charset="UTF-8"> 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site da empresa MR">
+        <meta name="author" content="Bruna Carolina">
 
-<link type="text/css" rel="stylesheet" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-</head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="headshot.jpg" alt="Alan Smith" />
-		</div>
-		
-		<div id="name">
-			<h1 class="quickFade delayTwo">Bruna Carolina Baudel de Santana</h1>
-			<h2 class="quickFade delayThree">Desenvolvedora Mobile</h2>
-		</div>
-		
-		<div id="contactDetails" class="quickFade delayFour">
-			<ul>
-				<li>e-mail: <a href="mailto:bcbs@cin.ufpe.br" target="_blank">bcbs@cin.ufpe.br</a></li>
-				<li>site: <a href="http://www.cin.ufpe.br/~bcbs">www.cin.ufpe.br/~bcbs</a></li>
-				<li>contato: (81) 81597924</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<div id="mainArea" class="quickFade delayFive">
+        <title>Mundo das Resistências</title>
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Formação Acadêmica</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>Universidade Federal de Pernambuco - UFPE</h2>
-					<p class="subDetails">CIn - Centro de Informática
-					</p>
-					<p>Graduadação em Ciência da Computação (Bacharelado), 2010.2 - 2015.1</p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
+        <!-- Bootstrap Main CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet"> 
 
+        <!-- Custom CSS -->
+        <link href="css/custom.css" rel="stylesheet">
 
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Habilidades Técnicas</h1>
-				</div>
-				
-				<div class="sectionContent">
-				<ul class="keySkills">
-					<li>Desenvolvimento mobile Android (Java) e iOS (Objective-C)</li>
-					<li>Conhecimento em SQLite</li>
-					<li>Banco de dados relacional e linguagem SQL</li>
-					<li>Liguagem Java</li>
-					<li>Linguagem Python</li>
-					<li>Conhecimento em sistemas de controle de versão Git e SVN</li>
-					<li>Linguagens de marcação HTML e CSS</li>
-				</ul>
-			</div>
+        <!-- Glyphicons.com -->
+        <link href="http://glyphicons.com" rel="stylesheet">
 
-			</article>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Experiência Profissional</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>Procura Tecnologia</h2>
-					<p class="subDetails">Co-founder 2012 - 2014</p>
-					<p>Desenvolvimento de Aplicações Mobile em Android e iOS.</p>
-					<h3><b>Projetos</b></h3><br>
-					<p>Aplicativo eVita (Android e iOS) - Uma aplicação que informa o grau de interações medicamentosas.</p>
-					<p>Aplicativo MCor (Android) - Um aplicativo de consulta para o Hospital Memorial.</p>
-				</article>
-				
-				<article>
-					<h2>CEAD UNA-SUS UFPE / SABER Tecnologias</h2>
-					<p class="subDetails">2014 - 2015</p>
-					<p>Desenvolvimento de Aplicações Mobile em Android.</p>
-				</article>
-				
-			</div>
-			<div class="clear"></div>
-		</section>
+        <!-- Include JQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Main JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mr-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">  Mundo das Resistências </a>
+                </div><!-- /.navbar-header -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="mr-navbar-collapse">
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+                        <li class="active"><a href="index.html"><b>Home</b></a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Consertar</a></li>
+                                <li><a href="#">Construir</a></li>
+                                <li><a href="#">Criar</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">Produtos</a></li>
+                        
+                        <li><a href="#">Quem somos</a></li>
+
+                        <li><a href="#">Contato</a></li>
+
+                        <li class="active"><a href="#">Orçamento</a></li>
+
+                    </ul>
+                   
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container navbar -->
+        </nav>
 
 
-		<section>
-			<div class="sectionTitle">
-				<h1>Cursos</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>Especializa</h2>
-					<p class="subDetails">2011</p>
-					<p>Curso básico Android</p>
-					
-				</article>
-				
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-	</div>
-</div>
-</body>
+        <div class="section section-header">
+            <div class="parallax filter filter-color-blue">
+                <div class="image"
+                    style="background-image: url('images/header-4.jpg')">
+                </div>
+                <div class="container">
+                    <div class="content">
+                        <div class="title-area">
+                            <h1 class="title-modern">Mundo das Resistências</h1>
+                            <h2>Faça seu orçamento com a gente!</h2>
+                            <h3>Ligue para (81) 98823-1500</h3>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.parallax -->
+        </div><!-- /.section-header -->
+
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="title-area">
+                        <h1>Nossos Serviços</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info-icon">
+                            <div class="icon text-blue">
+                                <i class="glyphicon glyphicon-wrench"></i>
+                            </div>
+                            <h3>Consertar</h3>
+                            <p class="description">Nós consertamos suas resistências com muita atenção e responsabiidade.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-icon">
+                            <div class="icon text-blue">
+                                <i class="glyphicon glyphicon-cog"></i>
+                            </div>
+                            <h3>Construir</h3>
+                            <p class="description">Nós construimos a resistência com as dimensões e materias que você quiser.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info-icon">
+                            <div class="icon text-blue">
+                                <i class="glyphicon glyphicon-flash"></i>
+                            </div>
+                            <h3>Criar</h3>
+                            <p class="description">Nós criamos a resistência de acordo com suas necessidades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-get-started">
+                    <a href="#" class="btn btn-blue btn-fill btn-lg">
+                        Faça seu orçamento
+                    </a>
+                </div>
+            </div><!--  ./container 1 -->
+        </div><!--  ./section 1 -->
+
+
+        <div class="section section-wwa">
+            <div class="parallax filter filter-color-black">
+                <div class="image" style="background-image:url('images/header-2.jpg')">
+                </div>
+                <div class="container">
+                    <div class="content">
+                        <div class="row">
+                            <div class="title-area">
+                                <h2>Quem Somos</h2>
+                                <p class="text-description">We promise you a new look and more importantly, a new attitude. We build that by getting to know you, your needs and creating the best looking clothes.</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card card-member">
+                                    <div class="content">
+                                        <div class="description">
+                                            <h3 class="title">Missão</h3>
+                                            <br><br>
+                                            <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-member">
+                                    <div class="content">
+                                        <div class="description">
+                                            <h3 class="title">Visão</h3>
+                                            <br><br>
+                                            <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card card-member">
+                                    <div class="content">
+                                        <div class="description">
+                                            <h3 class="title">Valores</h3>
+                                            <br><br>
+                                            <p class="description">I miss the old Kanye I gotta say at that time I’d like to meet Kanye And I promise the power is in the people and I will use the power given by the people to bring everything I have back to the people.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!--  ./content 1 -->
+                </div><!--  ./container 2 -->
+            </div><!--  ./parallax -->
+        </div><!--  ./section 2 wwa -->
+
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="title-area">
+                        <h1>Contato</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <iframe height="350" width="100%" align="center" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=89+west+main+st+merrimac+ma+01860&amp;aq=&amp;sll=42.036922,-71.683501&amp;sspn=1.97864,4.702148&amp;ie=UTF8&amp;hq=&amp;hnear=89+W+Main+St,+Merrimac,+Massachusetts+01860&amp;t=m&amp;z=14&amp;ll=42.825562,-71.01797&amp;output=embed"></iframe>
+                </div>
+
+                <br><br>
+
+                <div class="row">
+                    <div class="col-md-5 well">
+                        <div>
+                            <h3>Para mais informações</h3>
+                            <br>
+                        </div>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputName" placeholder="Nome">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputSubject" placeholder="Assunto">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control noresize" rows="6" id="inputMessage" placeholder="Mensagem"></textarea>
+                            </div>
+                                <button type="submit" class="btn btn-blue btn-fill" id="BtnSubmit">Enviar</button><br><br>
+                        </form>
+                    </div>
+
+                    <div class="col-md-5 w1">
+                        <div class="row well">
+                                <div id="DivHeader">
+                                    <h3>Faça seu orçamento</h3>
+                                </div>
+                                <div class="button-get-started">
+                                    <a href="#" class="btn btn-blue btn-fill btn-lg">
+                                        Orçamento
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row well">
+                                <h3>Endereço</h3>
+                                <br>
+                                <p class="contact" >Rua Floriano Peixoto, n. 1828</p>
+                                <p class="contact" >Tel.: (81) 98823-1500</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div><!--  ./section 1 -->
+
+        <footer class="footer footer-color-black" data-color="black">
+            <div class="container">
+                <hr>
+                <div class="copyright">
+                    © <script> document.write(new Date().getFullYear()) </script> Creative Brubs, made with love
+                </div>
+            </div><!-- /.container footer -->
+        </footer>
+
+    </body>
 </html>
