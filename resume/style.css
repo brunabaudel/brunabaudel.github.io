@@ -30,7 +30,9 @@ p {
 }
 
 .descriptionList dt {
-	font-weight: bold;
+	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+	font-weight: initial;
+	font-size: 1.1em;
 }
 
 #cv {
