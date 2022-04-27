@@ -1,0 +1,42 @@
+body {
+  background-color: #fff;
+  font-family: "Archivo Black", sans-serif;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 10em;
+}
+
+.gradient-text {
+  background-color: black;
+  background-image: linear-gradient(45deg, #1d1d1c, #d8349c);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.handle {
+  display: inline-block;
+  margin-top: .275em;
+  letter-spacing: .5px;
+}
+
+.handle a {
+  font-size: 2em;
+  text-decoration: none;
+  color: #d8349c;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  font-size: 14px;
+}
