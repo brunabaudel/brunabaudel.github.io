@@ -1,0 +1,51 @@
+body {
+  background-color: #000;
+  height: 100vh;
+  margin: 0;
+  font-family: "Archivo Black", sans-serif;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 10em;
+}
+
+a {
+  -webkit-touch-callout : none;     /* iOS Safari */
+  -webkit-user-select   : none;     /* Chrome/Safari/Opera */
+  -khtml-user-select    : none;     /* Konqueror */
+  -moz-user-select      : none;     /* Firefox */
+  -ms-user-select       : none;     /* Internet Explorer/Edge */
+}
+
+.gradient-text {
+  background-color: black;
+  background-image: linear-gradient(45deg, #1d1d1c, #d8349c);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.handle a {
+  display: inline-block;
+  letter-spacing: .5px;
+  font-size: 5em;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.5;
+  align-self: center;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-size: 14px;
+}
+
