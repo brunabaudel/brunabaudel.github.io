@@ -7,3 +7,5 @@ function applyGradient() {
     const randomColor2 = createColor();
     document.getElementById("background").style.backgroundImage = "-webkit-linear-gradient("+ randomColor1 +" , "+ randomColor2 +")";
 }
+
+setInterval(function () { applyGradient() }, 1000);

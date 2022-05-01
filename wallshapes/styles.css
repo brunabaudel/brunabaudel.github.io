@@ -10,7 +10,7 @@ h1 {
   font-size: 10em;
 }
 
-a {
+.noselect {
   -webkit-touch-callout : none;     /* iOS Safari */
   -webkit-user-select   : none;     /* Chrome/Safari/Opera */
   -khtml-user-select    : none;     /* Konqueror */
@@ -40,12 +40,17 @@ a {
   align-self: center;
 }
 
+.spacing {
+  margin: 20px;
+}
+
 .container {
   height: 100%;
   width: 100%;
   display: flex;
-  align-items: center;
-  align-content: center;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  align-content: space-between;
   font-size: 14px;
 }
-
