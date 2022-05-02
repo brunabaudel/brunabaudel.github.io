@@ -10,7 +10,7 @@ function applyGradient() {
     document.querySelector("#background").style.backgroundImage = "-webkit-linear-gradient("+ randomColor1 +" , "+ randomColor2 +")";
 }
 
-function write() {
+function writeAnimation() {
     const words = ["curious", "kind", "free", "YOU"];
     const span = document.querySelector("#writeText");
     let count = 0;
@@ -34,4 +34,4 @@ function write() {
 }
 
 setInterval(() => applyGradient(), 1000);
-write();
+writeAnimation();
