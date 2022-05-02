@@ -11,7 +11,7 @@ function applyGradient() {
 }
 
 function writeAnimation() {
-    const words = ["curious", "kind", "free", "YOU"];
+    const words = ["simple", "kind", "curious", "free", "YOU"];
     const span = document.querySelector("#writeText");
     let count = 0;
     let nextWord = 1;
