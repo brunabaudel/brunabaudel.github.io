@@ -29,7 +29,7 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 
-.handle a {
+.handle {
   display: inline-block;
   letter-spacing: .5px;
   font-size: 5em;
@@ -37,7 +37,17 @@ h1 {
   text-decoration: none;
   color: #fff;
   opacity: 0.5;
-  align-self: center;
+  /* align-self: center; */
+}
+
+.handle2 {
+  display: inline-block;
+  letter-spacing: .5px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.5;
 }
 
 .spacing {
