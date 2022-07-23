@@ -26,13 +26,20 @@
   </head>
 
   <body>
-    <ul>
+    <!-- <ul>
       <li id="logo">BB</li>
       <li><a class="hireMe" href="./src/hireMe.html">hire me</a></li>
       <li><a href="./src/algorithms.html">algorithms</a></li>
       <li><a href="./src/ios.html">iOS</a></li>
       <li><a class="active" href="index.html">home</a></li>
-    </ul>
+    </ul> -->
+    <nav>
+      <a href="#" id="logo">BB</a>
+      <a class="active" href="#">home</a>
+      <a href="./src/ios.html">iOS</a>
+      <a href="./src/algorithms.html">algorithms</a>
+      <a class="hireMe" href="./src/hireMe.html">hire me</a>
+    </nav>
     <div class="container">
       <h1 class="gradient-text">Hello</h1>
       <div class="social-media">
@@ -52,10 +59,13 @@
       <!-- <span class="handle">
         <a href="https://twitter.com/brunabaudel">@brunabaudel</a>
       </span> -->
-      <button onclick="goTo('./src/algorithms.html')" class="button button2">
+      <button
+        onclick="location.href='./src/algorithms.html'"
+        class="button button2"
+      >
         Algorithms
       </button>
-      <button onclick="goTo('./src/ios.html')" class="button button2">
+      <button onclick="location.href='./src/ios.html'" class="button button2">
         iOS
       </button>
     </div>
