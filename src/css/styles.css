@@ -166,35 +166,6 @@ h1 {
   /* margin: 20px; */
 }
 
-/* Navigation bar */
-
-nav {
-  display: block;
-  justify-self: flex-end;
-  padding: 20px;
-  float: right;
-  font-size: 0.9em;
-}
-
-nav a:hover {
-  color: #d8349c;
-  /* background-color: #1d1d1c; */
-  /* border-radius: 5px; */
-}
-
-nav a {
-  color: #1d1d1c;
-  text-align: center;
-  padding: 14px 16px;
-  /* text-decoration: none; */
-}
-
-nav a.active {
-  color: #d8349c;
-  /* background-color: #1d1d1c; */
-  /* border-radius: 5px; */
-}
-
 /* .hireMe {
   color: #d8349c;
   border: solid;
@@ -302,4 +273,46 @@ iframe {
   height: 100vh;
   width: 100vw;
   margin-bottom: 40px;
+}
+
+/* Navigation bar */
+
+nav {
+  display: block;
+  justify-self: flex-end;
+  /* padding: 20px; */
+  float: right;
+  font-size: 1.2em;
+}
+
+nav a:hover {
+  color: #d8349c;
+  /* background-color: #1d1d1c; */
+  /* border-radius: 5px; */
+}
+
+nav a {
+  color: #1d1d1c;
+  text-align: center;
+  /* padding: 14px 16px; */
+  /* text-decoration: none; */
+}
+
+nav a.active {
+  color: #d8349c;
+  /* background-color: #1d1d1c; */
+  /* border-radius: 5px; */
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
 }
