@@ -139,13 +139,8 @@ h1 {
   background-color: #4caf50; /* Green */
   border: none;
   color: white;
-  padding: 16px 32px;
-  width: 20%;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  padding: 16px 48px;
   font-size: 16px;
-  margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 5px;
