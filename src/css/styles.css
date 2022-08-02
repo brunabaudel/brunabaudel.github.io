@@ -7,6 +7,41 @@ body {
   background-size: cover;
 }
 
+.site-header {
+  padding: 1rem 0;
+  font-size: var(--step-0);
+}
+
+header {
+  display: block;
+}
+
+.site-header .content-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 2rem;
+  align-items: center;
+}
+.content-container {
+  max-width: 85vw;
+  width: min(90vw, 85rem);
+  margin-inline: auto;
+}
+
+main {
+  display: block;
+  flex: 1;
+  width: 100%;
+}
+
+.slice.slice {
+  padding: var(--space-l-3xl) 0;
+}
+
+section {
+  display: block;
+}
+
 .container {
   height: 100%;
   width: 100%;
@@ -139,49 +174,62 @@ h1 {
 /* Navigation bar */
 
 nav {
+  display: block;
+  justify-self: flex-end;
   padding: 20px;
   float: right;
   font-size: 0.9em;
 }
 
 nav a:hover {
-  color: white;
-  background-color: #1d1d1c;
-  border-radius: 5px;
+  color: #d8349c;
+  /* background-color: #1d1d1c; */
+  /* border-radius: 5px; */
 }
 
 nav a {
   color: #1d1d1c;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: white;
-  background-color: #1d1d1c;
-  border-radius: 5px;
+  /* text-decoration: none; */
 }
 
 nav a.active {
-  color: white;
-  background-color: #1d1d1c;
-  border-radius: 5px;
+  color: #d8349c;
+  /* background-color: #1d1d1c; */
+  /* border-radius: 5px; */
 }
 
+/* .hireMe {
+  color: #d8349c;
+  border: solid;
+  border-color: #d8349c;
+  border-width: 2px;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+.hireMe:hover {
+  color: white;
+  background-color: #d8349c;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+
+.hireMe.active {
+  color: white;
+  background-color: #d8349c;
+  border-radius: 5px;
+  font-weight: bolder;
+} */
+
 #logo {
-  position: absolute;
-  left: 0;
-  top: 0;
   font-size: 32px;
-  padding: 0px;
   font-weight: bolder;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  /* padding: 5px; */
-  margin-left: 50px;
-  margin-top: 20px;
   color: #d8349c;
+  text-decoration: none;
 }
 
 /* Card */
@@ -225,6 +273,7 @@ nav a.active {
 
 .container-list {
   height: 100%;
+  width: 100%;
   display: flex;
   padding: 50px;
   justify-content: center;
@@ -258,27 +307,4 @@ iframe {
   height: 100vh;
   width: 100vw;
   margin-bottom: 40px;
-}
-
-.hireMe {
-  color: #d8349c;
-  border: solid;
-  border-color: #d8349c;
-  border-width: 2px;
-  border-radius: 5px;
-  font-weight: bolder;
-}
-
-.hireMe:hover {
-  color: white;
-  background-color: #d8349c;
-  border-radius: 5px;
-  font-weight: bolder;
-}
-
-.hireMe.active {
-  color: white;
-  background-color: #d8349c;
-  border-radius: 5px;
-  font-weight: bolder;
 }
