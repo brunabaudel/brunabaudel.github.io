@@ -28,14 +28,33 @@ header {
   margin-inline: auto;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
 main {
   display: block;
   flex: 1;
   width: 100%;
 }
 
-.slice.slice {
-  padding: var(--space-l-3xl) 0;
+.slice {
+  padding: 20px 0px;
+}
+
+.slice-title {
+  font-size: x-large;
+  font-weight: 900;
+}
+
+.slice-description {
+  font-size: larger;
 }
 
 section {
@@ -51,6 +70,15 @@ section {
 }
 
 /* Article */
+
+.article-entry a {
+  color: #000;
+}
+
+.article-entry-title {
+  color: #000;
+  font-size: large;
+}
 
 .article {
   height: 100%;

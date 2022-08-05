@@ -18,12 +18,9 @@
     <link rel="icon" href="./resources/logo.png" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="../src/css/styles.css" />
 
-    <script src="./app.js" defer></script>
-
-    <!-- <link rel="stylesheet" href="/src/input.css" />
-    <link href="/dist/output.css" rel="stylesheet" /> -->
+    <!-- <script src="../src/js/app.js" defer></script> -->
   </head>
 
   <body>
@@ -41,15 +38,15 @@
             </li>
 
             <li>
-              <a href="./projects.html">Projects</a>
+              <a href="../projects/index.html">Projects</a>
             </li>
 
             <li>
-              <a href="./hireMe.html">Hire me</a>
+              <a href="../hireMe/index.html">Hire me</a>
             </li>
 
             <li>
-              <a href="./more.html">More...</a>
+              <a href="../more/index.html">More...</a>
             </li>
           </ul>
         </nav>
@@ -59,8 +56,11 @@
     <main class="main">
       <section class="slice">
         <div class="content-container">
-          <h2>iOS</h2>
-          <!-- <p>smth</p> -->
+          <h2 class="slice-title">iOS</h2>
+          <!-- <p class="slice-description">
+            I will be sharing my algorithm experience in form of fun and
+            thoughtful articles :)
+          </p> -->
         </div>
       </section>
       <!-- <section class="slice">
@@ -101,19 +101,19 @@
       </section> -->
       <section class="slice">
         <div class="content-container">
-          <h2>Algorithms</h2>
-          <p>
+          <h2 class="slice-title">Algorithms</h2>
+          <p class="slice-description">
             I will be sharing my algorithm experience in form of fun and
             thoughtful articles :)
           </p>
         </div>
       </section>
-      <!-- <section class="slice">
+      <section class="slice">
         <div class="content-container grid">
           <div style="grid-column: 1 / 6">
-            <article class="article_entry">
+            <article class="article-entry">
               <header>
-                <h2 class="article_entry__title">
+                <h2 class="article-entry-title">
                   <a href="/blog/prefers-color-scheme-browser-vs-os/"
                     >The CSS prefers-color-scheme user query and order of
                     preference</a
@@ -126,7 +126,7 @@
               </p>
               <p class="article_entry__teaser"></p>
             </article>
-            <article class="article_entry">
+            <!-- <article class="article_entry">
               <header>
                 <h2 class="article_entry__title">
                   <a href="/blog/in-quest-of-search/">In Quest of Search</a>
@@ -140,10 +140,10 @@
                 Published on <time>15 Sep, 2021</time>
               </p>
               <p class="article_entry__teaser"></p>
-            </article>
+            </article> -->
           </div>
         </div>
-      </section> -->
+      </section>
     </main>
     <div class="page__bottom">
       <footer class="site-footer slice">
