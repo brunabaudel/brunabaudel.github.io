@@ -55,6 +55,7 @@ main {
 
 .slice-description {
   font-size: larger;
+  font-weight: 300;
 }
 
 section {
@@ -77,15 +78,24 @@ section {
 
 .article-entry-title {
   color: #000;
-  font-size: large;
+  font-size: x-large;
+  font-weight: 500;
+  margin: 0;
+  padding-block-end: 15px;
 }
 
-.article {
+.article-entry-date {
+  color: #000;
+  font-size: medium;
+  font-weight: 300;
+  margin: 0;
+}
+
+article {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 50px;
+  padding-block-end: 40px;
 }
 
 .article-body {
