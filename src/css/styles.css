@@ -7,6 +7,16 @@ body {
   background-size: cover;
 }
 
+html,
+body {
+  height: 90%;
+}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
+}
+
 .site-header {
   padding: 1rem 0;
   font-size: var(--step-0);
@@ -22,6 +32,7 @@ header {
   grid-gap: 2rem;
   align-items: center;
 }
+
 .content-container {
   max-width: 85vw;
   width: min(90vw, 85rem);
@@ -42,6 +53,8 @@ main {
   display: block;
   flex: 1;
   width: 100%;
+  min-height: 100%;
+  background-color: #d8349c;
 }
 
 .slice {
@@ -72,6 +85,18 @@ section {
 
 /* Article */
 
+.article .content-container {
+  display: grid;
+  padding: 50px;
+}
+
+article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-block-end: 40px;
+}
+
 .article-entry a {
   color: #000;
 }
@@ -91,18 +116,42 @@ section {
   margin: 0;
 }
 
-article {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-block-end: 40px;
-}
-
 .article-body {
-  padding: 40px 20px 0px 20px;
+  padding-top: 40px;
+  margin: 0px 140px;
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
 }
 
-@media screen and (min-width: 601px) {
+.article-text {
+  margin-bottom: 1.2rem;
+  font-size: 1.1em;
+  font-weight: 400;
+  /* word-spacing: 0.1em; */
+  /* letter-spacing: 0.1em; */
+  line-height: 1.5em;
+  align-content: center;
+}
+
+.article-title {
+  margin-bottom: 1rem;
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+.article-subtitle {
+  font-size: 1.7em;
+  font-weight: 500;
+}
+
+.article-date {
+  font-size: 1em;
+  font-weight: 400;
+  color: #555353;
+}
+
+@media screen and (min-width: 1001px) {
   span.article-title {
     font-weight: lighter;
     font-size: 3.2em;
@@ -113,13 +162,17 @@ article {
     font-size: 2.2em;
   }
 
-  p.article-text {
+  .article-body {
+    margin: 0px 250px;
+  }
+
+  /* p.article-text {
     font-weight: lighter;
     font-size: 1.2em;
-  }
+  } */
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   span.article-title {
     font-weight: lighter;
     font-size: 2em;
@@ -130,10 +183,14 @@ article {
     font-size: 1.5em;
   }
 
-  p.article-text {
+  .article-body {
+    width: 100%;
+  }
+
+  /* p.article-text {
     font-weight: lighter;
     font-size: 1em;
-  }
+  } */
 }
 
 .article img {
@@ -368,8 +425,17 @@ ul {
 }
 
 footer {
-  position: fixed;
+  /* position: fixed; */
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
+}
+
+.container2 {
+  height: 100%;
+  width: 100%;
+  display: block;
+  /* flex-direction: column; */
+  /* font-size: 14px; */
+  background-color: #4caf50;
 }
