@@ -448,8 +448,9 @@ textarea {
   outline: none;
 }
 
-.write {
+.notepad {
   display: flex;
+  flex-direction: column;
   height: 96%;
   margin-top: 2vw;
   padding: 0rem 8vw;
