@@ -138,6 +138,13 @@ article {
   font-weight: bolder;
 }
 
+.article-title-hire {
+  margin-bottom: 1rem;
+  font-size: 3em;
+  font-weight: bolder;
+  text-align: center;
+}
+
 .article-subtitle {
   font-size: 1.7em;
   font-weight: 500;
@@ -427,4 +434,23 @@ footer {
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
+}
+
+textarea {
+  text-align: left;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: none;
+  font-size: larger;
+  outline: none;
+}
+
+.write {
+  display: flex;
+  height: 96%;
+  margin-top: 2vw;
+  padding: 0rem 8vw;
 }
