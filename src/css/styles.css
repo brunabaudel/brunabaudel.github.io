@@ -374,6 +374,14 @@ h1 {
   align-self: center;
 }
 
+.div-column {
+  display: flex;   
+  flex-wrap: nowrap;
+  gap: 150px;
+  width: 150px;
+  height: 150px;
+}
+
 .icon {
   display: inline-block;
   width: 32px;
