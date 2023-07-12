@@ -381,6 +381,13 @@ h1 {
   background-size: cover;
 }
 
+.icon-logo {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+
 .icon:hover,
 .icon:focus {
   filter: invert(27%) sepia(37%) saturate(4360%) hue-rotate(299deg)
