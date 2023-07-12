@@ -141,9 +141,14 @@ article {
 }
 
 .article-title {
+  width: 100%;
   margin-bottom: 1rem;
   font-size: 3em;
   font-weight: bolder;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  text-align: center;
 }
 
 .article-title-hire {
@@ -168,6 +173,10 @@ article {
   span.article-title {
     font-weight: lighter;
     font-size: 3.2em;
+    align-content: center;
+  align-self: center;
+  align-items: center;
+  text-align: center;
   }
 
   span.article-subtitle {
@@ -189,6 +198,10 @@ article {
   span.article-title {
     font-weight: lighter;
     font-size: 2em;
+    align-content: center;
+  align-self: center;
+  align-items: center;
+  text-align: center;
   }
 
   span.article-subtitle {
