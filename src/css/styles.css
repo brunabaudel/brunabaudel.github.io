@@ -397,7 +397,9 @@ h1 {
 }
 
 .icon:hover,
-.icon:focus {
+.icon:focus,
+.icon-logo:hover,
+.icon-logo:focus {
   filter: invert(27%) sepia(37%) saturate(4360%) hue-rotate(299deg)
     brightness(98%) contrast(85%);
 }
