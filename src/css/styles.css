@@ -89,7 +89,7 @@ section {
 
 .article .content-container {
   display: grid;
-  padding: 50px;
+  padding: 150px;
 }
 
 article {
@@ -124,7 +124,7 @@ article {
 
 .article-body {
   padding-top: 40px;
-  margin: 0px 140px;
+  margin: 0px 0px;
   display: flex;
   justify-self: center;
   flex-direction: column;
@@ -185,7 +185,7 @@ article {
   }
 
   .article-body {
-    margin: 0px 250px;
+    margin: 0px 0px;
   }
 
   /* p.article-text {
@@ -220,9 +220,10 @@ article {
 }
 
 .article img {
-  width: 100%;
-  height: 800px;
+  width: 60%;
+  height: 60%;
   object-fit: contain;
+  align-self: center;
 }
 
 /* HELLO title */
