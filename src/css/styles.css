@@ -368,20 +368,20 @@ h1 {
   justify-content: center;
 }
 
-.social-media {
-  display: flex;
-  justify-content: space-around;
-  padding: 30px;
-  width: 200px;
-  align-self: center;
-}
-
 .github-ref {
   padding: 0px;
   margin: auto;
   width: 40px;
   height: 40px;
   display: inline-block;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  width: 200px;
+  align-self: center;
 }
 
 .div-column {
@@ -498,19 +498,19 @@ textarea {
   outline: none;
 }
 
-.notepad {
-  display: flex;
-  flex-direction: column;
-  height: 96%;
-  margin-top: 2vw;
-  padding: 0rem 8vw;
-}
-
 img {
   transition:transform 0.25s ease;
 }
 
 img:hover {
   -webkit-transform:scale(1.25);
-  transform:scale(1.25); 
+  transform:scale(1.25);
+}
+
+.notepad {
+  display: flex;
+  flex-direction: column;
+  height: 96%;
+  margin-top: 2vw;
+  padding: 0rem 8vw;
 }
