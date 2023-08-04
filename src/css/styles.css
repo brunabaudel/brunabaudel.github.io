@@ -496,14 +496,14 @@ textarea {
   outline: none;
 }
 
-img {
+/* img {
   transition:transform 0.25s ease;
 }
 
 img:hover {
   -webkit-transform:scale(1.25);
   transform:scale(1.25);
-}
+} */
 
 .notepad {
   display: flex;
