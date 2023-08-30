@@ -50,11 +50,8 @@ h6 {
 
 main {
   display: flex;
-  flex-direction: column;
-  flex: 1;
   width: 100%;
-  min-height: 100%;
-  align-content: center;
+  min-height: 93%;
   align-items: center;
 }
 
@@ -432,7 +429,7 @@ section {
   flex-wrap: wrap; 
   background-color: #ffffff; 
   border-radius: 10px; 
-  padding: 20px;
+  height: 100%;
 }
 
 .article-icon {
@@ -600,7 +597,7 @@ h1 {
 .social-media {
   display: flex;
   justify-content: space-between;
-  padding: 30px 0px;
+  padding: 30px 0px 0px 0px;
   margin: 0px;
   width: 160px;
   /* align-self: center; */
