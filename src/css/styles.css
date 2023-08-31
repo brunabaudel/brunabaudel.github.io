@@ -411,7 +411,6 @@ h1 {
 }
 
 .gradient-text {
-  /* background-color: black; */
   align-self: center;
   background-image: linear-gradient(45deg, #1d1d1c, #d8349c);
   background-clip: text;
@@ -512,7 +511,6 @@ ul {
 }
 
 footer {
-  /* position: fixed; */
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
@@ -559,37 +557,6 @@ footer {
 
 /* Icon */
 
-/* Media 1001 */
-
-/* @media screen and (min-width: 1001px) {
-  span.article-subtitle {
-    font-size: 2.2em;
-  }
-
-  .article-body {
-    margin: 0px 0px;
-  }
-
-  span.timeline-title {
-    font-weight: lighter;
-    font-size: 3.2em;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  span.timeline-subtitle {
-    font-size: 2.2em;
-  }
-
-  .timeline-body {
-    margin: 0px 0px;
-  }
-} */
-
-/* Media 1001 */
-
 /* Media 800 - 680 */
 
 @media screen and (max-width: 800px) and (min-width: 680px) {
@@ -607,11 +574,6 @@ footer {
 
   .article-body {
     width: 100%;
-  }
-
-  .article-header {
-    flex-direction: row;
-    align-content: center;
   }
 
   .article-icon {
