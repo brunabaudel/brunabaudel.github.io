@@ -71,9 +71,9 @@ html.project-gradient,
 body.project-gradient {
   height: unset;
   background:
-  linear-gradient(217deg, rgba(248, 86, 199, 0.898), rgba(255, 0, 0, 0) 70.71%),
+  linear-gradient(217deg, rgba(109, 109, 255, 0.622), rgba(255, 0, 0, 0) 70.71%),
   linear-gradient(127deg, rgba(0, 255, 0, 0.863), rgba(0, 255, 0, 0) 70.71%),
-  linear-gradient(336deg, rgba(68, 68, 248, 0.622), rgba(0, 0, 255, 0) 70.71%);
+  linear-gradient(336deg, rgba(247, 146, 212, 0.898), rgba(0, 0, 255, 0) 70.71%);
 }
 
 main {
@@ -276,6 +276,7 @@ section {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  background-color: #fff;
 }
 
 .project-subtitle {
