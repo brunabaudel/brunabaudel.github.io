@@ -580,13 +580,6 @@ footer {
     align-self: center;
   }
 
-  .article-img-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0px;
-  }
-
   .article-img {
     width: 150%;
     height: 150%;
@@ -676,13 +669,6 @@ footer {
 
   .article-icon {
     align-self: center;
-  }
-
-  .article-img-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0px;
   }
 
   .article-img {
