@@ -114,20 +114,21 @@ Closure Syntax
 <pre>
 <code class="language-swift">{ (parameters) -> return type in
     // Code implementation
-}
-</code>
+}</code>
 </pre>
 
 <p>
 Here's a breakdown of the components:
-
-- {}: These braces indicate the start and end of the closure.
-- parameters: These are the input parameters that the closure 
-takes, similar to function parameters.
-- return type: This specifies the type of value that the closure will return.
-- in: This keyword separates the parameter and return type definition from the 
-actual code implementation.
 </p>
+
+<ul>
+    <li><b>{}:</b> These braces indicate the start and end of the closure.</li>
+    <li><b>parameters:</b> These are the input parameters that the closure 
+        takes, similar to function parameters.</li>
+    <li><b>return type:</b> This specifies the type of value that the closure will return.</li>
+    <li><b>in:</b> This keyword separates the parameter and return type definition from the 
+        actual code implementation.</li>
+</ul>
 
 <p>
 Let's look at some examples to better understand closure syntax:
@@ -166,8 +167,7 @@ constants, making them first-class citizens in Swift.
 <code class="language-swift">let mathOperation: (Int, Int) -> Int = { (a, b) in
     return a * b
 }
-let result = mathOperation(3, 4) // Result is 12
-</code>
+let result = mathOperation(3, 4) // Result is 12</code>
 </pre>
 
 <span class="article-title2">
@@ -184,8 +184,7 @@ for tasks like sorting and filtering arrays.
 
 let sortedNumbers = numbers.sorted { (a, b) in
     return a < b
-}
-</code>
+}</code>
 </pre>
 
 <span class="article-title2">
@@ -205,8 +204,7 @@ you can use trailing closure syntax for cleaner code.
 
 performAction {
     print("Action completed!")
-}
-</code>
+}</code>
 </pre>
 
 <span class="article-title1">
@@ -232,9 +230,7 @@ This is known as capturing values by reference. For example.
 
 let incrementByTwo = makeIncrementer(incrementAmount: 2)
 print(incrementByTwo()) // Prints 2
-print(incrementByTwo()) // Prints 4
-
-</code>
+print(incrementByTwo()) // Prints </code>
 </pre>
 
 <span class="article-title1">
@@ -242,25 +238,27 @@ Escaping Closures
 </span>
 
 <p>
-    In Swift, closures are non-escaping by default, meaning they are executed 
-    within the scope of the function that takes them as an argument. To allow 
-    a closure to escape the function's scope and be executed later, you must 
-    explicitly mark it with the @escaping keyword.
+In Swift, closures are non-escaping by default, meaning they are executed 
+within the scope of the function that takes them as an argument. To allow 
+a closure to escape the function's scope and be executed later, you must 
+explicitly mark it with the <code>@escaping</code> keyword.
+<a href="./escaping-closure.html">Read more</a>
 </p>
+
 
 <span class="article-title1">
 Conclusion
 </span>
 
 <p>
-    Closures are a fundamental and powerful concept in Swift programming. 
-    They provide a concise and expressive way to encapsulate functionality 
-    and can be used in various scenarios to enhance your code's flexibility 
-    and readability. Whether you're working with asynchronous operations, 
-    functional programming, or simple tasks like sorting and filtering, 
-    closures are an indispensable tool in your Swift developer toolkit. 
-    Understanding how to create, use, and capture values in closures will 
-    greatly improve your ability to write clean and efficient Swift code.
+Closures are a fundamental and powerful concept in Swift programming. 
+They provide a concise and expressive way to encapsulate functionality 
+and can be used in various scenarios to enhance your code's flexibility 
+and readability. Whether you're working with asynchronous operations, 
+functional programming, or simple tasks like sorting and filtering, 
+closures are an indispensable tool in your Swift developer toolkit. 
+Understanding how to create, use, and capture values in closures will 
+greatly improve your ability to write clean and efficient Swift code.
 </p>
             </div>
           </div>

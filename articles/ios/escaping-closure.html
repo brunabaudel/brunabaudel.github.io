@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bruna Baudel - Personal Website</title>
+    <link rel="canonical" href="https://brunabaudel.com/articles" />
+    <meta name="description" content="Personal Website" />
+    <meta name="author" content="Bruna Baudel" />
+
+    <meta property="og:title" content="Personal Website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.brunabaudel.com/articles" />
+    <meta property="og:description" content="Personal Website" />
+    <meta property="og:image" content="../../src/resources/logo.png" />
+
+    <link rel="icon" href="../../src/resources/logo.ico" />
+    <link rel="apple-touch-icon" href="../../src/resources/logo.png" />
+    <link rel="stylesheet" href="../../src/css/styles.css" />
+    <link href="../../src/css/prism.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="content-container">
+        <a href="#">
+          <img src="../../src/resources/logo.png" class="icon-logo">
+        </a>
+        <nav class="site-nav">
+          <ul role="list" id="site-nav-list" class="site-nav__list">
+            <li>
+              <a href="../..">Home</a>
+            </li>
+
+            <li>
+              <a class="active" href="../">Articles</a>
+            </li>
+
+            <li>
+              <a href="../../projects">Projects</a>
+            </li>
+
+            <li>
+              <a href="../../about">About me</a>
+            </li>
+
+            <li>
+              <a href="../../more">More...</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-article">
+        <div class="content-container">
+
+          <div class="article">            
+            <div class="article-body">
+
+              <!-- <div>
+                <img class="article-img" src="../../src/resources/ios/pdfreader.png"
+                alt="PDF Reader" />
+              </div> -->
+
+              <div class="article-header">
+                <span class="article-title">
+                    Understanding Escaping Closures in Swift: A Deep Dive
+                </span>
+
+                <span class="article-subtitle">
+                    Understanding Escaping Closures in Swift: A Deep Dive
+                </span>
+
+                <span class="article-date">
+                  Published on <time>1 Sep, 2023</time>
+                </span>
+              </div>
+
+              <div>
+<p>
+Closures are a powerful and versatile feature in Swift, allowing developers 
+to encapsulate blocks of functionality and pass them around as first-class 
+citizens. They are commonly used for tasks like sorting arrays, handling 
+completion handlers, and implementing callbacks. While most closures execute 
+within the scope of the function that accepts them, there are scenarios where 
+a closure needs to outlive the function itself. This is where escaping closures 
+come into play. In this article, we'll explore what escaping closures are, 
+why they are useful, and how to use them effectively in Swift.
+</p>
+
+<span class="article-title1">
+What is an Escaping Closure?
+</span>
+
+<p>
+In Swift, an escaping closure is a closure that is passed as an argument to a 
+function but is stored and executed outside the function's scope, potentially at 
+a later time. This means that the closure "escapes" the confines of the function 
+and is retained for future use. Escaping closures are often used in situations 
+involving asynchronous operations, where the closure is called once the operation 
+completes.
+</p>
+<p>
+The main reason for using escaping closures is to handle asynchronous code 
+execution gracefully. When you have functions that perform tasks asynchronously, 
+you can't guarantee when they will complete. By using escaping closures, you can 
+specify what should happen when the asynchronous task finishes without blocking 
+the main thread or waiting for the operation to complete.
+</p>
+
+<span class="article-title1">
+Why Use Escaping Closures?
+</span>
+
+<p>
+Escaping closures are crucial in various scenarios, including:
+</p>
+
+<span class="article-title2">
+1. Asynchronous Operations
+</span>
+
+<p>
+As mentioned earlier, one of the most common use cases for escaping closures 
+is handling asynchronous operations. Consider network requests, where you want 
+to perform an action once the data has been fetched. You pass in an escaping 
+closure to the network request function, allowing it to call the closure when 
+the data is ready, without blocking your main thread.
+</p>
+
+<span class="article-title2">
+2. Delayed Execution
+</span>
+    
+<p>
+Escaping closures enable you to schedule code execution at a later time. 
+This is useful for scenarios where you want to defer some work, such as 
+animations or background tasks, to avoid blocking the UI.
+</p>
+
+<span class="article-title2">
+3. Callbacks and Delegates
+</span>
+
+<p>
+Many libraries and APIs in Swift use escaping closures for callbacks and delegates. 
+This allows you to specify custom behavior when certain events occur, without 
+tightly coupling your code.
+</p>
+
+<span class="article-title1">
+Using Escaping Closures
+</span>
+<p>
+To declare an escaping closure in Swift, you need to use the <code>@escaping</code>
+keyword 
+in the closure's parameter list. Here's an example of how to use an escaping 
+closure:
+</p>
+
+<pre>
+<code class="language-swift">import Foundation
+
+typealias CompletionHandler = () -> Void
+
+func performAsyncTask(completion: @escaping CompletionHandler) {
+    DispatchQueue.global().async {
+        // Simulate a time-consuming task
+        sleep(2)
+        
+        // Call the escaping closure when the task is done
+        completion()
+    }
+}
+
+// Using the escaping closure
+performAsyncTask {
+    print("Task completed!")
+}</code>
+</pre>
+
+<p>
+In this example, the <code>performAsyncTask</code> function takes an escaping closure 
+completion as an argument. Inside the function, it simulates a time-consuming 
+task (using sleep for demonstration purposes) and then calls the escaping 
+closure when the task is finished.
+</p>
+<p>
+When you call <code>performAsyncTask</code>, you pass in a closure that specifies what 
+to do when the task completes. The escaping closure is executed asynchronously, 
+allowing your program to continue executing other code while the task is in progress.
+</p>
+
+<span class="article-title1">
+Pitfalls and Considerations
+</span>
+
+<p>
+When working with escaping closures, there are a few important considerations 
+to keep in mind:
+</p>
+
+<span class="article-title2">
+1. Retain Cycles
+</span>
+
+<p>
+Escaping closures can lead to retain cycles, which are memory management issues. 
+To prevent these, use the <code>[weak self]</code> capture list when referencing self inside an 
+escaping closure. This helps break strong reference cycles.
+</p>
+
+<pre>
+<code class="language-swift">func performAsyncTask(completion: @escaping CompletionHandler) {
+    DispatchQueue.global().async { [weak self] in
+        guard let self = self else { return }
+        
+        // Use 'self' safely inside the closure
+        self.someMethod()
+        
+        completion()
+    }
+}</code>
+</pre>
+
+<span class="article-title2">
+2. Threading Issues
+</span>
+
+<p>
+Be cautious when working with escaping closures and threads. 
+Ensure that you're executing code on the appropriate thread when calling 
+the escaping closure, especially if it's related to UI updates.
+</p>
+
+<span class="article-title1">
+Conclusion
+</span>
+
+<p>
+Escaping closures are a crucial tool in Swift when dealing with asynchronous 
+programming and managing callbacks. They allow you to create more flexible and 
+responsive code by decoupling tasks from their execution context. Understanding 
+how to use escaping closures, along with handling retain cycles and threading 
+issues, is essential for writing robust and efficient Swift code. Embrace the 
+power of escaping closures to make your asynchronous code more elegant and 
+maintainable.
+</p>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="page__bottom">
+      <footer class="site-footer slice">
+        <div class="content-container">
+          <div class="copyright">
+            <p>© Bruna Baudel 2023.<br /></p>
+            <p>
+              <strong>All rights reserved.</strong>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../../src/js/prism.js"></script>
+  </body>
+</html>

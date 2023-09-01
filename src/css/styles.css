@@ -186,12 +186,19 @@ section {
   font-weight: bold;
 }
 
-.article-body p {
+.article-body p,ul {
   margin-bottom: 1.2rem;
   font-size: 1.2em;
   font-weight: 300;
   line-height: 1.5em;
   align-content: center;
+}
+
+.article-body ul {
+  list-style: circle;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* line-height: 1.5; */
 }
 
 .article-img {
@@ -495,7 +502,7 @@ nav a.active {
   gap: 0.5rem 1.5rem;
 }
 
-ul {
+.site-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
