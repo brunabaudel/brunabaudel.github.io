@@ -186,7 +186,7 @@ section {
   font-weight: bold;
 }
 
-.article-body p,ul {
+.article-body p,ul,ol {
   margin-bottom: 1.2rem;
   font-size: 1.2em;
   font-weight: 300;
