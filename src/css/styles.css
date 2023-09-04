@@ -215,11 +215,18 @@ section {
   font-weight: 400;
   line-height: 1.5em;
   align-content: center;
+  color: black;
 }
 
 .timeline-subtitle {
   font-size: 1.7em;
   font-weight: 500;
+}
+
+.timeline-box-subtitle {
+  font-size: 1.7em;
+  font-weight: 500;
+  color: black;
 }
 
 .timeline {
@@ -304,6 +311,7 @@ section {
   font-weight: bolder;
   text-align: center;
   margin-bottom: 120px;
+  color: white;
 }
 
 /* Timeline */
