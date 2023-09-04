@@ -148,7 +148,7 @@ tightly coupling your code.
 Using Escaping Closures
 </span>
 <p>
-To declare an escaping closure in Swift, you need to use the <code>@escaping</code>
+To declare an escaping closure in Swift, you need to use the <code class="language-swift">@escaping</code>
 keyword 
 in the closure's parameter list. Here's an example of how to use an escaping 
 closure:
@@ -176,13 +176,13 @@ performAsyncTask {
 </pre>
 
 <p>
-In this example, the <code>performAsyncTask</code> function takes an escaping closure 
+In this example, the <code class="language-swift">performAsyncTask</code> function takes an escaping closure 
 completion as an argument. Inside the function, it simulates a time-consuming 
 task (using sleep for demonstration purposes) and then calls the escaping 
 closure when the task is finished.
 </p>
 <p>
-When you call <code>performAsyncTask</code>, you pass in a closure that specifies what 
+When you call <code class="language-swift">performAsyncTask</code>, you pass in a closure that specifies what 
 to do when the task completes. The escaping closure is executed asynchronously, 
 allowing your program to continue executing other code while the task is in progress.
 </p>
@@ -202,7 +202,7 @@ to keep in mind:
 
 <p>
 Escaping closures can lead to retain cycles, which are memory management issues. 
-To prevent these, use the <code>[weak self]</code> capture list when referencing self inside an 
+To prevent these, use the <code class="language-swift">[weak self]</code> capture list when referencing self inside an 
 escaping closure. This helps break strong reference cycles.
 </p>
 
