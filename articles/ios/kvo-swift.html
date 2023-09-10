@@ -57,8 +57,9 @@
     <main class="main-article">
         <div class="content-container">
           <div class="article">
-            <div class="article-header">
-<span class="article-title">A Beginner's Guide to Key-Value Observing (KVO) in Swift</span>
+            <div class="article-body">
+              <div class="article-header">
+<span class="article-title0">A Beginner's Guide to Key-Value Observing (KVO) in Swift</span>
 <span class="article-subtitle">KVO observe changes in the properties of objects</span>
 <span class="article-date">Published on <time>Sep 10, 2023</time></span>
 </div>
@@ -77,6 +78,7 @@
 <span class="article-title2">Step 2: Register for Observations</span>
 <p>An object can register itself as an observer for a specific property of another object. This is typically done using the <code class="language-swift">observe(_:options:changeHandler:)</code> method provided by <code class="language-swift">NSObject</code> .Here's an example: </p>
 <pre><code class="language-swift">let station = WeatherStation()
+
 let observation = station.observe(\.temperature, options: [.new]) { (station, change) in
     if let newTemperature = change.newValue as? Double {
         print("New temperature: \(newTemperature)")
@@ -98,17 +100,23 @@ let observation = station.observe(\.temperature, options: [.new]) { (station, ch
 <p>KVO is commonly used to update the user interface when underlying data changes. Let's delve into the UI Updates example that involves Key-Value Observing (KVO) to keep the user interface (UI) synchronized with changes in a property. </p>
 <p>In the following scenario, we'll create a simple Swift code to demonstrate how to use KVO to update a label in response to changes in an observed property. </p>
 <pre><code class="language-swift">import UIKit
+  
 class WeatherStation: NSObject {
     @objc dynamic var temperature: Double = 0.0
 }
+
 class ViewController: UIViewController {
+
     @IBOutlet weak var temperatureLabel: UILabel!
     private var weatherStation = WeatherStation()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Register for KVO to observe changes in the "temperature" property
         weatherStation.addObserver(self, forKeyPath: #keyPath(WeatherStation.temperature), options: [.new], context: nil)
     }
+
     // Observe changes to the "temperature" property
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(WeatherStation.temperature) {
@@ -118,6 +126,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     deinit {
         // Remove the observer when the view controller is deallocated
         weatherStation.removeObserver(self, forKeyPath: #keyPath(WeatherStation.temperature))
@@ -144,15 +153,19 @@ class ViewController: UIViewController {
 }
 </code></pre>
 <pre><code class="language-swift">class ViewController: UIViewController {
+
     private var dataManager = DataManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         dataManager.observe(\.data, options: [.new]) { (_, change) in
             if let newData = change.newValue as? [String] {
                 // Update the UI or perform other actions with the new data
                 print("Data updated: \(newData)")
             }
         }
+
         // Fetch data from the server
         dataManager.fetchData()
     }
@@ -161,7 +174,7 @@ class ViewController: UIViewController {
 <span class="article-title1">Conclusion</span>
 <p>In summary, while Key-Value Observing (KVO) has historically played a role in iOS development for state propagation, it is now used less frequently as modern alternatives offer greater convenience and versatility. These alternatives, including delegates, NotificationCenter, closures, Target-Action patterns, the Responder Chain, promises, event-driven architecture, and streams of values, cater to contemporary development practices and diverse application architectures. When choosing a state propagation technique for your iOS project, it's essential to consider your specific needs and select the most suitable option, keeping in mind that these alternatives often provide more efficient and maintainable solutions. </p>
 </div>
-
+            </div>
           </div>
         </div>
     </main>
