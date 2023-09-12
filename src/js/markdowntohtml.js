@@ -62,7 +62,9 @@ function htmlBody(body, test) {
     <main class="main-article">
         <div class="content-container">
           <div class="article">
-            ${body}
+            <div class="article-body">
+              ${body}
+            </div>
           </div>
         </div>
     </main>
@@ -136,8 +138,11 @@ function convertMarkdownToHTML(markdown, test) {
     } else
 
     if (line.length > 0 && line.startsWith('#')) {
-      const titleText = line.split(' ');
+      let titleText = line;
+      titleText = lineWithCode(titleText);
+      titleText = lineWithBold(titleText).split(' ');
       const titleLevel = titleText[0].length - 1;
+      
       html += `<span class="article-title${titleLevel}">${titleText.slice(1).join(' ')}</span>\n`;
     } else
 
@@ -201,7 +206,9 @@ function convertMarkdownToHTML(markdown, test) {
     } else
     
     if (line.length > 0) {
-      html += `<p>${lineWithCode(line)}</p>\n`;
+      let text = lineWithCode(line)
+      text = lineWithBold(text)
+      html += `<p>${text}</p>\n`;
     }
 
     lineNumber++;
