@@ -494,9 +494,22 @@ h1 {
   border: 2px solid #1d1d1c;
 }
 
-.button:hover {
+.button:hover,
+.buttonMarkdown:hover {
   background-color: #1d1d1c;
   color: white;
+}
+
+.buttonMarkdown {
+  align-self: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bolder;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid #1d1d1c;
 }
 
 /* Button */

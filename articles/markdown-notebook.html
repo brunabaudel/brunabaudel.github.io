@@ -19,7 +19,7 @@
     <link rel="icon" href="../../src/resources/logo.ico" />
     <link rel="apple-touch-icon" href="../../src/resources/logo.png" />
     <link rel="stylesheet" href="../../src/css/styles.css" />
-    <link href="../../src/css/prism.css" rel="stylesheet" />
+    <link href="../src/css/styles.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -55,33 +55,29 @@
     </header>
 
     <main class="main-article">
-      <div class="content-container">
+      <div style="width: 100%; display: flex; flex-direction: row; justify-content: left;">
 
-        <div class="article">            
-          <div class="article-body">
+        <div style="flex:1;">
+          <input type="text" style="padding: 10px; border: none; border-bottom: 2px solid black; font-size: large;"
+          id="nameFileInput" name="namefile" 
+          placeholder="Enter file name">
+        
+          <button class="buttonMarkdown" style="margin: 10px 0px;" id="createFileButton">Save</button>
+        </div>
 
-            <div class="article-header">
-              <span class="article-subtitle">
-                Markdown Notebook
-              </span>
-            </div>
-            <div>
-              <div>
-                <button class="button" style="margin: 10px 0px;" id="previewFileButton">Preview</button>
-                <button class="button" style="margin: 10px 0px;" id="createFileButton">Save</button>
-                <div>
-                  <input type="text" style="padding: 10px; width: 80%; border-color: black; border-radius: 5px; margin: 10px 0px; font-size: x-large;"
-                  id="nameFileInput" name="namefile" 
-                  placeholder="Enter the file name here">
-                </div>
+        <div style="flex:1; justify-content: end;">
+          <button class="buttonMarkdown" style="margin: 10px 0px;" id="previewFileButton">Preview</button>
+        </div>
+      </div>
 
-                <textarea id="markdownInput" rows="30%" cols="100%" 
-                placeholder="Enter Markdown here"></textarea>
-              </div>
+      <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="flex: 1; width: 40%">
+          <textarea id="markdownInput" rows="30%" cols="100%" style="width: 90%; background-color: white; font-size: 14px;"
+          placeholder="Enter Markdown here"></textarea>
+        </div>
 
-              <div id="htmlOutput"></div>
-            </div>
-          </div>
+        <div style="flex: 1; width: 30%;" >
+          <div id="htmlOutput"></div>
         </div>
       </div>
     </main>
@@ -97,8 +93,8 @@
       </footer>
     </div>
 
-  <script src="../../src/js/prism.js"></script>
-  <script src="../../src/js/markdowntohtml.js"></script>
+  <script src="../src/js/prism.js"></script>
+  <script src="../src/js/markdowntohtml.js"></script>
   
   </body>
 </html>
