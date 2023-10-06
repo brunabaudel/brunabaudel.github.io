@@ -599,7 +599,8 @@ footer {
 
 .social-media {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  gap: 20px;
   padding: 30px 0px 0px 0px;
   margin: 0px;
   width: 160px;
