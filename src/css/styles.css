@@ -829,6 +829,11 @@ footer {
     width: 100%;
   }
 
+  .home-projectbox-item-cs {
+    height: 50%;
+    width: 100%;
+  }
+
   span.article-subtitle {
     font-size: 1.5em;
   }
