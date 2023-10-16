@@ -208,6 +208,10 @@ section {
 .main-article {
   margin-top: 40px;
   flex-direction: column;
+  display: flex;
+  width: 100%;
+  min-height: 93%;
+  align-items: center;
 }
 
 .article-entry {
