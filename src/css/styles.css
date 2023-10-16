@@ -1,13 +1,12 @@
-body {
-  background-color: #fff;
-  font-family: "Archivo Black", sans-serif;
-}
-
-html,
-body {
+html {
   /* height: 90%; */
   height: 100%;
   margin: 0;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Archivo Black", sans-serif;
 }
 
 body > footer {
@@ -27,13 +26,6 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-}
-
-main {
-  display: flex;
-  width: 100%;
-  min-height: 93%;
-  align-items: center;
 }
 
 section {
@@ -91,15 +83,10 @@ section {
   font-size: 10vw;
 }
 
-/* style="background-image:
-  linear-gradient(#0000001d, #000000a4), url(../src/resources/more/bg-image.png); width: 100%;
-      height: 100%;
-      background-size: contain;" */
-
 .bg {
-  background-image:
-  linear-gradient(#0000001d, #000000a4), url(../resources/more/bg-image.png);
-  height: 100%;
+  background-image: linear-gradient(#0000001d, #000000a4),
+    url(../resources/more/bg-image.png);
+  height: 90%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,20 +94,109 @@ section {
 
 /* Home */
 
-.home-title {
-  font-size: 4.5em;
-  font-weight: 600;
+.home-bg {
+  background-image: linear-gradient(#00000069, #000000d0),
+    url(../resources/home.jpeg);
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.home-subtitle {
-  font-size: x-large;
-  font-weight: 300;
+.home {
+  display: flex;
+  height: 100%;
+  padding: 5%;
+  gap: 10px;
+}
+
+.home-left {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  min-width: 270px;
+  overflow: auto;
+}
+
+.home-right {
+  min-width: 350px;
+  flex: 3;
+}
+
+.home-userbox {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 2% 10%;
+  border-radius: 5px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.home-projectbox {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-userbox-text {
+  font-size: medium;
+  text-align: left;
+  color: #272727;
+  padding: 2% 10%;
+}
+
+.home-projectbox-item {
+  text-decoration: none;
+  height: 50%;
+  width: 35%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: black;
+
+  font-size: 2.5vw;
+  color: white;
+  font-weight: bold;
+}
+
+.home-projectbox-item:hover,
+.home-projectbox-item-cs:hover {
+  border: 3px solid #d8349c;
+  color: #d8349c;
+}
+
+.home-projectbox-item-cs {
+  text-decoration: none;
+  height: 50%;
+  width: 35%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #717171;
+  font-size: 2.5vw;
+  color: white;
+  font-weight: bold;
+}
+
+.home-projectbox-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40%;
+  width: 40%;
+  padding-right: 20px;
+}
+
+.home-projectbox-text {
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .home-img {
-  height: 50%; 
-  width: 50%; 
-  align-self: center; 
+  height: 50%;
+  width: 50%;
+  align-self: center;
   border-radius: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -214,7 +290,9 @@ section {
   font-weight: bold;
 }
 
-.article-body p,ul,ol {
+.article-body p,
+ul,
+ol {
   margin-bottom: 1.2rem;
   font-size: 1.2em;
   font-weight: 300;
@@ -287,7 +365,6 @@ section {
   background-color: #fff;
   flex-direction: column;
   padding: 10px 20px;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   border-radius: 25px;
   width: 100%;
   align-items: center;
@@ -351,8 +428,7 @@ section {
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
-    /* #231557 0%, */
-    #d8349c 0%,
+    /* #231557 0%, */ #d8349c 0%,
     #44107a 29%,
     #ff1361 67%,
     #fff800 100%
@@ -384,20 +460,23 @@ section {
   display: flex;
   border-radius: 25px;
   padding: 0px 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 html.project-gradient,
 body.project-gradient {
   height: unset;
-  background:
-  linear-gradient(217deg, rgba(109, 109, 255, 0.622), 
-  rgba(255, 0, 0, 0) 70.71%),
-  linear-gradient(127deg, rgba(0, 255, 0, 0.863), 
-  rgba(0, 255, 0, 0) 70.71%),
-  linear-gradient(336deg, rgba(247, 146, 212, 0.898), 
-  rgba(0, 0, 255, 0) 70.71%);
+  background: linear-gradient(
+      217deg,
+      rgba(109, 109, 255, 0.622),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.863), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(
+      336deg,
+      rgba(247, 146, 212, 0.898),
+      rgba(0, 0, 255, 0) 70.71%
+    );
 }
 
 .project-content-container {
@@ -504,14 +583,14 @@ h1 {
 
 .button {
   align-self: center;
-  padding: 16px 48px;
+  padding: 5% 10%;
   font-size: 16px;
   font-weight: bolder;
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 5px;
   background-color: white;
-  border: 2px solid #1d1d1c;
+  border: 2px solid black;
 }
 
 .button:hover,
@@ -538,9 +617,12 @@ h1 {
 
 .main-box {
   display: flex;
-  flex-wrap: wrap; 
-  background-color: #ffffff;
+  flex-wrap: wrap;
+  /* background-color: #ffffff; */
   height: 100%;
+  color: #fff;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* linear-gradient(#0000001d, #000000a4); */
 }
 
 /* Main */
@@ -624,11 +706,11 @@ footer {
 
 .social-media {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   gap: 20px;
-  padding: 30px 0px 0px 0px;
   margin: 0px;
-  width: 160px;
+  text-align: center;
+  padding-bottom: 25px;
 }
 
 /* Media */
@@ -637,8 +719,8 @@ footer {
 
 .icon {
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   background-size: cover;
 }
 
@@ -733,14 +815,18 @@ footer {
 /* Media 680 */
 
 @media screen and (max-width: 680px) {
-  .home-title {
-    font-size: 3.5em;
-    font-weight: 600;
+  .home {
+    flex-direction: column;
+    padding: 10%;
   }
-  
-  .home-subtitle {
-    font-size: large;
-    font-weight: 300;
+
+  .home-projectbox-text {
+    font-size: 8vw;
+  }
+
+  .home-projectbox-item {
+    height: 50%;
+    width: 100%;
   }
 
   span.article-subtitle {
