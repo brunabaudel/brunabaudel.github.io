@@ -114,12 +114,10 @@ section {
   flex: 1;
   align-items: center;
   text-align: center;
-  min-width: 270px;
   overflow: auto;
 }
 
 .home-right {
-  min-width: 350px;
   flex: 3;
 }
 
