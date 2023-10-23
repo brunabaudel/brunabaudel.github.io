@@ -165,6 +165,16 @@ section {
   color: #d8349c;
 }
 
+.home-projectbox-item-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  text-align: center;
+  filter: invert(27%) sepia(37%) saturate(4360%) hue-rotate(299deg)
+    brightness(98%) contrast(85%);
+}
+
 .home-projectbox-item-cs {
   text-decoration: none;
   height: 50%;
