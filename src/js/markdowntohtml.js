@@ -1,9 +1,9 @@
 function htmlBody(body, test) {
-    if (test) {
-        return body;
-    }
+  if (test) {
+    return body;
+  }
 
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 
 <html lang="en">
   <head>
@@ -91,10 +91,10 @@ function htmlBody(body, test) {
 
 function convertMarkdownToHTML(markdown, test) {
   let lineNumber = 0;
-  let html = '';
+  let html = "";
   const numberRegex = /^[0-9]/;
-  const lines = markdown.split(/\r?\n/).filter(line => line.trim() !== '');
-  
+  const lines = markdown.split(/\r?\n/).filter((line) => line.trim() !== "");
+
   while (lineNumber <= lines.length) {
     const line = lines[lineNumber];
 
@@ -103,7 +103,7 @@ function convertMarkdownToHTML(markdown, test) {
       return htmlBody(html, test);
     }
 
-    if (line.length > 0 && line.startsWith('---')) {
+    if (line.length > 0 && line.startsWith("---")) {
       let isHeader = true;
       html += `<div class="article-header">\n`;
       lineNumber++;
@@ -111,50 +111,49 @@ function convertMarkdownToHTML(markdown, test) {
       while (isHeader) {
         const internalLine = lines[lineNumber];
 
-        if (internalLine.length > 0 && internalLine.startsWith('#')) {
-          const titleText = internalLine.split(' ')
-          html += `<span class="article-title0">${titleText.slice(1).join(' ')}</span>\n`;
+        if (internalLine.length > 0 && internalLine.startsWith("#")) {
+          const titleText = internalLine.split(" ");
+          html += `<span class="article-title0">${titleText
+            .slice(1)
+            .join(" ")}</span>\n`;
           lineNumber++;
-        } else
-
-        if (internalLine.length > 0 && internalLine.startsWith('sub:')) {
-          const titleText = internalLine.split(' ')
-          html += `<span class="article-subtitle">${titleText.slice(1).join(' ')}</span>\n`;
+        } else if (internalLine.length > 0 && internalLine.startsWith("sub:")) {
+          const titleText = internalLine.split(" ");
+          html += `<span class="article-subtitle">${titleText
+            .slice(1)
+            .join(" ")}</span>\n`;
           lineNumber++;
-        } else
-        
-        if (internalLine.length > 0 && internalLine.startsWith('date:')) {
-          const dateText = internalLine.split(':')
-          const date = dateText[1]
+        } else if (
+          internalLine.length > 0 &&
+          internalLine.startsWith("date:")
+        ) {
+          const dateText = internalLine.split(":");
+          const date = dateText[1];
           html += `<span class="article-date">Published on <time>${date}</time></span>\n`;
           lineNumber++;
-        } else
-
-        if (internalLine.length > 0 && internalLine.startsWith('---')) {
+        } else if (internalLine.length > 0 && internalLine.startsWith("---")) {
           html += `</div>\n<div>\n`;
           isHeader = false;
         }
       }
-    } else
-
-    if (line.length > 0 && line.startsWith('#')) {
+    } else if (line.length > 0 && line.startsWith("#")) {
       let titleText = line;
       titleText = lineWithCode(titleText);
-      titleText = lineWithBold(titleText).split(' ');
+      titleText = lineWithBold(titleText).split(" ");
       const titleLevel = titleText[0].length - 1;
-      
-      html += `<span class="article-title${titleLevel}">${titleText.slice(1).join(' ')}</span>\n`;
-    } else
 
-    if (line.startsWith('-') && line.length > 0) {
+      html += `<span class="article-title${titleLevel}">${titleText
+        .slice(1)
+        .join(" ")}</span>\n`;
+    } else if (line.startsWith("-") && line.length > 0) {
       let isList = true;
       html += `<ul>\n`;
 
       while (isList) {
         let internalLine = lineWithCode(lines[lineNumber]);
         internalLine = lineWithBold(internalLine);
-        
-        if (internalLine.length > 0 && internalLine.startsWith('-')) {
+
+        if (internalLine.length > 0 && internalLine.startsWith("-")) {
           html += `<li>${internalLine.slice(1)}</li>\n`;
           lineNumber++;
         } else {
@@ -163,9 +162,7 @@ function convertMarkdownToHTML(markdown, test) {
           lineNumber--;
         }
       }
-    } else
-  
-    if (line.length > 0 && numberRegex.test(line.slice(0,1))) {
+    } else if (line.length > 0 && numberRegex.test(line.slice(0, 1))) {
       let isList = true;
       html += `<ol>\n`;
 
@@ -173,28 +170,28 @@ function convertMarkdownToHTML(markdown, test) {
         let internalLine = lineWithCode(lines[lineNumber]);
         internalLine = lineWithBold(internalLine);
 
-        if (internalLine.length > 0 && numberRegex.test(internalLine.slice(0,1))) {
-          const startTitle = internalLine.indexOf(". ")+1;
+        if (
+          internalLine.length > 0 &&
+          numberRegex.test(internalLine.slice(0, 1))
+        ) {
+          const startTitle = internalLine.indexOf(". ") + 1;
           html += `<li>${internalLine.slice(startTitle)}</li>\n`;
           lineNumber++;
-        } 
-        else {
+        } else {
           html += `</ol>\n`;
           isList = false;
           lineNumber--;
         }
       }
-    } else
-
-    if (line.length > 0 && line.startsWith('```swift')) {
+    } else if (line.length > 0 && line.startsWith("```swift")) {
       let isCode = true;
       html += `<pre><code class="language-swift">`;
       lineNumber++;
 
       while (isCode) {
         const internalLine = lines[lineNumber];
-        
-        if (!internalLine.startsWith('```')) {
+
+        if (!internalLine.startsWith("```")) {
           html += `${internalLine}\n`;
           lineNumber++;
         } else {
@@ -202,12 +199,9 @@ function convertMarkdownToHTML(markdown, test) {
           isCode = false;
         }
       }
-
-    } else
-    
-    if (line.length > 0) {
-      let text = lineWithCode(line)
-      text = lineWithBold(text)
+    } else if (line.length > 0) {
+      let text = lineWithCode(line);
+      text = lineWithBold(text);
       html += `<p>${text}</p>\n`;
     }
 
@@ -217,7 +211,8 @@ function convertMarkdownToHTML(markdown, test) {
   return htmlBody(html, test);
 }
 
-const indexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el.includes(val) ? [...acc, i] : acc), []);
+const indexOfAll = (arr, val) =>
+  arr.reduce((acc, el, i) => (el.includes(val) ? [...acc, i] : acc), []);
 
 function lineWithBold(line) {
   const text = line !== undefined ? line.split(" ") : "";
@@ -226,26 +221,24 @@ function lineWithBold(line) {
   let isBold = false;
 
   while (wordNumber < text.length) {
-
     if (text[wordNumber].includes("**") && !isBold) {
-      let word = text[wordNumber].replace('**', '<b>');
+      let word = text[wordNumber].replace("**", "<b>");
 
       if (word.includes("**") && word.indexOf("**") > 0) {
-        word = word.replace('**', '</b> ').replace(' :', ': ');
+        word = word.replace("**", "</b> ").replace(" :", ": ");
         finalText += word;
       } else {
         finalText += `${word} `;
         isBold = true;
       }
-
     } else if (text[wordNumber].includes("**") && isBold) {
-      let word = text[wordNumber].replace('**', '</b> ').replace(' :', ': ');
+      let word = text[wordNumber].replace("**", "</b> ").replace(" :", ": ");
       finalText += `${word} `;
       isBold = false;
     } else {
       finalText += `${text[wordNumber]} `;
     }
-    
+
     wordNumber++;
   }
 
@@ -259,66 +252,69 @@ function lineWithCode(line) {
   let isCode = false;
 
   while (wordNumber < text.length) {
+    if (text[wordNumber].includes("`") && !isCode) {
+      let word = text[wordNumber].replace("`", '<code class="language-swift">');
 
-    if (text[wordNumber].includes('`') && !isCode) {
-      let word = text[wordNumber].replace('`', '<code class="language-swift">');
-
-      if (word.includes('`') && word.indexOf('`') > 0) {
-        word = word.replace('`', '</code> ');
+      if (word.includes("`") && word.indexOf("`") > 0) {
+        word = word.replace("`", "</code> ");
         finalText += word;
       } else {
         finalText += `${word} `;
         isCode = true;
       }
     } else if (text[wordNumber].includes("`") && isCode) {
-      let word = text[wordNumber].replace('`', '</code> ');
+      let word = text[wordNumber].replace("`", "</code> ");
       finalText += word;
       isCode = false;
     } else {
       finalText += `${text[wordNumber]} `;
     }
-  
+
     wordNumber++;
   }
 
   return finalText;
 }
 
-document.getElementById('previewFileButton').addEventListener('click', function() {
-    const markdownInput = document.getElementById('markdownInput').value;
-    const htmlOutput = document.getElementById('htmlOutput');
+document
+  .getElementById("previewFileButton")
+  .addEventListener("click", function () {
+    const markdownInput = document.getElementById("markdownInput").value;
+    const htmlOutput = document.getElementById("htmlOutput");
 
     const content = convertMarkdownToHTML(markdownInput, true);
     htmlOutput.innerHTML = content;
-});
+  });
 
-document.getElementById('createFileButton').addEventListener('click', function() {
-    const markdownInput = document.getElementById('markdownInput').value;
-    const nameFileInput = document.getElementById('nameFileInput').value;
+document
+  .getElementById("createFileButton")
+  .addEventListener("click", function () {
+    const markdownInput = document.getElementById("markdownInput").value;
+    const nameFileInput = document.getElementById("nameFileInput").value;
 
     const content = convertMarkdownToHTML(markdownInput, false);
-    const blob = new Blob([content], { type: 'text/plain' });
-    const blobMD = new Blob([markdownInput], { type: 'text/plain' });
+    const blob = new Blob([content], { type: "text/plain" });
+    const blobMD = new Blob([markdownInput], { type: "text/plain" });
 
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = `${nameFileInput}.html`;
-    a.style.display = 'none';
-
-    document.body.appendChild(a);
-    a.click();
-
-    document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
-
-    const md = document.createElement('a');
+    const md = document.createElement("a");
     md.href = URL.createObjectURL(blobMD);
     md.download = `${nameFileInput}.md`;
-    md.style.display = 'none';
+    md.style.display = "none";
 
     document.body.appendChild(md);
     md.click();
 
     document.body.removeChild(md);
     URL.revokeObjectURL(md.href);
-});
+
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `${nameFileInput}.html`;
+    a.style.display = "none";
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
