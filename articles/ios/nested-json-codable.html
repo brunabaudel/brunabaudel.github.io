@@ -26,7 +26,7 @@
     <header class="site-header">
       <div class="content-container">
         <a href="#">
-          <img src="../../src/resources/logo.png" class="icon-logo">
+          <img src="../../src/resources/logo.png" class="icon-logo" />
         </a>
         <nav class="site-nav">
           <ul role="list" id="site-nav-list" class="site-nav__list">
@@ -36,6 +36,10 @@
 
             <li>
               <a class="active" href="../">Articles</a>
+            </li>
+
+            <li>
+              <a href="./miniprojects">Mini Projects</a>
             </li>
 
             <li>
@@ -55,22 +59,51 @@
     </header>
 
     <main class="main-article">
-        <div class="content-container">
-          <div class="article">
-            <div class="article-body">
-              <div class="article-header">
-<span class="article-title0">Decoding and Encoding Nested JSON in Swift Using Codable</span>
-<span class="article-subtitle">Decoding and Encoding Nested JSON Using Codable</span>
-<span class="article-date">Published on <time> Oct 6, 2023</time></span>
-</div>
-<div>
-<p>Working with nested JSON data is a common task when developing iOS applications. In Swift, the <code class="language-swift">Codable</code> protocol simplifies the process of decoding JSON data into native Swift objects. In this article, we'll explore how to decode nested JSON structures in Swift using the <code class="language-swift">Codable</code> protocol.  </p>
-<span class="article-title1">Understanding Nested JSON  </span>
-<p>Nested JSON, as the name suggests, involves JSON objects or arrays within other JSON objects or arrays. These nested structures can quickly become complex, especially when dealing with real-world data. To decode such data efficiently, we need to create corresponding Swift structures that match the JSON's hierarchical structure.  </p>
-<span class="article-title1">Creating Swift Structures  </span>
-<p>The first step is to define Swift structures that mirror the JSON data's structure. Each structure should conform to the <code class="language-swift">Codable</code> protocol and include properties that match the keys in the JSON.  </p>
-<p>Here's an example of a nested JSON structure representing a blog post with comments:  </p>
-<pre><code class="language-swift">{
+      <div class="content-container">
+        <div class="article">
+          <div class="article-body">
+            <div class="article-header">
+              <span class="article-title0"
+                >Decoding and Encoding Nested JSON in Swift Using Codable</span
+              >
+              <span class="article-subtitle"
+                >Decoding and Encoding Nested JSON Using Codable</span
+              >
+              <span class="article-date"
+                >Published on <time> Oct 6, 2023</time></span
+              >
+            </div>
+            <div>
+              <p>
+                Working with nested JSON data is a common task when developing
+                iOS applications. In Swift, the
+                <code class="language-swift">Codable</code> protocol simplifies
+                the process of decoding JSON data into native Swift objects. In
+                this article, we'll explore how to decode nested JSON structures
+                in Swift using the
+                <code class="language-swift">Codable</code> protocol.
+              </p>
+              <span class="article-title1">Understanding Nested JSON </span>
+              <p>
+                Nested JSON, as the name suggests, involves JSON objects or
+                arrays within other JSON objects or arrays. These nested
+                structures can quickly become complex, especially when dealing
+                with real-world data. To decode such data efficiently, we need
+                to create corresponding Swift structures that match the JSON's
+                hierarchical structure.
+              </p>
+              <span class="article-title1">Creating Swift Structures </span>
+              <p>
+                The first step is to define Swift structures that mirror the
+                JSON data's structure. Each structure should conform to the
+                <code class="language-swift">Codable</code> protocol and include
+                properties that match the keys in the JSON.
+              </p>
+              <p>
+                Here's an example of a nested JSON structure representing a blog
+                post with comments:
+              </p>
+              <pre><code class="language-swift">{
     "title": "Sample Blog Post",
     "content": "This is the content of the blog post.",
     "date_published": "2023-10-06T08:00:00Z",
@@ -94,8 +127,8 @@
     ]
 }
 </code></pre>
-<p>We can create Swift structures like this:  </p>
-<pre><code class="language-swift">import Foundation
+              <p>We can create Swift structures like this:</p>
+              <pre><code class="language-swift">import Foundation
 struct User: Codable {
     var username: String
     var email: String
@@ -118,13 +151,37 @@ struct BlogPost: Codable {
     }
 }
 </code></pre>
-<p>In the <code class="language-swift">BlogPost</code> structure, we've used the <code class="language-swift">CodingKeys</code> enum to map JSON keys to Swift property names. We also use nested structures (<code class="language-swift">User</code> and <code class="language-swift">Comment</code> )to represent the JSON hierarchy.  </p>
-<span class="article-title1">Encode & Decode Manually  </span>
-<p>If the structure of your Swift type differs from the structure of its encoded form, you can provide a custom implementation of Encodable and Decodable to define your own encoding and decoding logic.  </p>
-<span class="article-title2">Decode  </span>
-<p>In the <code class="language-swift">init(from decoder: Decoder) throws</code> method of the <code class="language-swift">BlogPost</code> structure, we implement the decoding logic for our Swift object from the JSON data. This method is required when conforming to the <code class="language-swift">Decodable</code> protocol (part of <code class="language-swift">Codable</code> ).  </p>
-<p>Let's break down this method step by step:  </p>
-<pre><code class="language-swift">    init(from decoder: Decoder) throws {
+              <p>
+                In the <code class="language-swift">BlogPost</code> structure,
+                we've used the
+                <code class="language-swift">CodingKeys</code> enum to map JSON
+                keys to Swift property names. We also use nested structures
+                (<code class="language-swift">User</code> and
+                <code class="language-swift">Comment</code> )to represent the
+                JSON hierarchy.
+              </p>
+              <span class="article-title1">Encode & Decode Manually </span>
+              <p>
+                If the structure of your Swift type differs from the structure
+                of its encoded form, you can provide a custom implementation of
+                Encodable and Decodable to define your own encoding and decoding
+                logic.
+              </p>
+              <span class="article-title2">Decode </span>
+              <p>
+                In the
+                <code class="language-swift"
+                  >init(from decoder: Decoder) throws</code
+                >
+                method of the
+                <code class="language-swift">BlogPost</code> structure, we
+                implement the decoding logic for our Swift object from the JSON
+                data. This method is required when conforming to the
+                <code class="language-swift">Decodable</code> protocol (part of
+                <code class="language-swift">Codable</code> ).
+              </p>
+              <p>Let's break down this method step by step:</p>
+              <pre><code class="language-swift">    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: .title)
         content = try container.decode(String.self, forKey: .content)
@@ -142,21 +199,125 @@ struct BlogPost: Codable {
         comments = commentsArray
     }
 </code></pre>
-<ol>
-<li> <b>Container Initialization</b>:  We start by initializing a container using <code class="language-swift">try decoder.container(keyedBy: CodingKeys.self)</code> .This container represents the top-level keys of the JSON object. <code class="language-swift">CodingKeys</code> is an enum we define within the <code class="language-swift">BlogPost</code> structure to specify the keys we expect in the JSON.  </li>
-<li> <b>Decoding Simple Properties</b>:  Next, we decode the simple properties (<code class="language-swift">title</code> ,<code class="language-swift">content</code> ,and <code class="language-swift">datePublished</code> )using <code class="language-swift">try container.decode(Type.self, forKey: .key)</code> .This extracts values from the JSON and assigns them to our Swift properties.  </li>
-<li> <b>Nested Container for Comments</b>:  The <code class="language-swift">comments</code> property in our <code class="language-swift">BlogPost</code> structure is an array of <code class="language-swift">Comment</code> objects. Since comments are nested within the JSON, we create a nested container using <code class="language-swift">try container.nestedUnkeyedContainer(forKey: .comments)</code> .This container represents an array of comments in the JSON.  </li>
-<li> <b>Iterating Through Comments</b>:  We initialize an empty array, <code class="language-swift">commentsArray</code> ,to store the decoded comments. Then, we enter a loop with <code class="language-swift">while !commentsContainer.isAtEnd</code> to iterate through each comment within the JSON.  </li>
-<li> <b>Decoding Comment Properties</b>:  Within the loop, we create another nested container, <code class="language-swift">commentContainer</code> ,using <code class="language-swift">try commentsContainer.nestedContainer(keyedBy: CommentCodingKeys.self)</code> .This container represents an individual comment within the array.  </li>
-<li> <b>Decode Comment Properties</b>:  We decode the properties of the comment (<code class="language-swift">text</code> ,<code class="language-swift">date</code> ,and <code class="language-swift">user</code> )from <code class="language-swift">commentContainer</code> .For example, <code class="language-swift">let text = try commentContainer.decode(String.self, forKey: .text)</code> extracts the comment text.  </li>
-<li> <b>Creating Comment Objects</b>:  With the decoded properties, we create a <code class="language-swift">Comment</code> object and append it to the <code class="language-swift">commentsArray</code> . </li>
-<li> <b>Finalizing Comments</b>:  After the loop, we assign the <code class="language-swift">commentsArray</code> to the <code class="language-swift">comments</code> property, effectively populating our <code class="language-swift">BlogPost</code> object with the decoded comments.  </li>
-</ol>
-<p>This process repeats for each comment in the JSON array, allowing us to build a fully populated <code class="language-swift">BlogPost</code> object with all of its nested data.  </p>
-<p>The <code class="language-swift">init(from decoder: Decoder)</code> method demonstrates how the <code class="language-swift">Codable</code> protocol's power lies in its ability to handle complex, nested data structures with ease, making it a valuable tool for parsing JSON in Swift applications.  </p>
-<span class="article-title2">Encode  </span>
-<p>In the <code class="language-swift">func encode(to encoder: Encoder) throws</code> method of the <code class="language-swift">BlogPost</code> structure, we implement the encoding logic for our Swift object into JSON format. This method is required when conforming to the <code class="language-swift">Encodable</code> protocol (part of <code class="language-swift">Codable</code> ).Let's break down this method step by step:  </p>
-<pre><code class="language-swift">func encode(to encoder: Encoder) throws {
+              <ol>
+                <li>
+                  <b>Container Initialization</b>: We start by initializing a
+                  container using
+                  <code class="language-swift"
+                    >try decoder.container(keyedBy: CodingKeys.self)</code
+                  >
+                  .This container represents the top-level keys of the JSON
+                  object. <code class="language-swift">CodingKeys</code> is an
+                  enum we define within the
+                  <code class="language-swift">BlogPost</code> structure to
+                  specify the keys we expect in the JSON.
+                </li>
+                <li>
+                  <b>Decoding Simple Properties</b>: Next, we decode the simple
+                  properties (<code class="language-swift">title</code> ,<code
+                    class="language-swift"
+                    >content</code
+                  >
+                  ,and <code class="language-swift">datePublished</code> )using
+                  <code class="language-swift"
+                    >try container.decode(Type.self, forKey: .key)</code
+                  >
+                  .This extracts values from the JSON and assigns them to our
+                  Swift properties.
+                </li>
+                <li>
+                  <b>Nested Container for Comments</b>: The
+                  <code class="language-swift">comments</code> property in our
+                  <code class="language-swift">BlogPost</code> structure is an
+                  array of <code class="language-swift">Comment</code> objects.
+                  Since comments are nested within the JSON, we create a nested
+                  container using
+                  <code class="language-swift"
+                    >try container.nestedUnkeyedContainer(forKey:
+                    .comments)</code
+                  >
+                  .This container represents an array of comments in the JSON.
+                </li>
+                <li>
+                  <b>Iterating Through Comments</b>: We initialize an empty
+                  array, <code class="language-swift">commentsArray</code> ,to
+                  store the decoded comments. Then, we enter a loop with
+                  <code class="language-swift"
+                    >while !commentsContainer.isAtEnd</code
+                  >
+                  to iterate through each comment within the JSON.
+                </li>
+                <li>
+                  <b>Decoding Comment Properties</b>: Within the loop, we create
+                  another nested container,
+                  <code class="language-swift">commentContainer</code> ,using
+                  <code class="language-swift"
+                    >try commentsContainer.nestedContainer(keyedBy:
+                    CommentCodingKeys.self)</code
+                  >
+                  .This container represents an individual comment within the
+                  array.
+                </li>
+                <li>
+                  <b>Decode Comment Properties</b>: We decode the properties of
+                  the comment (<code class="language-swift">text</code> ,<code
+                    class="language-swift"
+                    >date</code
+                  >
+                  ,and <code class="language-swift">user</code> )from
+                  <code class="language-swift">commentContainer</code> .For
+                  example,
+                  <code class="language-swift"
+                    >let text = try commentContainer.decode(String.self, forKey:
+                    .text)</code
+                  >
+                  extracts the comment text.
+                </li>
+                <li>
+                  <b>Creating Comment Objects</b>: With the decoded properties,
+                  we create a <code class="language-swift">Comment</code> object
+                  and append it to the
+                  <code class="language-swift">commentsArray</code> .
+                </li>
+                <li>
+                  <b>Finalizing Comments</b>: After the loop, we assign the
+                  <code class="language-swift">commentsArray</code> to the
+                  <code class="language-swift">comments</code> property,
+                  effectively populating our
+                  <code class="language-swift">BlogPost</code> object with the
+                  decoded comments.
+                </li>
+              </ol>
+              <p>
+                This process repeats for each comment in the JSON array,
+                allowing us to build a fully populated
+                <code class="language-swift">BlogPost</code> object with all of
+                its nested data.
+              </p>
+              <p>
+                The
+                <code class="language-swift">init(from decoder: Decoder)</code>
+                method demonstrates how the
+                <code class="language-swift">Codable</code> protocol's power
+                lies in its ability to handle complex, nested data structures
+                with ease, making it a valuable tool for parsing JSON in Swift
+                applications.
+              </p>
+              <span class="article-title2">Encode </span>
+              <p>
+                In the
+                <code class="language-swift"
+                  >func encode(to encoder: Encoder) throws</code
+                >
+                method of the
+                <code class="language-swift">BlogPost</code> structure, we
+                implement the encoding logic for our Swift object into JSON
+                format. This method is required when conforming to the
+                <code class="language-swift">Encodable</code> protocol (part of
+                <code class="language-swift">Codable</code> ).Let's break down
+                this method step by step:
+              </p>
+              <pre><code class="language-swift">func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)
         try container.encode(content, forKey: .content)
@@ -170,20 +331,120 @@ struct BlogPost: Codable {
         }
     }
 </code></pre>
-<ol>
-<li> <b>Container Initialization</b>:  We start by initializing a container using <code class="language-swift">var container = encoder.container(keyedBy: CodingKeys.self)</code> .This container represents the top-level keys of the JSON object. <code class="language-swift">CodingKeys</code> is an enum we define within the <code class="language-swift">BlogPost</code> structure to specify the keys we want in the JSON output.  </li>
-<li> <b>Encoding Simple Properties</b>:  We encode the simple properties (<code class="language-swift">title</code> ,<code class="language-swift">content</code> ,and <code class="language-swift">datePublished</code> )into the container using <code class="language-swift">try container.encode(value, forKey: .key)</code> .This takes the values stored in our Swift properties and adds them to the JSON output.  </li>
-<li> <b>Nested Container for Comments</b>:  The <code class="language-swift">comments</code> property in our <code class="language-swift">BlogPost</code> structure is an array of <code class="language-swift">Comment</code> objects. Since comments are nested within the JSON, we create a nested container using <code class="language-swift">var commentsContainer = container.nestedUnkeyedContainer(forKey: .comments)</code> .This container represents an array of comments in the JSON.  </li>
-<li> <b>Iterating Through Comments</b>:  We enter a loop to iterate through each comment within the <code class="language-swift">comments</code> array of our Swift object. This allows us to encode each comment individually.  </li>
-<li> <b>Creating Nested Comment Container</b>:  Within the loop, we create another nested container, <code class="language-swift">commentContainer</code> ,using <code class="language-swift">var commentContainer = commentsContainer.nestedContainer(keyedBy: CommentCodingKeys.self)</code> .This container represents an individual comment within the array.  </li>
-<li> <b>Encoding Comment Properties</b>:  We encode the properties of the comment (<code class="language-swift">text</code> ,<code class="language-swift">date</code> ,and <code class="language-swift">user</code> )into <code class="language-swift">commentContainer</code> using <code class="language-swift">try commentContainer.encode(value, forKey: .key)</code> .For example, <code class="language-swift">try commentContainer.encode(comment.text, forKey: .text)</code> adds the comment text to the JSON.  </li>
-<li> <b>Finalizing Comments</b>:  After encoding all the comments in the loop, the JSON representation of the <code class="language-swift">comments</code> array is complete.  </li>
-</ol>
-<p>This process repeats for each comment in the Swift array, resulting in a fully encoded JSON representation of our <code class="language-swift">BlogPost</code> object, including its nested data.  </p>
-<p>The <code class="language-swift">func encode(to encoder: Encoder)</code> method showcases the versatility of the <code class="language-swift">Codable</code> protocol, allowing us to easily convert complex Swift data structures into JSON. This is particularly useful when sending data to APIs, saving data to a file, or any other scenario where JSON serialization is required in Swift applications.  </p>
-<span class="article-title1">Decoding Nested JSON  </span>
-<p>To decode nested JSON, you need to use a <code class="language-swift">JSONDecoder</code> and specify how to decode the data. Set the decoder's <code class="language-swift">dateDecodingStrategy</code> to handle date formats (e.g., ISO8601) and <code class="language-swift">keyDecodingStrategy</code> to convert snake_case keys to camelCase, if necessary. Once you've successfully decoded the JSON into Swift structures, you can access the nested data as you would with any Swift object.  </p>
-<pre><code class="language-swift">let decoder = JSONDecoder()
+              <ol>
+                <li>
+                  <b>Container Initialization</b>: We start by initializing a
+                  container using
+                  <code class="language-swift"
+                    >var container = encoder.container(keyedBy:
+                    CodingKeys.self)</code
+                  >
+                  .This container represents the top-level keys of the JSON
+                  object. <code class="language-swift">CodingKeys</code> is an
+                  enum we define within the
+                  <code class="language-swift">BlogPost</code> structure to
+                  specify the keys we want in the JSON output.
+                </li>
+                <li>
+                  <b>Encoding Simple Properties</b>: We encode the simple
+                  properties (<code class="language-swift">title</code> ,<code
+                    class="language-swift"
+                    >content</code
+                  >
+                  ,and <code class="language-swift">datePublished</code> )into
+                  the container using
+                  <code class="language-swift"
+                    >try container.encode(value, forKey: .key)</code
+                  >
+                  .This takes the values stored in our Swift properties and adds
+                  them to the JSON output.
+                </li>
+                <li>
+                  <b>Nested Container for Comments</b>: The
+                  <code class="language-swift">comments</code> property in our
+                  <code class="language-swift">BlogPost</code> structure is an
+                  array of <code class="language-swift">Comment</code> objects.
+                  Since comments are nested within the JSON, we create a nested
+                  container using
+                  <code class="language-swift"
+                    >var commentsContainer =
+                    container.nestedUnkeyedContainer(forKey: .comments)</code
+                  >
+                  .This container represents an array of comments in the JSON.
+                </li>
+                <li>
+                  <b>Iterating Through Comments</b>: We enter a loop to iterate
+                  through each comment within the
+                  <code class="language-swift">comments</code> array of our
+                  Swift object. This allows us to encode each comment
+                  individually.
+                </li>
+                <li>
+                  <b>Creating Nested Comment Container</b>: Within the loop, we
+                  create another nested container,
+                  <code class="language-swift">commentContainer</code> ,using
+                  <code class="language-swift"
+                    >var commentContainer =
+                    commentsContainer.nestedContainer(keyedBy:
+                    CommentCodingKeys.self)</code
+                  >
+                  .This container represents an individual comment within the
+                  array.
+                </li>
+                <li>
+                  <b>Encoding Comment Properties</b>: We encode the properties
+                  of the comment (<code class="language-swift">text</code>
+                  ,<code class="language-swift">date</code> ,and
+                  <code class="language-swift">user</code> )into
+                  <code class="language-swift">commentContainer</code> using
+                  <code class="language-swift"
+                    >try commentContainer.encode(value, forKey: .key)</code
+                  >
+                  .For example,
+                  <code class="language-swift"
+                    >try commentContainer.encode(comment.text, forKey:
+                    .text)</code
+                  >
+                  adds the comment text to the JSON.
+                </li>
+                <li>
+                  <b>Finalizing Comments</b>: After encoding all the comments in
+                  the loop, the JSON representation of the
+                  <code class="language-swift">comments</code> array is
+                  complete.
+                </li>
+              </ol>
+              <p>
+                This process repeats for each comment in the Swift array,
+                resulting in a fully encoded JSON representation of our
+                <code class="language-swift">BlogPost</code> object, including
+                its nested data.
+              </p>
+              <p>
+                The
+                <code class="language-swift"
+                  >func encode(to encoder: Encoder)</code
+                >
+                method showcases the versatility of the
+                <code class="language-swift">Codable</code> protocol, allowing
+                us to easily convert complex Swift data structures into JSON.
+                This is particularly useful when sending data to APIs, saving
+                data to a file, or any other scenario where JSON serialization
+                is required in Swift applications.
+              </p>
+              <span class="article-title1">Decoding Nested JSON </span>
+              <p>
+                To decode nested JSON, you need to use a
+                <code class="language-swift">JSONDecoder</code> and specify how
+                to decode the data. Set the decoder's
+                <code class="language-swift">dateDecodingStrategy</code> to
+                handle date formats (e.g., ISO8601) and
+                <code class="language-swift">keyDecodingStrategy</code> to
+                convert snake_case keys to camelCase, if necessary. Once you've
+                successfully decoded the JSON into Swift structures, you can
+                access the nested data as you would with any Swift object.
+              </p>
+              <pre><code class="language-swift">let decoder = JSONDecoder()
 decoder.dateDecodingStrategy = .iso8601
 decoder.keyDecodingStrategy = .convertFromSnakeCase
 do {
@@ -202,9 +463,15 @@ do {
     print("Error decoding JSON: \(error)")
 }
 </code></pre>
-<span class="article-title1">Encoding Swift Objects to JSON  </span>
-<p>You can also encode Swift objects back into JSON using the <code class="language-swift">JSONEncoder</code> .This is useful when you need to send data to a server or store it as JSON.  </p>
-<pre><code class="language-swift">let encoder = JSONEncoder()
+              <span class="article-title1"
+                >Encoding Swift Objects to JSON
+              </span>
+              <p>
+                You can also encode Swift objects back into JSON using the
+                <code class="language-swift">JSONEncoder</code> .This is useful
+                when you need to send data to a server or store it as JSON.
+              </p>
+              <pre><code class="language-swift">let encoder = JSONEncoder()
 encoder.dateEncodingStrategy = .iso8601
 encoder.keyEncodingStrategy = .convertToSnakeCase
 do {
@@ -215,13 +482,22 @@ do {
     print("Error encoding JSON: \(error)")
 }
 </code></pre>
-<span class="article-title1">Conclusion  </span>
-<p>Decoding and encoding nested JSON data in Swift is made straightforward and efficient thanks to the <code class="language-swift">Codable</code> protocol. By defining corresponding Swift structures, utilizing <code class="language-swift">JSONDecoder</code> for decoding, and <code class="language-swift">JSONEncoder</code> for encoding, you can seamlessly handle complex JSON hierarchies and work with the data in a type-safe manner within your iOS applications.  </p>
-</div>
-
+              <span class="article-title1">Conclusion </span>
+              <p>
+                Decoding and encoding nested JSON data in Swift is made
+                straightforward and efficient thanks to the
+                <code class="language-swift">Codable</code> protocol. By
+                defining corresponding Swift structures, utilizing
+                <code class="language-swift">JSONDecoder</code> for decoding,
+                and <code class="language-swift">JSONEncoder</code> for
+                encoding, you can seamlessly handle complex JSON hierarchies and
+                work with the data in a type-safe manner within your iOS
+                applications.
+              </p>
             </div>
           </div>
         </div>
+      </div>
     </main>
 
     <div class="page__bottom">
@@ -237,8 +513,7 @@ do {
       </footer>
     </div>
 
-  <script src="../../src/js/prism.js"></script>
-  <script src="../../src/js/markdowntohtml.js"></script>
-  
+    <script src="../../src/js/prism.js"></script>
+    <script src="../../src/js/markdowntohtml.js"></script>
   </body>
 </html>

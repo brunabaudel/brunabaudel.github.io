@@ -26,7 +26,7 @@
     <header class="site-header">
       <div class="content-container">
         <a href="#">
-          <img src="../../src/resources/logo.png" class="icon-logo">
+          <img src="../../src/resources/logo.png" class="icon-logo" />
         </a>
         <nav class="site-nav">
           <ul role="list" id="site-nav-list" class="site-nav__list">
@@ -36,6 +36,10 @@
 
             <li>
               <a class="active" href="../">Articles</a>
+            </li>
+
+            <li>
+              <a href="./miniprojects">Mini Projects</a>
             </li>
 
             <li>
@@ -55,42 +59,41 @@
     </header>
 
     <main class="main-article">
-        <div class="content-container">
+      <div class="content-container">
+        <div class="article">
+          <div class="article-body">
+            <div class="article-header">
+              <span class="article-title0">
+                A Practical Guide to MVVM Architecture in SwiftUI
+              </span>
 
-          <div class="article">            
-            <div class="article-body">
-              <div class="article-header">
-                <span class="article-title0">
-                  A Practical Guide to MVVM Architecture in SwiftUI
-                </span>
+              <span class="article-subtitle">
+                A Practical Guide to MVVM Architecture in SwiftUI
+              </span>
 
-                <span class="article-subtitle">
-                  A Practical Guide to MVVM Architecture in SwiftUI
-                </span>
-
-                <span class="article-date">
-                  Published on <time>Sep 2, 2023</time>
-                </span>
-              </div>
+              <span class="article-date">
+                Published on <time>Sep 2, 2023</time>
+              </span>
+            </div>
             <div>
-<p>
-SwiftUI, Apple's modern framework for building user interfaces, has brought a 
-fresh approach to iOS app development. When combined with the Model-View-ViewModel
-(MVVM) architectural pattern, it allows for creating clean, modular, and 
-testable code. In this tutorial, we will explore how to implement MVVM in a 
-SwiftUI application step by step.
-</p>
+              <p>
+                SwiftUI, Apple's modern framework for building user interfaces,
+                has brought a fresh approach to iOS app development. When
+                combined with the Model-View-ViewModel (MVVM) architectural
+                pattern, it allows for creating clean, modular, and testable
+                code. In this tutorial, we will explore how to implement MVVM in
+                a SwiftUI application step by step.
+              </p>
 
-<span class="article-title1">
-Define the Model
-</span>
+              <span class="article-title1"> Define the Model </span>
 
-<p>
-  In MVVM, the Model represents the data and business logic of your application. 
-  For this tutorial, let's create a simple Model to manage a list of tasks.
-</p>
+              <p>
+                In MVVM, the Model represents the data and business logic of
+                your application. For this tutorial, let's create a simple Model
+                to manage a list of tasks.
+              </p>
 
-<pre>
+              <pre>
 <code class="language-swift">import Foundation
 
 struct Task: Identifiable {
@@ -111,16 +114,14 @@ class TaskManager: ObservableObject {
 }</code>
 </pre>
 
-<span class="article-title1">
-Build the ViewModel
-</span>
+              <span class="article-title1"> Build the ViewModel </span>
 
-<p>
-The ViewModel serves as the bridge between the Model and the View, providing 
-data and handling user interactions.
-</p>
+              <p>
+                The ViewModel serves as the bridge between the Model and the
+                View, providing data and handling user interactions.
+              </p>
 
-<pre>
+              <pre>
 <code class="language-swift">import Foundation
 import SwiftUI
 
@@ -142,17 +143,15 @@ class TaskViewModel: ObservableObject {
 }</code>
 </pre>
 
-<span class="article-title1">
-Create the View
-</span>
+              <span class="article-title1"> Create the View </span>
 
-<p>
-In SwiftUI, the View is responsible for displaying data and capturing user 
-interactions. Create a View that displays the list of tasks and allows the
-user to add new ones.
-</p>
+              <p>
+                In SwiftUI, the View is responsible for displaying data and
+                capturing user interactions. Create a View that displays the
+                list of tasks and allows the user to add new ones.
+              </p>
 
-<pre>
+              <pre>
 <code class="language-swift">import SwiftUI
 
 struct TaskListView: View {
@@ -180,16 +179,18 @@ struct TaskListView: View {
 }</code>
 </pre>
 
-<span class="article-title1">
-Connect the View and ViewModel
-</span>
+              <span class="article-title1">
+                Connect the View and ViewModel
+              </span>
 
-<p>
-In your app's entry point (e.g., App.swift), create an instance of the 
-<code class="language-swift">TaskViewModel</code> and inject it into your view.
-</p>
+              <p>
+                In your app's entry point (e.g., App.swift), create an instance
+                of the
+                <code class="language-swift">TaskViewModel</code> and inject it
+                into your view.
+              </p>
 
-<pre>
+              <pre>
 <code class="language-swift">import SwiftUI
 
   @main
@@ -204,27 +205,25 @@ In your app's entry point (e.g., App.swift), create an instance of the
 }</code>
 </pre>
 
-<span class="article-title2">
-Testing and Running the App
-</span>
-    
-<p>
-Build and run your project. You should be able to add tasks, and they will appear 
-in the list. The text field should clear after adding a task.
-</p>
+              <span class="article-title2"> Testing and Running the App </span>
 
-<span class="article-title2">
-Conclusion
-</span>
+              <p>
+                Build and run your project. You should be able to add tasks, and
+                they will appear in the list. The text field should clear after
+                adding a task.
+              </p>
 
-<p>
-You've successfully implemented MVVM architecture in a SwiftUI application. 
-MVVM encourages separation of concerns, making your code more maintainable 
-and testable. You can extend this example by adding more features, incorporating 
-data persistence, or even using Combine to handle asynchronous operations. 
-MVVM in SwiftUI is a powerful combination for building robust and scalable iOS 
-applications.
-</p>
+              <span class="article-title2"> Conclusion </span>
+
+              <p>
+                You've successfully implemented MVVM architecture in a SwiftUI
+                application. MVVM encourages separation of concerns, making your
+                code more maintainable and testable. You can extend this example
+                by adding more features, incorporating data persistence, or even
+                using Combine to handle asynchronous operations. MVVM in SwiftUI
+                is a powerful combination for building robust and scalable iOS
+                applications.
+              </p>
             </div>
           </div>
         </div>

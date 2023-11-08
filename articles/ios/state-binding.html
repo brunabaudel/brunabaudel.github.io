@@ -26,7 +26,7 @@
     <header class="site-header">
       <div class="content-container">
         <a href="#">
-          <img src="../../src/resources/logo.png" class="icon-logo">
+          <img src="../../src/resources/logo.png" class="icon-logo" />
         </a>
         <nav class="site-nav">
           <ul role="list" id="site-nav-list" class="site-nav__list">
@@ -36,6 +36,10 @@
 
             <li>
               <a class="active" href="../">Articles</a>
+            </li>
+
+            <li>
+              <a href="./miniprojects">Mini Projects</a>
             </li>
 
             <li>
@@ -55,20 +59,49 @@
     </header>
 
     <main class="main-article">
-        <div class="content-container">
-          <div class="article">
-            <div class="article-body">
-              <div class="article-header">
-<span class="article-title0">Understanding <code class="language-swift">@State</code> vs <code class="language-swift">@Binding</code> in SwiftUI</span>
-<span class="article-subtitle">The property wrappers <code class="language-swift">@State</code> and <code class="language-swift">@Binding</code></span>
-<span class="article-date">Published on <time> Sep 15, 2923</time></span>
-</div>
-<div>
-<p>SwiftUI introduces the property wrappers like <code class="language-swift">@State</code> and <code class="language-swift">@Binding</code> that can sometimes be confusing for newcomers. In this article, we'll explore the differences between <code class="language-swift">@State</code> and <code class="language-swift">@Binding</code> in SwiftUI and when to use each of them.  </p>
-<span class="article-title1"><code class="language-swift">@State</code>  </span>
-<p><code class="language-swift">@State</code> is a property wrapper that allows you to create mutable state within a SwiftUI view. When you mark a property with <code class="language-swift">@State</code> ,SwiftUI manages its value and ensures that any changes to it trigger a view update. <code class="language-swift">@State</code> is commonly used for values that are specific to a single view and don't need to be shared between multiple views or view hierarchies.  </p>
-<p>Here's a basic example:  </p>
-<pre><code class="language-swift">struct ContentView: View {
+      <div class="content-container">
+        <div class="article">
+          <div class="article-body">
+            <div class="article-header">
+              <span class="article-title0"
+                >Understanding <code class="language-swift">@State</code> vs
+                <code class="language-swift">@Binding</code> in SwiftUI</span
+              >
+              <span class="article-subtitle"
+                >The property wrappers
+                <code class="language-swift">@State</code> and
+                <code class="language-swift">@Binding</code></span
+              >
+              <span class="article-date"
+                >Published on <time> Sep 15, 2923</time></span
+              >
+            </div>
+            <div>
+              <p>
+                SwiftUI introduces the property wrappers like
+                <code class="language-swift">@State</code> and
+                <code class="language-swift">@Binding</code> that can sometimes
+                be confusing for newcomers. In this article, we'll explore the
+                differences between
+                <code class="language-swift">@State</code> and
+                <code class="language-swift">@Binding</code> in SwiftUI and when
+                to use each of them.
+              </p>
+              <span class="article-title1"
+                ><code class="language-swift">@State</code>
+              </span>
+              <p>
+                <code class="language-swift">@State</code> is a property wrapper
+                that allows you to create mutable state within a SwiftUI view.
+                When you mark a property with
+                <code class="language-swift">@State</code> ,SwiftUI manages its
+                value and ensures that any changes to it trigger a view update.
+                <code class="language-swift">@State</code> is commonly used for
+                values that are specific to a single view and don't need to be
+                shared between multiple views or view hierarchies.
+              </p>
+              <p>Here's a basic example:</p>
+              <pre><code class="language-swift">struct ContentView: View {
     @State private var isToggled = false
     var body: some View {
         Toggle("Toggle me", isOn: $isToggled)
@@ -76,11 +109,31 @@
     }
 }
 </code></pre>
-<p>In this example, we use <code class="language-swift">@State</code> to create a boolean property <code class="language-swift">isToggled</code> ,which tracks the state of a toggle switch. When the user interacts with the toggle switch, SwiftUI automatically updates the view to reflect the changes in <code class="language-swift">isToggled</code> . </p>
-<span class="article-title1"><code class="language-swift">@Binding</code>  </span>
-<p><code class="language-swift">@Binding</code> ,on the other hand, is used to share a value between multiple views. It is typically employed when you want to pass data from a parent view to a child view and allow the child view to modify that data. It establishes a connection between the two views, ensuring that changes in one view are reflected in the other.  </p>
-<p>Here's an example that illustrates the use of <code class="language-swift">@Binding</code> : </p>
-<pre><code class="language-swift">struct ParentView: View {
+              <p>
+                In this example, we use
+                <code class="language-swift">@State</code> to create a boolean
+                property <code class="language-swift">isToggled</code> ,which
+                tracks the state of a toggle switch. When the user interacts
+                with the toggle switch, SwiftUI automatically updates the view
+                to reflect the changes in
+                <code class="language-swift">isToggled</code> .
+              </p>
+              <span class="article-title1"
+                ><code class="language-swift">@Binding</code>
+              </span>
+              <p>
+                <code class="language-swift">@Binding</code> ,on the other hand,
+                is used to share a value between multiple views. It is typically
+                employed when you want to pass data from a parent view to a
+                child view and allow the child view to modify that data. It
+                establishes a connection between the two views, ensuring that
+                changes in one view are reflected in the other.
+              </p>
+              <p>
+                Here's an example that illustrates the use of
+                <code class="language-swift">@Binding</code> :
+              </p>
+              <pre><code class="language-swift">struct ParentView: View {
     @State private var isToggled = false
     var body: some View {
         ChildView(isToggled: $isToggled)
@@ -94,18 +147,53 @@ struct ChildView: View {
     }
 }
 </code></pre>
-<p>In this example, the <code class="language-swift">ParentView</code> owns the <code class="language-swift">isToggled</code> property marked with <code class="language-swift">@State</code> ,and it passes it to <code class="language-swift">ChildView</code> .<code class="language-swift">ChildView</code> uses <code class="language-swift">@Binding</code> to create a binding to the <code class="language-swift">isToggled</code> property. Now, when the user interacts with the toggle in <code class="language-swift">ChildView</code> ,it directly modifies the <code class="language-swift">isToggled</code> property in <code class="language-swift">ParentView</code> ,and the changes are reflected in both views.  </p>
-<span class="article-title1">When to Use Each  </span>
-<ul>
-<li> Use <code class="language-swift">@State</code> when you need to manage the state of a property within a single view and don't need to share it with other views.  </li>
-<li> Use <code class="language-swift">@Binding</code> when you want to share a property between multiple views and allow child views to modify it. It's particularly useful for passing data down the view hierarchy.  </li>
-</ul>
-<p>In summary, <code class="language-swift">@State</code> and <code class="language-swift">@Binding</code> are essential property wrappers in SwiftUI that help you manage state and data flow in your app's user interface. Understanding when and how to use them is crucial for building responsive and interactive SwiftUI applications. With practice, you'll become adept at harnessing the power of these property wrappers to create dynamic and engaging user interfaces.  </p>
-</div>
-
+              <p>
+                In this example, the
+                <code class="language-swift">ParentView</code> owns the
+                <code class="language-swift">isToggled</code> property marked
+                with <code class="language-swift">@State</code> ,and it passes
+                it to <code class="language-swift">ChildView</code> .<code
+                  class="language-swift"
+                  >ChildView</code
+                >
+                uses <code class="language-swift">@Binding</code> to create a
+                binding to the
+                <code class="language-swift">isToggled</code> property. Now,
+                when the user interacts with the toggle in
+                <code class="language-swift">ChildView</code> ,it directly
+                modifies the
+                <code class="language-swift">isToggled</code> property in
+                <code class="language-swift">ParentView</code> ,and the changes
+                are reflected in both views.
+              </p>
+              <span class="article-title1">When to Use Each </span>
+              <ul>
+                <li>
+                  Use <code class="language-swift">@State</code> when you need
+                  to manage the state of a property within a single view and
+                  don't need to share it with other views.
+                </li>
+                <li>
+                  Use <code class="language-swift">@Binding</code> when you want
+                  to share a property between multiple views and allow child
+                  views to modify it. It's particularly useful for passing data
+                  down the view hierarchy.
+                </li>
+              </ul>
+              <p>
+                In summary, <code class="language-swift">@State</code> and
+                <code class="language-swift">@Binding</code> are essential
+                property wrappers in SwiftUI that help you manage state and data
+                flow in your app's user interface. Understanding when and how to
+                use them is crucial for building responsive and interactive
+                SwiftUI applications. With practice, you'll become adept at
+                harnessing the power of these property wrappers to create
+                dynamic and engaging user interfaces.
+              </p>
             </div>
           </div>
         </div>
+      </div>
     </main>
 
     <div class="page__bottom">
@@ -121,8 +209,7 @@ struct ChildView: View {
       </footer>
     </div>
 
-  <script src="../../src/js/prism.js"></script>
-  <script src="../../src/js/markdowntohtml.js"></script>
-  
+    <script src="../../src/js/prism.js"></script>
+    <script src="../../src/js/markdowntohtml.js"></script>
   </body>
 </html>
