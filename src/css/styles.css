@@ -486,7 +486,7 @@ body.project-gradient {
       rgba(109, 109, 255, 0.622),
       rgba(255, 0, 0, 0) 70.71%
     ),
-    linear-gradient(127deg, rgba(0, 255, 208, 0.863), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 76, 0.863), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(
       336deg,
       rgba(247, 146, 212, 0.898),
@@ -1094,9 +1094,9 @@ ul.nav-menu li:hover {
 }
 
 .project-title {
-  color: white;
-  text-align: left;
-  padding: 30px 0px 30px 30px;
+  color: black;
+  text-align: center;
+  padding: 50px 0px 30px 0px;
   font-size: 25px;
   font-weight: bold;
 }
