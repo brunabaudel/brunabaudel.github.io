@@ -486,7 +486,7 @@ body.project-gradient {
       rgba(109, 109, 255, 0.622),
       rgba(255, 0, 0, 0) 70.71%
     ),
-    linear-gradient(127deg, rgba(0, 255, 0, 0.863), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 208, 0.863), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(
       336deg,
       rgba(247, 146, 212, 0.898),
@@ -498,14 +498,15 @@ body.project-gradient {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 85vw;
-  width: min(90vw, 85rem);
+  /* max-width: 85vw; */
+  /* width: min(90vw, 85rem); */
   margin-inline: auto;
+  padding: 30px;
 }
 
 .project {
   height: 30%;
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
@@ -982,6 +983,111 @@ footer {
 }
 
 /* Media 680 */
+
+/* GPTs */
+
+.modern-box {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 4, 128, 0.3),
+    rgba(201, 192, 255, 0.3),
+    rgba(0, 0, 0, 0.3)
+  );
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.box-content {
+  font-size: 18px;
+  color: white;
+}
+
+.home-gpts-item {
+  text-decoration: none;
+  height: 50%;
+  width: 35%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: black;
+}
+
+.home-gpts-text {
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 2.5vw;
+  color: white;
+  font-weight: bold;
+  align-self: stretch;
+}
+
+.home-gpts-item-subtitle {
+  text-decoration: none;
+  padding: 20px;
+  font-size: 1vw;
+  color: white;
+  font-weight: bold;
+  align-self: stretch;
+}
+
+.home-gpts-item:hover {
+  border: 3px solid #d8349c;
+  color: #d8349c;
+}
+
+/* GPTs */
+
+/* iOS */
+
+ul.nav-menu {
+  list-style-type: none;
+  padding: 20px;
+  margin: 0;
+}
+
+ul.nav-menu li {
+  display: inline;
+  margin-right: 20px;
+  text-decoration: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+}
+
+ul.nav-menu li.active {
+  text-decoration: none;
+  background-color: #d8349c;
+  padding: 15px 25px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+}
+
+ul.nav-menu li:hover {
+  text-decoration: none;
+  background-color: #d8349cc1;
+  padding: 15px 25px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+}
+
+.view {
+  display: none;
+}
+
+.active-view {
+  display: flex;
+  overflow: hidden;
+}
+
+/* iOS */
 
 textarea {
   border: none;
