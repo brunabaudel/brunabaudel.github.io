@@ -26,7 +26,7 @@
     <header class="site-header">
       <div class="content-container">
         <a href="#">
-          <img src="../../src/resources/logo.png" class="icon-logo">
+          <img src="../../src/resources/logo.png" class="icon-logo" />
         </a>
         <nav class="site-nav">
           <ul role="list" id="site-nav-list" class="site-nav__list">
@@ -39,7 +39,7 @@
             </li>
 
             <li>
-              <a href="../../projects">Projects</a>
+              <a href="../ios">iOS</a>
             </li>
 
             <li>
@@ -55,27 +55,67 @@
     </header>
 
     <main class="main-article">
-      <div style="width: 100%; display: flex; flex-direction: row; justify-content: left;">
-
-        <div style="flex:1;">
-          <button class="buttonMarkdown" style="margin: 10px 0px;" id="createFileButton">Save</button>
-          <input type="text" style="padding: 10px; border: none; border-bottom: 2px solid black; font-size: large;"
-          id="nameFileInput" name="namefile" 
-          placeholder="Enter file name">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: left;
+        "
+      >
+        <div style="flex: 1">
+          <button
+            class="buttonMarkdown"
+            style="margin: 10px 0px"
+            id="createFileButton"
+          >
+            Save
+          </button>
+          <input
+            type="text"
+            style="
+              padding: 10px;
+              border: none;
+              border-bottom: 2px solid black;
+              font-size: large;
+            "
+            id="nameFileInput"
+            name="namefile"
+            placeholder="Enter file name"
+          />
         </div>
 
-        <div style="flex:1; justify-content: end;">
-          <button class="buttonMarkdown" style="margin: 10px 0px;" id="previewFileButton">Preview</button>
+        <div style="flex: 1; justify-content: end">
+          <button
+            class="buttonMarkdown"
+            style="margin: 10px 0px"
+            id="previewFileButton"
+          >
+            Preview
+          </button>
         </div>
       </div>
 
-      <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        "
+      >
         <div style="flex: 1; width: 40%">
-          <textarea id="markdownInput" wrap="hard" rows="35%" cols="100%" style="width: 85%; background-color: white; font-size: 14px;"
-          placeholder="Enter Markdown here"></textarea>
+          <textarea
+            id="markdownInput"
+            wrap="hard"
+            rows="35%"
+            cols="100%"
+            style="width: 85%; background-color: white; font-size: 14px"
+            placeholder="Enter Markdown here"
+          ></textarea>
         </div>
 
-        <div style="flex: 1; width: 30%;" >
+        <div style="flex: 1; width: 30%">
           <div id="htmlOutput"></div>
         </div>
       </div>
@@ -92,9 +132,8 @@
       </footer>
     </div>
 
-  <script src="../src/js/prism.js"></script>
-  <script src="../src/js/markdowntohtml.js"></script>
-  
+    <script src="../src/js/prism.js"></script>
+    <script src="../src/js/markdowntohtml.js"></script>
   </body>
 </html>
 
