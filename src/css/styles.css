@@ -141,7 +141,7 @@ section {
   font-size: medium;
   text-align: left;
   color: #272727;
-  padding: 2% 10%;
+  padding: 2% 3%;
 }
 
 .home-projectbox-item {
@@ -501,12 +501,11 @@ body.project-gradient {
   /* max-width: 85vw; */
   /* width: min(90vw, 85rem); */
   margin-inline: auto;
-  padding: 30px;
 }
 
 .project {
   height: 30%;
-  width: 70%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
@@ -980,6 +979,19 @@ footer {
     font-size: smaller;
     padding: 5px 10px;
   }
+
+  ul.nav-menu li {
+    font-size: 5vw;
+    padding: 0px;
+  }
+
+  ul.nav-menu li.active {
+    padding: 0px;
+  }
+
+  ul.nav-menu {
+    padding: 0px;
+  }
 }
 
 /* Media 680 */
@@ -1069,12 +1081,7 @@ ul.nav-menu li.active {
 }
 
 ul.nav-menu li:hover {
-  text-decoration: none;
   background-color: #d8349cc1;
-  padding: 15px 25px;
-  cursor: pointer;
-  border: none;
-  border-radius: 30px;
 }
 
 .view {
@@ -1084,6 +1091,14 @@ ul.nav-menu li:hover {
 .active-view {
   display: flex;
   overflow: hidden;
+}
+
+.project-title {
+  color: white;
+  text-align: left;
+  padding: 30px 0px 30px 30px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* iOS */

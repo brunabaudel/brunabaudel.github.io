@@ -94,7 +94,7 @@
             </div>
 
             <button
-              onclick="showView('projects')"
+              onclick="document.getElementById('projects').scrollIntoView()"
               class="button animate-charcter"
             >
               Projects
@@ -123,103 +123,108 @@
         </div>
 
         <div class="home-right">
-          <!-- Navigation menu -->
-          <ul class="nav-menu">
-            <li class="active">
+          <!-- <div>
+            <ul class="nav-menu">
+              <li class="active">
+                <a
+                  href="#miniprojects"
+                  onclick="showView('miniprojects')"
+                  style="text-decoration: none; color: white"
+                  >Mini Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  onclick="showView('projects')"
+                  style="text-decoration: none; color: white"
+                  >Projects</a
+                >
+              </li>
+            </ul>
+          </div> -->
+          <div id="miniprojects">
+            <div class="project-title">New Projects (Open Source)</div>
+            <div class="home-projectbox">
               <a
-                href="#miniprojects"
-                onclick="showView('miniprojects')"
-                style="text-decoration: none; color: white"
-                >Mini Projects</a
+                href="https://github.com/brunabaudel/customCalendar"
+                target="_blank"
+                class="home-projectbox-item"
               >
-            </li>
-            <li>
-              <a
-                href="#projects"
-                onclick="showView('projects')"
-                style="text-decoration: none; color: white"
-                >Projects</a
-              >
-            </li>
-          </ul>
-
-          <div id="miniprojects" class="home-projectbox view active-view">
-            <a
-              href="https://github.com/brunabaudel/customCalendar"
-              target="_blank"
-              class="home-projectbox-item"
-            >
-              <div style="display: flex">
-                <img
-                  src="../src/resources/smallprojects/calendar.png"
-                  class="home-projectbox-img"
-                />
-
-                <div class="home-projectbox-text">
-                  <img
-                    src="../src/resources/icons8-github.svg"
-                    class="home-projectbox-item-icon"
-                  />
-                  <div>Custom</div>
-                  <div>Calendar</div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://github.com/brunabaudel/appleMusicSearch"
-              target="_blank"
-              class="home-projectbox-item"
-            >
-              <div style="display: flex">
-                <img
-                  src="../src/resources/smallprojects/applemusic.png"
-                  class="home-projectbox-img"
-                />
-
-                <div class="home-projectbox-text">
-                  <img
-                    src="../src/resources/icons8-github.svg"
-                    class="home-projectbox-item-icon"
-                  />
-                  <div>Apple Music</div>
-                  <div>(Search)</div>
-                </div>
-              </div>
-            </a>
-            <a
-              href="https://github.com/brunabaudel/mapPin"
-              target="_blank"
-              class="home-projectbox-item"
-            >
-              <div style="display: flex">
-                <img
-                  src="../src/resources/smallprojects/mapin.png"
-                  class="home-projectbox-img"
-                />
-
-                <div class="home-projectbox-text">
-                  <img
-                    src="../src/resources/icons8-github.svg"
-                    class="home-projectbox-item-icon"
-                  />
-                  <div>Map Pin</div>
-                  <div>Explorer</div>
-                </div>
-              </div>
-            </a>
-            <a href="" class="home-projectbox-item-cs">
-              <div>
                 <div style="display: flex">
+                  <img
+                    src="../src/resources/smallprojects/calendar.png"
+                    class="home-projectbox-img"
+                  />
+
                   <div class="home-projectbox-text">
-                    <div>Coming</div>
-                    <div>Soon</div>
+                    <img
+                      src="../src/resources/icons8-github.svg"
+                      class="home-projectbox-item-icon"
+                    />
+                    <div>Custom</div>
+                    <div>Calendar</div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+              <a
+                href="https://github.com/brunabaudel/appleMusicSearch"
+                target="_blank"
+                class="home-projectbox-item"
+              >
+                <div style="display: flex">
+                  <img
+                    src="../src/resources/smallprojects/applemusic.png"
+                    class="home-projectbox-img"
+                  />
+
+                  <div class="home-projectbox-text">
+                    <img
+                      src="../src/resources/icons8-github.svg"
+                      class="home-projectbox-item-icon"
+                    />
+                    <div>Apple Music</div>
+                    <div>(Search)</div>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="https://github.com/brunabaudel/mapPin"
+                target="_blank"
+                class="home-projectbox-item"
+              >
+                <div style="display: flex">
+                  <img
+                    src="../src/resources/smallprojects/mapin.png"
+                    class="home-projectbox-img"
+                  />
+
+                  <div class="home-projectbox-text">
+                    <img
+                      src="../src/resources/icons8-github.svg"
+                      class="home-projectbox-item-icon"
+                    />
+                    <div>Map Pin</div>
+                    <div>Explorer</div>
+                  </div>
+                </div>
+              </a>
+              <a href="" class="home-projectbox-item-cs">
+                <div>
+                  <div style="display: flex">
+                    <div class="home-projectbox-text">
+                      <div>Coming</div>
+                      <div>Soon</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
 
-          <div id="projects" class="view">
+          <div id="projects">
+            <div class="project-title">Published Projects</div>
+
             <div class="project-content-container">
               <div class="project" id="rcorners">
                 <div class="project-body">
