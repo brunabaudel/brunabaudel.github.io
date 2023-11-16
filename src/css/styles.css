@@ -641,20 +641,6 @@ footer {
     padding: 10%;
   }
 
-  .home-projectbox-text {
-    font-size: 8vw;
-  }
-
-  .home-projectbox-item {
-    height: 50%;
-    width: 100%;
-  }
-
-  .home-projectbox-item-cs {
-    height: 50%;
-    width: 100%;
-  }
-
   span.article-subtitle {
     font-size: 1.5em;
   }
@@ -774,19 +760,6 @@ footer {
   .project-tag {
     font-size: smaller;
     padding: 5px 10px;
-  }
-
-  ul.nav-menu li {
-    font-size: 5vw;
-    padding: 0px;
-  }
-
-  ul.nav-menu li.active {
-    padding: 0px;
-  }
-
-  ul.nav-menu {
-    padding: 0px;
   }
 
   .project-content-container {
