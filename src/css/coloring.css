@@ -1,0 +1,140 @@
+/* Coloring Book */
+
+.site-header-coloring .content-container-coloring {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 2rem;
+  /* align-items: center; */
+}
+
+.content-container-coloring {
+  max-width: 85vw;
+  width: min(90vw, 85rem);
+  margin-inline: auto;
+}
+
+.site-header-coloring {
+  padding: 1rem 0;
+}
+
+.coloring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  gap: 10px;
+}
+
+.coloring-grid-item {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.coloring-bg {
+  background-image: url(../resources/wall.png);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coloring-projectbox {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px 40px;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.coloring-modern-box {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(201, 192, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 80%;
+  height: 90%;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+
+.coloring-container {
+  display: flex;
+  align-self: center;
+}
+
+.coloring-box-content {
+  font-size: 10px;
+  color: rgb(192, 120, 221);
+  align-content: center;
+}
+
+.coloring-img {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.coloring-button {
+  background-image: linear-gradient(
+    rgba(192, 120, 221, 0.772),
+    rgba(141, 74, 168, 0.861)
+  );
+  color: white;
+  padding: 20px;
+  font-size: large;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+.coloring-button:hover {
+  background-image: linear-gradient(
+    rgba(179, 101, 210, 0.772),
+    rgba(127, 58, 154, 0.861)
+  );
+  color: white;
+}
+
+.coloring-download {
+  background-image: linear-gradient(rgb(214, 172, 231), rgb(164, 121, 181));
+  color: white;
+  padding: 20px;
+  font-size: medium;
+  text-decoration: none;
+  border-radius: 30px;
+
+  position: absolute;
+  bottom: 10px;
+  right: 100px;
+}
+
+.coloring-download:hover {
+  background-image: linear-gradient(rgba(179, 101, 210), rgb(179, 101, 210));
+}
+
+/* Coloring Book */
+
+@media screen and (max-width: 680px) {
+  .coloring-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coloring-grid-item {
+    padding: 10px;
+  }
+
+  .coloring-img {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .coloring-download {
+    padding: 10px;
+    font-size: medium;
+    right: 10px;
+  }
+}

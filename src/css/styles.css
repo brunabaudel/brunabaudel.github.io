@@ -150,49 +150,6 @@ section {
 
 /* Home */
 
-/* Coloring Book */
-
-.coloring-bg {
-  background-image: url(../resources/wall.png);
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.coloring-projectbox {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 10px 40px;
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.coloring-modern-box {
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.3),
-    rgba(201, 192, 255, 0.3),
-    rgba(255, 255, 255, 0.3)
-  );
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  width: 80%;
-  height: 90%;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.coloring-box-content {
-  font-size: 10px;
-  color: rgb(192, 120, 221);
-}
-
-/* Coloring Book */
-
 /* Article */
 
 .main-article {
