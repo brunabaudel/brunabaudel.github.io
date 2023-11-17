@@ -66,7 +66,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 40px;
   width: 80%;
-  height: 90%;
+  /* height: 30%; */
   /* text-align: center; */
   margin: 0 auto;
 }
@@ -79,6 +79,12 @@
 .coloring-box-content {
   color: rgb(192, 120, 221);
   align-content: center;
+}
+
+.coloring-main-section {
+  height: 100%;
+  padding: 40px;
+  align-items: center;
 }
 
 .coloring-main-img {
@@ -149,9 +155,16 @@
 @media screen and (max-width: 680px) {
   .coloring-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
   }
 
   .coloring-grid-item {
+    padding: 4px;
+  }
+
+  .coloring-img {
+    width: 80%;
+    border-radius: 5px;
     padding: 10px;
   }
 
@@ -173,20 +186,23 @@
     padding: 10px;
   }
 
-  .coloring-img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
   .coloring-download {
     padding: 10px;
-    font-size: medium;
-    right: 10px;
+    font-size: small;
+    right: 15px;
   }
 
   .coloring-button {
     padding: 10px;
     font-size: 4vw;
     border-radius: 30px;
+  }
+
+  .coloring-modern-box {
+    padding: 30px;
+  }
+
+  .coloring-main-section {
+    padding: 10px;
   }
 }
