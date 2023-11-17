@@ -37,6 +37,14 @@
   background-size: cover;
 }
 
+.coloring-bg2 {
+  background-image: url(../resources/wall2.png);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .coloring-projectbox {
   display: flex;
   flex-flow: row wrap;
@@ -69,7 +77,6 @@
 }
 
 .coloring-box-content {
-  font-size: 10px;
   color: rgb(192, 120, 221);
   align-content: center;
 }
