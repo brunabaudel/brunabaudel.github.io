@@ -1236,11 +1236,15 @@ textarea {
   }
 
   .project-projectbox-item {
-    font-size: 4.5vw;
+    font-size: 6vw;
     height: 75%;
     width: 66%;
     border: 0px solid rgba(0, 0, 0, 0);
     background-color: #ffffff00;
+  }
+
+  .project-projectbox-item:hover {
+    border: 0px solid #d8349c00;
   }
 
   .project-title {
