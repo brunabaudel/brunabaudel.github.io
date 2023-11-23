@@ -763,7 +763,6 @@ footer {
   text-decoration: none;
   height: 85%;
   width: 35%;
-  border: 2px solid black;
   border-radius: 20px;
   padding: 20px;
   background-color: black;
@@ -1240,6 +1239,8 @@ textarea {
     font-size: 4.5vw;
     height: 75%;
     width: 66%;
+    border: 0px solid rgba(0, 0, 0, 0);
+    background-color: #ffffff00;
   }
 
   .project-title {
