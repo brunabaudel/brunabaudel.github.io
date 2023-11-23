@@ -1091,6 +1091,11 @@ textarea {
     align-content: center;
   }
 
+  .slice-title {
+    font-size: 4.5vw;
+    font-weight: 900;
+  }
+
   .article-body {
     width: 100%;
   }
