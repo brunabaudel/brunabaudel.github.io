@@ -137,7 +137,7 @@ section {
   );
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 40px;
   width: 60%;
   text-align: center;
   margin: 0 auto;
@@ -150,6 +150,12 @@ section {
 .home-title {
   font-weight: bolder;
   font-size: 5.5em;
+}
+
+.home-subtitle {
+  font-weight: normal;
+  font-size: 1.5vw;
+  padding: 40px;
 }
 
 /* Home */
