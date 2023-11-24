@@ -5,7 +5,7 @@ function htmlBody(body, test) {
 
   return `<!DOCTYPE html>
 
-<html lang="en">
+  <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,14 +24,13 @@ function htmlBody(body, test) {
     <link rel="icon" href="../../src/resources/logo.ico" />
     <link rel="apple-touch-icon" href="../../src/resources/logo.png" />
     <link rel="stylesheet" href="../../src/css/styles.css" />
-    <link href="../../src/css/prism.css" rel="stylesheet" />
   </head>
 
   <body>
     <header class="site-header">
       <div class="content-container">
         <a href="#">
-          <img src="../../src/resources/logo.png" class="icon-logo">
+          <img src="../../src/resources/logo.png" class="icon-logo" />
         </a>
         <nav class="site-nav">
           <ul role="list" id="site-nav-list" class="site-nav__list">
@@ -44,7 +43,7 @@ function htmlBody(body, test) {
             </li>
 
             <li>
-              <a href="../../projects">Projects</a>
+              <a href="../../ios">iOS Apps</a>
             </li>
 
             <li>
@@ -110,6 +109,7 @@ function convertMarkdownToHTML(markdown, test) {
 
       while (isHeader) {
         const internalLine = lines[lineNumber];
+        console.log(internalLine);
 
         if (internalLine.length > 0 && internalLine.startsWith("#")) {
           const titleText = internalLine.split(" ");
