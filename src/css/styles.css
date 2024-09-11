@@ -276,6 +276,50 @@ ol {
 
 /* Timeline */
 
+.timeline-header-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-header-image-container {
+  flex-shrink: 0;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.timeline-header-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline-header-text-container {
+  flex-grow: 1;
+}
+
+.timeline-story-subtitle {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .container {
+      flex-direction: column;
+      text-align: center;
+  }
+  .image-container {
+      width: 200px;
+      height: 200px;
+  }
+}
+
 .timeline-text {
   margin-bottom: 1.2rem;
   font-size: 1.1em;
