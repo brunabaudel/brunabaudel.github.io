@@ -287,8 +287,8 @@ ol {
 
 .timeline-header-image-container {
   flex-shrink: 0;
-  width: 400px;
-  height: 400px;
+  width: 30%;
+  height: 30%;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -303,20 +303,15 @@ ol {
   flex-grow: 1;
 }
 
-.timeline-story-subtitle {
-  margin: 0;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-@media (max-width: 600px) {
-  .container {
+@media (max-width: 800px) {
+  .timeline-header-container {
       flex-direction: column;
       text-align: center;
+      max-width: 500px;
   }
-  .image-container {
-      width: 200px;
-      height: 200px;
+  .timeline-header-image-container img {
+      width: 100%;
+      height: 100%;
   }
 }
 
@@ -417,7 +412,7 @@ ol {
 
 .timeline-title-about {
   margin-bottom: 1rem;
-  font-size: 3em;
+  font-size: 2.6em;
   font-weight: bolder;
   text-align: center;
   color: white;
