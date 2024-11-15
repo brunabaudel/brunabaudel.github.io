@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, height=device-height" />
+
+    <title>Bruna Baudel - Personal Website</title>
+    <link rel="canonical" href="https://brunabaudel.com" />
+    <meta name="description" content="Personal Website" />
+    <meta name="author" content="Bruna Baudel" />
+
+    <meta property="og:title" content="Personal Website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.brunabaudel.com" />
+    <meta property="og:description" content="Personal Website" />
+    <meta property="og:image" content="../src/resources/logo-b.png" />
+
+    <link rel="icon" type="image/x-icon" href="../src/resources/logo.ico" />
+    <link rel="apple-touch-icon" href="../src/resources/logo-b.png" />
+    <link rel="stylesheet" href="../src/css/styles.css" />
+    <link rel="stylesheet" href="../src/css/coloring.css" />
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> -->
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+        }
+        h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .letter-container {
+            display: inline-block;
+            text-align: center;
+            margin: 0 4px;
+            position: relative;
+        }
+        .letter-input {
+            width: 40px;
+            height: 40px;
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 8px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: white;
+            color: #2c3e50;
+        }
+        .letter-input:focus {
+            outline: none;
+            border-color: #6e8efb;
+            box-shadow: 0 0 10px rgba(110, 142, 251, 0.3);
+        }
+        .number {
+            font-size: 1.2em;
+            color: #666;
+            font-weight: 500;
+        }
+        .word-row {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .message {
+            margin: 1.5rem 0;
+            font-size: 1.3em;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 500;
+        }
+        .filled {
+            background: linear-gradient(135deg, #87f7cf, #6e8efb);
+            border-color: transparent;
+            color: white;
+        }
+        .error {
+            background: #ff7675;
+            border-color: #d63031;
+            color: white;
+            animation: shake 0.5s;
+        }
+        .success {
+            animation: success 0.5s;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        @keyframes success {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .controls {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+        }
+        @media (max-width: 600px) {
+            .game-container {
+                padding: 1rem;
+                width: 95%;
+            }
+            .letter-input {
+                width: 30px;
+                height: 30px;
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+    </style>
+  </head>
+
+  <body style="background-color: rgba(250, 237, 255, 0.772)">
+    <main>
+      <header class="site-header">
+        <div class="content-container">
+          <a href="#">
+            <img src="../src/resources/logo-b.png" class="icon-logo" />
+          </a>
+          <nav class="site-nav">
+            <ul role="list" id="site-nav-list" class="site-nav__list">
+                <li>
+                  <a class="active" href="#">Home</a>
+                </li>
+    
+                <li>
+                  <a class="color-white" href="../gpt">Services</a>
+                </li>
+    
+                <li>
+                  <a class="color-white" href="../articles">Articles</a>
+                </li>
+    
+                <li>
+                  <a class="color-white" href="../ios">iOS Apps</a>
+                </li>
+    
+                <li>
+                  <a class="color-white" href="../about">About me</a>
+                </li>
+    
+                <li>
+                  <a class="color-white" href="../more">More...</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        
+    <section>
+        <div class="game-container">
+            <h2>Dutch Word Game</h2>
+            <div class="word-row"></div>
+            <div class="controls">
+                <button onclick="newGame()">New Sentence</button>
+            </div>
+            <div class="message"></div>
+        </div>
+    </section>    
+      
+    </main>
+
+    <section style="height: 100%;">
+      <footer class="site-footer slice" style="margin-top: auto">
+        <div class="content-container">
+          <div class="copyright">
+            <p>© Bruna Baudel 2023.<br /></p>
+            <p>
+              <strong>All rights reserved.</strong>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <script>
+        const sentences = [
+            // Greetings and Basic Phrases
+            "Hoe gaat het met jou",
+            "Dank je wel",
+            "Tot ziens",
+            "Goedemorgen",
+            "Alles goed",
+            "Heb een fijne dag",
+            "Ik spreek een beetje Nederlands",
+            "Hoe heet je",
+            "Aangenaam kennis te maken",
+            "Waar kom je vandaan",
+            "Het spijt me",
+            "Geen probleem",
+            "Graag gedaan",
+            "Ik begrijp het niet",
+            "Kunt u dat herhalen",
+
+            // Common Expressions
+            "Laten we gaan",
+            "Het is mooi weer vandaag",
+            "Ik heb honger",
+            "Ik heb dorst",
+            "Hoe laat is het",
+            "Waar is het station",
+            "Mag ik de rekening",
+            "Spreekt u Engels",
+            "Ik ben verdwaald",
+            "Het komt goed",
+
+            // Daily Life
+            "Ik ga naar huis",
+            "Ik moet werken",
+            "Wat ga je doen",
+            "Ik ben moe",
+            "Lekker geslapen",
+            "Eet smakelijk",
+            "Ik hou van Nederland",
+            "Het regent weer",
+            "Dat is interessant",
+            "Wat denk je ervan",
+
+            // Questions
+            "Wat is er aan de hand",
+            "Wanneer vertrek je",
+            "Waar woon je",
+            "Wat doe je voor werk",
+            "Hoe oud ben je",
+            "Waarom niet",
+            "Wat bedoel je",
+            "Hoe werkt dit",
+            "Waar gaat dit over",
+            "Wat is het verschil",
+
+            // Opinions and Feelings
+            "Dat vind ik leuk",
+            "Ik ben het ermee eens",
+            "Dat is waar",
+            "Dat klopt niet",
+            "Het maakt niet uit",
+            "Ik mis je",
+            "Ik ben blij",
+            "Dat is jammer",
+            "Geweldig idee",
+            "Dat is grappig",
+
+            // Time Expressions
+            "Tot morgen",
+            "Volgende week",
+            "Het is laat",
+            "We hebben tijd",
+            "Kom op tijd",
+            "Even wachten",
+            "Nu of nooit",
+            "Het duurt lang",
+            "Tot straks",
+            "Een momentje",
+
+            // Social Interaction
+            "Wil je koffie",
+            "Kom binnen",
+            "Ga zitten",
+            "Wat leuk je te zien",
+            "Hoe was je weekend",
+            "Veel succes",
+            "Beterschap",
+            "Gefeliciteerd",
+            "Proost",
+            "Smakelijk eten",
+
+            // Shopping and Services
+            "Hoeveel kost dit",
+            "Heeft u wisselgeld",
+            "Is dit te koop",
+            "Ik zoek een",
+            "Waar kan ik betalen",
+            "Dit graag",
+            "Heeft u dit in",
+            "Kan ik pinnen",
+            "Is dit alles",
+            "Dat is duur",
+
+            // Travel
+            "Waar is de uitgang",
+            "Rechtdoor lopen",
+            "Links afslaan",
+            "Rechts afslaan",
+            "Is dit de juiste richting",
+            "Hoe ver is het",
+            "Is er een toilet",
+            "Waar kan ik parkeren",
+            "Wanneer vertrekt de trein",
+            "Mag ik hier zitten",
+
+            // Weather and Nature
+            "Het is koud vandaag",
+            "De zon schijnt",
+            "Het waait hard",
+            "Het sneeuwt",
+            "Wat een mooie dag",
+            "Het wordt donker",
+            "Het is bewolkt",
+            "Typisch Nederlands weer",
+            "Het wordt warmer",
+            "Kijk naar de lucht",
+
+            // Cultural
+            "Lekker belangrijk",
+            "Doe maar gewoon",
+            "Gezellig samen",
+            "Even een bakkie doen",
+            "Uitwaaien aan zee",
+            "Op de fiets",
+            "Lekker rustig aan",
+            "Geen gedoe",
+            "Zo hoort het",
+            "Afspraak is afspraak"
+        ];
+
+        let currentWord = "";
+        let numberMapping = {};
+        let currentNumbers = [];
+        let nextNumber = 1;
+        let inputs = [];
+        let letterPositions = [];
+        let revealedPositions = [];
+
+        const containerWidth = document.querySelector('.word-row').clientWidth;
+        const wordRow = document.querySelector('.word-row');
+        wordRow.style.cssText = `
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        `;
+
+        function createConfetti() {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            document.body.appendChild(celebration);
+
+            for(let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = -10 + 'px';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                celebration.appendChild(confetti);
+
+                const animation = confetti.animate([
+                    { transform: `translate(0, 0) rotate(0deg)` },
+                    { transform: `translate(${Math.random() * 400 - 200}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)` }
+                ], {
+                    duration: 1500 + Math.random() * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+
+                animation.onfinish = () => confetti.remove();
+            }
+
+            setTimeout(() => celebration.remove(), 2500);
+        }
+
+        function checkForWin() {
+            let allCorrect = true;
+            let allFilled = true;
+            
+            inputs.forEach((input) => {
+                if(!input.disabled) {
+                    const position = parseInt(input.dataset.position);
+                    const userChar = input.value.toLowerCase();
+                    const expectedChar = currentWord[position].toLowerCase();
+                    
+                    if(!userChar) {
+                        allFilled = false;
+                    }
+                    if(userChar !== expectedChar) {
+                        allCorrect = false;
+                    }
+                }
+            });
+
+            if(allFilled && allCorrect) {
+                document.querySelector('.message').textContent = "🎉 Gefeliciteerd! Je hebt gewonnen! 🎉";
+                inputs.forEach(input => {
+                    input.disabled = true;
+                    input.classList.add('success');
+                });
+                createConfetti();
+            }
+        }
+
+        function initializeGame() {
+            currentWord = sentences[Math.floor(Math.random() * sentences.length)];
+            numberMapping = {};
+            currentNumbers = [];
+            nextNumber = 1;
+            inputs = [];
+            letterPositions = [];
+            
+            let position = 0;
+            for(let char of currentWord.toLowerCase()) {
+                if(/[a-z]/.test(char)) {
+                    if(!(char in numberMapping)) {
+                        numberMapping[char] = nextNumber++;
+                    }
+                    currentNumbers.push(numberMapping[char]);
+                    letterPositions.push(position);
+                } else {
+                    currentNumbers.push(" ");
+                }
+                position++;
+            }
+            
+            revealedPositions = [];
+            const numToReveal = Math.floor(Math.random() * 2) + 2;
+            while(revealedPositions.length < numToReveal) {
+                const randomPos = letterPositions[Math.floor(Math.random() * letterPositions.length)];
+                if(!revealedPositions.includes(randomPos)) {
+                    revealedPositions.push(randomPos);
+                }
+            }
+            
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const wordRow = document.querySelector('.word-row');
+            wordRow.innerHTML = '';
+            inputs = [];
+            
+            // Split sentence into words
+            const words = currentWord.split(' ');
+            
+            words.forEach((word, wordIndex) => {
+                // Create container for each word
+                const wordContainer = document.createElement('div');
+                wordContainer.style.cssText = `
+                    display: flex;
+                    margin: 0.5rem 0;
+                    align-items: flex-start;
+                `;
+                
+                let wordStartIndex = currentWord.indexOf(word, wordIndex === 0 ? 0 : currentWord.indexOf(words[wordIndex - 1]) + words[wordIndex - 1].length);
+                
+                for(let i = 0; i < word.length; i++) {
+                    const letterDiv = document.createElement('div');
+                    letterDiv.className = 'letter-container';
+                    const currentIndex = wordStartIndex + i;
+                    
+                    const input = document.createElement('input');
+                    input.className = 'letter-input';
+                    input.maxLength = 1;
+                    input.type = 'text';
+                    input.dataset.position = currentIndex;
+                    
+                    if(revealedPositions.includes(currentIndex)) {
+                        input.value = currentWord[currentIndex];
+                        input.disabled = true;
+                        input.classList.add('filled');
+                    }
+                    
+                    input.addEventListener('input', function() {
+                        if(this.value.length === 1) {
+                            const position = parseInt(this.dataset.position);
+                            const userChar = this.value.toLowerCase();
+                            const expectedChar = currentWord[position].toLowerCase();
+                            
+                            if(userChar !== expectedChar) {
+                                this.classList.add('error');
+                                setTimeout(() => {
+                                    this.value = '';
+                                    this.classList.remove('error');
+                                }, 500);
+                            } else {
+                                checkForWin();
+                                const nextInput = this.parentElement.nextElementSibling;
+                                if(nextInput) {
+                                    const nextInputField = nextInput.querySelector('input');
+                                    if(nextInputField && !nextInputField.disabled) {
+                                        nextInputField.focus();
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    input.addEventListener('keydown', function(e) {
+                        if(e.key === 'Backspace' && this.value === '') {
+                            const prevInput = this.parentElement.previousElementSibling;
+                            if(prevInput) {
+                                const prevInputField = prevInput.querySelector('input');
+                                if(prevInputField && !prevInputField.disabled) {
+                                    prevInputField.focus();
+                                }
+                            }
+                        }
+                    });
+                    
+                    inputs.push(input);
+                    letterDiv.appendChild(input);
+                    
+                    const numberSpan = document.createElement('div');
+                    numberSpan.className = 'number';
+                    numberSpan.textContent = currentNumbers[currentIndex];
+                    letterDiv.appendChild(numberSpan);
+                    
+                    wordContainer.appendChild(letterDiv);
+                }
+                
+                wordRow.appendChild(wordContainer);
+            });
+            
+            if(inputs.length > 0) {
+                const firstEmptyInput = inputs.find(input => !input.disabled);
+                if(firstEmptyInput) {
+                    firstEmptyInput.focus();
+                }
+            }
+            
+            document.querySelector('.message').textContent = "";
+        }
+
+        function newGame() {
+            initializeGame();
+        }
+
+        initializeGame();
+    </script>
+  </body>
+</html>
