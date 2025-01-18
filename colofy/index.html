@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Colofy App</title>
+    <link rel="icon" type="image/png" href="../src/resources/colofyapp-icon.png">
     <style>
         :root {
-            --primary-color: #4a90e2;
+            --primary-color: #000000;
             --text-color: #333;
             --background-color: #fff;
             --secondary-bg: #f7f9fc;
@@ -36,6 +37,20 @@
             padding: 1rem 0;
             margin-bottom: 1rem;
             border-bottom: 1px solid #eee;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .header-icon {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
         }
 
         h1 {
@@ -101,23 +116,34 @@
             h2 {
                 font-size: 1.5rem;
             }
+
+            .header-icon {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: January 8, 2025</p>
+            <div class="header-content">
+                <img src="../src/resources/colofyapp-icon.png" alt="Colofy App Icon" class="header-icon">
+                <div>
+                    <h1>Privacy Policy</h1>
+                    <p class="last-updated">Last Updated: January 18, 2025</p>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="container">
         <div class="section">
             <h2>Introduction</h2>
-            <p>Welcome to Colofy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
+            <p>Welcome to Colofy App. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the application.</p>
         </div>
 
+        <!-- Rest of the content remains the same -->
         <div class="section">
             <h2>Information We Collect</h2>
             
@@ -125,12 +151,6 @@
             <p>When you sign up for our App, we collect:</p>
             <ul>
                 <li>Email address</li>
-                <li>Account credentials</li>
-            </ul>
-
-            <h3>User-Generated Content</h3>
-            <ul>
-                <li>Your creative prompts</li>
             </ul>
 
             <h3>Puschase</h3>
@@ -144,7 +164,6 @@
             <p>We use the collected information for:</p>
             <ul>
                 <li>Creating and maintaining your account</li>
-                <li>Providing AI image generation services through OpenAI's API</li>
                 <li>Processing in-app purchases</li>
             </ul>
         </div>
@@ -165,7 +184,7 @@
             <ul>
                 <li>OpenAI (for image generation)</li>
                 <li>DigitalOcean (for hosting)</li>
-                <li>Payment processors (for in-app purchases)</li>
+                <li>Apple payment processor (for in-app purchases)</li>
             </ul>
             <p>Each third-party service has its own privacy policy governing how they handle your data.</p>
         </div>
@@ -187,8 +206,7 @@
                 <li>Access your personal data</li>
                 <li>Correct inaccurate data</li>
                 <li>Request deletion of your data</li>
-                <li>Requset export your data</li>
-                <li>Withdraw consent for data processing</li>
+                <li>Request export your data</li>
             </ul>
         </div>
 
@@ -205,7 +223,7 @@
         <div class="section">
             <h2>Contact Us</h2>
             <p>If you have questions about this Privacy Policy, please contact us at:</p>
-            <p>becoloringbook@gmail.com</p>
+            <p>colofyapp@gmail.com</p>
         </div>
 
         <div class="section">
