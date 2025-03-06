@@ -1,33 +1,44 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
-    <meta name="viewport" content="width=device-width, height=device-height" />
-
-    <title>Bruna Baudel - Personal Website</title>
-    <link rel="canonical" href="https://brunabaudel.com" />
-    <meta name="description" content="Personal Website" />
-    <meta name="author" content="Bruna Baudel" />
-
-    <meta property="og:title" content="Personal Website" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.brunabaudel.com" />
-    <meta property="og:description" content="Personal Website" />
-    <meta property="og:image" content="../src/resources/logo-b.png" />
-
-    <link rel="icon" type="image/x-icon" href="../src/resources/logo.ico" />
-    <link rel="apple-touch-icon" href="./src/resources/logo-b.png" />
-    <link rel="stylesheet" href="./src/css/styles.css" />
-    <link rel="stylesheet" href="./src/css/coloring.css" />
-    <!-- <link rel="icon" href="/favicon.ico" /> -->
-    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> -->
-  </head>
-
-  <body style="background-color: rgba(250, 237, 255, 0.772)">
-    <main>
-      <div class="coloring-bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height" />
+  <title>Bruna Baudel - Personal Website</title>
+  <link rel="canonical" href="https://brunabaudel.com" />
+  <meta name="description" content="Personal Website" />
+  <meta name="author" content="Bruna Baudel" />
+  <meta property="og:title" content="Personal Website" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.brunabaudel.com" />
+  <meta property="og:description" content="Personal Website" />
+  <meta property="og:image" content="../src/resources/logo-b.png" />
+  <link rel="icon" type="image/x-icon" href="../src/resources/logo.ico" />
+  <link rel="apple-touch-icon" href="./src/resources/logo-b.png" />
+  <link rel="stylesheet" href="./src/css/styles.css" />
+  <link rel="stylesheet" href="./src/css/coloring.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: rgb(255, 255, 255);
+    }
+    main {
+      flex: 1 0 auto; /* This makes the main content take up available space */
+    }
+    footer {
+      flex-shrink: 0; /* This prevents the footer from shrinking */
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="coloring-bg">
       <header class="site-header">
         <div class="content-container">
           <a href="#">
@@ -35,197 +46,51 @@
           </a>
           <nav class="site-nav">
             <ul role="list" id="site-nav-list" class="site-nav__list">
-                <li>
-                  <a class="active" href="#">Home</a>
-                </li>
-    
-                <li>
-                  <a class="color-white" href="./gpt">Services</a>
-                </li>
-    
-                <li>
-                  <a class="color-white" href="./articles">Articles</a>
-                </li>
-    
-                <li>
-                  <a class="color-white" href="./ios">iOS Apps</a>
-                </li>
-    
-                <li>
-                  <a class="color-white" href="./about">About me</a>
-                </li>
-    
-                <li>
-                  <a class="color-white" href="./more">More...</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-        
-        <section class="coloring-main-section">
-          <div class="coloring-modern-box">
-            <div class="coloring-container coloring-container-first">
-              <div class="coloring-box-content">
-                <div class="coloring-main-text">
-                  <span>Colofy</span><br>
-                </div>
-                <p class="coloring-main-subtext">
-                  Join our members today and receive one new coloring page every
-                  week!
-                </p>
-                <a
-                  href="https://forms.gle/7S9WXBCWtVvTUnsX9"
-                  class="coloring-button"
-                  >Receive Weekly</a
-                >
-              </div>
-              <div class="coloring-box-content" style="text-align: right">
-                <img
-                  src="/src/resources/coloring/img.png"
-                  class="coloring-main-img"
-                />
-              </div>
-            </div>
-          </div>
-        
-      </section>
-    
-    </div>
-      <section style="background-color: rgba(250, 237, 255, 0.772)">
-        <p
-          style="
-            text-align: center;
-            color: rgba(141, 74, 168, 0.436);
-            font-size: 5vw;
-            font-weight: bold;
-          "
-        >
-          Get your Favorites :)
-        </p>
-        <div class="coloring-grid">
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img1.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img1.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img2.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img2.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img3.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img3.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img4.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img4.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img5.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img5.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img6.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img6.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img7.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img7.png"
-              download
-              >Download</a
-            >
-          </div>
-          <div class="coloring-grid-item">
-            <img src="/src/resources/coloring/img8.png" class="coloring-img" />
-            <a
-              class="coloring-download"
-              href="/src/resources/coloring/img8.png"
-              download
-              >Download</a
-            >
-          </div>
+              <li>
+                <a class="active" href="#">Home</a>
+              </li>
+              <li>
+                <a class="color" href="./articles">Articles</a>
+              </li>
+              <li>
+                <a class="color" href="./ios">iOS Apps</a>
+              </li>
+              <li>
+                <a class="color" href="./about">About me</a>
+              </li>
+              <li>
+                <a class="color" href="./more">More...</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </section>
-      <section class="coloring-main-section coloring-bg2">
-        <div class="coloring-modern-box">
+      </header>
+      <section class="coloring-main-section">
           <div class="coloring-container">
-            <div class="coloring-box-content" style="text-align: left">
-              <img
-                src="/src/resources/coloring/img4.png"
-                class="coloring-main-img"
-              />
-            </div>
             <div class="coloring-box-content">
               <div class="coloring-main-text">
-                <span>Image & Share Coloring Book</span>
+                <span>Olá, I'm Bruna 😊</span>
               </div>
-              <p class="coloring-main-subtext">
-                Take your creativity to the next level and create beautiful
-                coloring images for kids
-              </p>
-              <a
-                href="https://chat.openai.com/g/g-FmrsovDYs-coloring-book"
-                class="coloring-button"
-                >Try it for FREE</a
-              >
-            </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+                <div style="display: flex; gap: 20px; margin-top: 10px;">
+                  <a href="./about" class="coloring-button">Read My Story</a>
+                  <a href="./ios" class="coloring-button">See My Work</a>
+                </div>
+              </div>
           </div>
         </div>
       </section>
-    </main>
-
-    <section style="height: 100%; background-color: rgba(183, 154, 211, 0.739)">
-      <footer class="site-footer slice" style="margin-top: auto">
-        <div class="content-container">
-          <div class="copyright">
-            <p>© Bruna Baudel 2023.<br /></p>
-            <p>
-              <strong>All rights reserved.</strong>
-            </p>
-          </div>
-        </div>
-      </footer>
-    </section>
-  </body>
+    </div>
+  </main>
+  <footer class="site-footer slice">
+    <div class="content-container">
+      <div class="copyright">
+        <p>© Bruna Baudel 2023.<br /></p>
+        <p>
+          <strong>All rights reserved.</strong>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>

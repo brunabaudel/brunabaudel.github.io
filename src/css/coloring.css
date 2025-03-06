@@ -30,7 +30,7 @@
 }
 
 .coloring-bg {
-  background-image: url(../resources/wall.png);
+  /* background-image: url(../resources/wall.png); */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 }
 
 .coloring-bg2 {
-  background-image: url(../resources/wall2.png);
+  /* background-image: url(../resources/wall2.png); */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,12 +72,12 @@
 }
 
 .coloring-container {
-  display: flex;
   align-self: center;
+  text-align: center;
 }
 
 .coloring-box-content {
-  color: rgb(192, 120, 221);
+  color: rgb(0, 0, 0);
   align-content: center;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .coloring-main-subtext {
-  color: rgba(146, 50, 183, 0.861);
+  color: rgba(0, 0, 0, 0.861);
   font-size: 24px;
   padding-bottom: 30px;
 }
@@ -115,8 +115,8 @@
 
 .coloring-button {
   background-image: linear-gradient(
-    rgba(192, 120, 221, 0.772),
-    rgba(141, 74, 168, 0.861)
+    rgba(0, 0, 0, 0.772),
+    rgba(0, 0, 0, 0.861)
   );
   color: white;
   padding: 20px;
@@ -127,14 +127,14 @@
 
 .coloring-button:hover {
   background-image: linear-gradient(
-    rgba(179, 101, 210, 0.772),
-    rgba(127, 58, 154, 0.861)
+    rgba(0, 0, 0, 0.772),
+    rgba(0, 0, 0, 0.861)
   );
   color: white;
 }
 
 .coloring-download {
-  background-image: linear-gradient(rgb(214, 172, 231), rgb(164, 121, 181));
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(59, 59, 59));
   color: white;
   padding: 20px;
   font-size: medium;
@@ -147,7 +147,7 @@
 }
 
 .coloring-download:hover {
-  background-image: linear-gradient(rgba(179, 101, 210), rgb(179, 101, 210));
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
 }
 
 /* Coloring Book */
@@ -166,10 +166,6 @@
     width: 80%;
     border-radius: 5px;
     padding: 10px;
-  }
-
-  .coloring-container {
-    flex-direction: column;
   }
 
   .coloring-container-first {
