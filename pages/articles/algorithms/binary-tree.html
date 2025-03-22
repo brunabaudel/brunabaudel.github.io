@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bruna Baudel - Personal Website</title>
+    <link rel="canonical" href="https://brunabaudel.com/articles" />
+    <meta name="description" content="Personal Website" />
+    <meta name="author" content="Bruna Baudel" />
+
+    <meta property="og:title" content="Personal Website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.brunabaudel.com/articles" />
+    <meta property="og:description" content="Personal Website" />
+    <meta property="og:image" content="../../src/resources/logo.png" />
+
+    <link rel="icon" href="../../src/resources/logo.ico" />
+    <link rel="apple-touch-icon" href="../../src/resources/logo.png" />
+    <link rel="stylesheet" href="../../../src/css/styles.css" />
+    <link href="../../../src/css/prism.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main class="main-article">
+        <div class="content-container">
+
+          <div class="article">            
+            <div class="article-body">
+
+              <!-- <div>
+                <img class="article-img" src="../../src/resources/ios/pdfreader.png"
+                alt="PDF Reader" />
+              </div> -->
+
+              <div class="article-header">
+                <span class="article-title0">
+                  Exploring Binary Trees in Swift
+                </span>
+
+                <span class="article-subtitle">
+                  Exploring Binary Trees in Swift
+                </span>
+
+                <span class="article-date">
+                  Published on <time>Sep 4, 2023</time>
+                </span>
+              </div>
+            <div>
+<p>
+Binary trees are fundamental data structures used in computer science and
+software development. They serve a variety of purposes, from efficiently 
+searching and sorting data to representing hierarchical relationships. 
+In Swift, working with binary trees is both intuitive and efficient.
+In this article, we will delve into binary trees, their properties, and 
+demonstrate how to implement them in Swift.
+</p>
+
+<span class="article-title1">
+What is a Binary Tree?
+</span>
+<p>
+A binary tree is a hierarchical data structure in which each node has at most 
+two children, referred to as the left and right child. The top node in a binary 
+tree is called the root, and nodes with no children are called leaf nodes. 
+Binary trees come in various forms, including binary search trees (BSTs), 
+AVL trees, and more, each with specific characteristics and use cases.
+</p>
+
+<span class="article-title1">
+Anatomy of a Binary Tree
+</span>
+
+<p>
+Before diving into Swift code, let's understand the fundamental components 
+of a binary tree:
+</p>
+
+<div>
+  <img style="width: 60%; height: 60%;" 
+  src="../../src/resources/algorithms/binary-tree.svg"
+  alt="Binary Tree" />
+</div>
+
+<ul>
+  <li><b>Node:</b> The basic building block of a binary tree. Each node contains data and 
+    references to its left and right children.</li>
+  <li><b>Root:</b> The top node of the tree, from which all other nodes are 
+    descended.</li>
+  <li><b>Parent Node:</b> A node that has one or more child nodes.</li>
+  <li><b>Child Node:</b> A node that is a descendant of another node.</li>
+  <li><b>Leaf Node:</b> A node with no children.</li>
+  <li><b>Height:</b> The length of the longest path from the root to a leaf node. 
+    The height of the tree is the height of the root node.</li>
+  <li><b>Depth:</b> The depth of a node is the length of the path from the root 
+    to that node.</li>
+</ul>
+
+<span class="article-title1">
+Implementing a Binary Tree in Swift
+</span>
+
+<p>
+  To implement a binary tree in Swift, we'll first create a 
+  <code class="language-swift">Node</code> class to 
+  represent each node in the tree. Each <code class="language-swift">Node</code> 
+  object will contain data and 
+  references to its left and right children (if they exist). 
+  Here's a simple implementation:
+</p>
+
+<pre>
+<code class="language-swift">class Node<T> {
+  var data: T
+  var left: Node?
+  var right: Node?
+  
+  init(data: T) {
+      self.data = data
+      self.left = nil
+      self.right = nil
+  }
+}</code>
+</pre>
+
+<p>
+In this implementation, <code class="language-swift">T</code> represents the 
+type of data that the node 
+will hold. You can use any data type you need.
+</p>
+
+<p>
+Now, let's create a binary tree class that can be used to build and manipulate 
+the tree. We'll include methods for inserting nodes, searching for nodes, and 
+traversing the tree. (See how to implement iterative binary tree algorithm
+<a href="./binary-tree-iterative.html">here</a>)
+</p>
+
+<pre>
+<code class="language-swift">class BinaryTree<T: Comparable> {
+  var root: Node<T>?
+  
+  // Insert a node into the tree
+  func insert(data: T) {
+      root = insertRec(root, data)
+  }
+  
+  private func insertRec(_ node: Node<T>?, _ data: T) -> Node<T> {
+      if let node = node {
+          if data < node.data {
+              node.left = insertRec(node.left, data)
+          } else if data > node.data {
+              node.right = insertRec(node.right, data)
+          }
+          return node
+      } else {
+          return Node(data: data)
+      }
+  }
+  
+  // Perform an in-order traversal of the tree
+  func inOrderTraversal(_ node: Node<T>?, _ result: inout [T]) {
+      if let node = node {
+          inOrderTraversal(node.left, &result)
+          result.append(node.data)
+          inOrderTraversal(node.right, &result)
+      }
+  }
+}</code>
+</pre>
+
+<span class="article-title1">
+Capturing Values
+</span>
+
+<p>
+In this <code class="language-swift">BinaryTree</code> 
+class, we have an <code class="language-swift">insert</code> 
+method to insert nodes 
+into the tree, and an <code class="language-swift">inOrderTraversal</code> 
+method to perform an in-order traversal of 
+the tree (which prints the nodes in ascending order for a BST).
+</p>
+
+<span class="article-title1">
+Using the Binary Tree
+</span>
+
+<p>
+Now that we have our binary tree implementation, let's create a binary tree, 
+insert some data, and traverse it:
+</p>
+
+<pre>
+  <code class="language-swift">// Create a binary tree
+let tree = BinaryTree<Int>()
+
+// Insert data into the tree
+tree.insert(data: 5)
+tree.insert(data: 3)
+tree.insert(data: 8)
+tree.insert(data: 1)
+tree.insert(data: 4)
+tree.insert(data: 7)
+tree.insert(data: 9)
+
+// Perform in-order traversal
+var result = [Int]()
+tree.inOrderTraversal(tree.root, &result)
+print(result) // Output: [1, 3, 4, 5, 7, 8, 9]</code>
+</pre>
+
+<p>
+This code snippet demonstrates the creation of a binary tree, insertion 
+of data, and performing an in-order traversal to print the sorted values.
+</p>
+
+<span class="article-title1">
+Conclusion
+</span>
+
+<p>
+Binary trees are a crucial data structure in computer science and Swift 
+provides an elegant and efficient way to work with them. In this article,
+we've explored the basics of binary trees, their components, and implemented a
+simple binary tree in Swift. You can expand upon this foundation to create more 
+complex trees or use them in various algorithms and applications, such as binary 
+search trees for efficient searching and sorting operations. Understanding and 
+mastering binary trees is a valuable skill for any Swift developer.
+</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="page__bottom">
+      <footer class="site-footer slice">
+        <div class="content-container">
+          <div class="copyright">
+            <p>© Bruna Baudel 2023.<br /></p>
+            <p>
+              <strong>All rights reserved.</strong>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../../src/js/prism.js"></script>
+  </body>
+</html>

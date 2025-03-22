@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: white; color: #333;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bruna Baudel - About Me</title>
+    <meta name="description" content="Learn more about Bruna Baudel - iOS Developer, Tech Enthusiast and Digital Nomad" />
+    <meta name="author" content="Bruna Baudel" />
+
+    <meta property="og:title" content="About Bruna Baudel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.brunabaudel.com/about" />
+    <meta property="og:description" content="Learn more about Bruna Baudel - iOS Developer, Tech Enthusiast and Digital Nomad" />
+    <meta property="og:image" content="src/resources/logo-b.png" />
+
+    <link rel="icon" href="src/resources/logo.ico" />
+    <link rel="apple-touch-icon" href="src/resources/logo-b.png" />
+    
+    <style>
+      :root {
+        --primary-bg: white;
+        --text-color: #333;
+        --accent-color: #6366f1;
+        --card-bg: rgba(248, 248, 250, 0.9);
+        --border-radius: 16px;
+        --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+      
+      html, body {
+        height: 100%;
+        background: var(--primary-bg);
+        color: var(--text-color);
+      }
+      
+      .content-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header Styles */
+      .site-header {
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.9);
+        top: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .site-header .content-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .icon-logo {
+        height: 40px;
+        width: auto;
+      }
+      
+      .site-nav__list {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+      
+      .site-nav__list a {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+      
+      .color-dark {
+        color: #333;
+      }
+      
+      /* Hero Section */
+      .hero-section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(248,248,252,1) 100%);
+      }
+      
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 80px;
+      }
+      
+      .hero-image {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--accent-color);
+        margin: 0 auto 30px;
+      }
+      
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #6366f1, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+        color: #555;
+      }
+      
+      /* Timeline Section */
+      .timeline-section {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+        color: #333;
+      }
+      
+      .section-title:after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 4px;
+        background: var(--accent-color);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background-color: var(--accent-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+      
+      .timeline-item {
+        padding: 10px 50px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+      }
+      
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--primary-bg);
+        border: 4px solid var(--accent-color);
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      
+      .left {
+        left: 0;
+      }
+      
+      .right {
+        left: 50%;
+      }
+      
+      .right::after {
+        left: -10px;
+      }
+      
+      .timeline-content {
+        padding: 25px;
+        background-color: var(--card-bg);
+        position: relative;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        backdrop-filter: blur(5px);
+      }
+      
+      .timeline-date {
+        color: var(--accent-color);
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+      
+      .timeline-title {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        color: #333;
+      }
+      
+      .timeline-description {
+        line-height: 1.6;
+        margin-bottom: 15px;
+        color: #555;
+      }
+      
+      .timeline-image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+      
+      /* Skills Section */
+      .skills-section {
+        padding: 80px 0;
+        background-color: white;
+      }
+      
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .skill-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: var(--box-shadow);
+        transition: transform 0.3s ease;
+      }
+      
+      .skill-card:hover {
+        transform: translateY(-10px);
+      }
+      
+      .skill-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(99, 102, 241, 0.1);
+      }
+      
+      .skill-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      
+      .skill-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+      }
+      
+      /* Footer Styles */
+      .site-footer {
+        padding: 40px 0;
+        background-color: #f1f2f6;
+      }
+      
+      .copyright {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #666;
+      }
+      
+      /* Responsive Styles */
+      @media screen and (max-width: 992px) {
+        .timeline::after {
+          left: 31px;
+        }
+        
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+        
+        .timeline-item::after {
+          left: 21px;
+        }
+        
+        .right {
+          left: 0%;
+        }
+      }
+      
+      @media screen and (max-width: 768px) {
+        .site-nav__list {
+          gap: 15px;
+        }
+        
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+        
+        .section-title {
+          font-size: 2rem;
+        }
+        
+        .timeline-content {
+          padding: 15px;
+        }
+        
+        .timeline-title {
+          font-size: 1.2rem;
+        }
+        
+        .skills-container {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+      }
+      
+      @media screen and (max-width: 576px) {
+        .site-nav__list {
+          gap: 10px;
+          font-size: 14px;
+        }
+        
+        .hero-image {
+          width: 150px;
+          height: 150px;
+        }
+        
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .timeline-item {
+          padding-left: 50px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="content-container">
+          <div class="hero-content">
+            <img src="./src/resources/bruna.jpeg" alt="Bruna Baudel" class="hero-image">
+            <h1 class="hero-title">Olá, I'm Bruna Baudel</h1>
+            <h2 class="hero-subtitle">iOS Developer, Tech Enthusiast & Digital Nomad</h2>
+            <p>I'm passionate about creating innovative mobile experiences and exploring emerging technologies like VisionOS. With a background in Computer Science and a love for travel, I bring a global perspective to everything I build.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section class="timeline-section">
+        <div class="content-container">
+          <h2 class="section-title">My Journey</h2>
+          
+          <div class="timeline">
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">Early Years</div>
+                <h3 class="timeline-title">Discovering Technology</h3>
+                <p class="timeline-description">I've been fascinated by technology since childhood. When my father brought home a Windows 95 PC, I began building my first HTML websites, including one to store lyrics of my favorite songs.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2010-2014</div>
+                <h3 class="timeline-title">Computer Science Education</h3>
+                <p class="timeline-description">At university, I immersed myself in Computer Science, studying algorithms, linear algebra, compilers, and various programming languages. This period provided the foundation for my technical expertise.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">2011</div>
+                <h3 class="timeline-title">Mobile Development Beginnings</h3>
+                <p class="timeline-description">My brother invited me to take Android classes with him, introducing me to the world of mobile development. This sparked my interest in building apps for smartphones.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2012</div>
+                <h3 class="timeline-title">Startup Co-Founder</h3>
+                <p class="timeline-description">I co-founded a startup called Procura Tecnologia and created eVita, an app to check medicine interactions with over 1 million entries. This project introduced me to iOS development, and I taught myself Objective-C and the macOS environment.</p>
+                <img src="../../src/resources/about/evita.png" alt="eVita App" class="timeline-image">
+              </div>
+            </div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">2014</div>
+                <h3 class="timeline-title">Professional Android Development</h3>
+                <p class="timeline-description">I began my professional career in Android development, working with skilled people who taught me much about the Android SDK and Java. I also created Dustdog, a mobile game using libGDX for both Android and iOS.</p>
+                <img src="../../src/resources/about/dustdog.webp" alt="Dustdog Game" class="timeline-image">
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2016</div>
+                <h3 class="timeline-title">Accenture</h3>
+                <p class="timeline-description">At Accenture, I worked with senior experts on projects for Vale do Rio Doce, one of the world's largest mining companies. I developed dashboards using AngularJS, JavaScript, HTML/CSS, and maintained middleware with Java EE and Spring Framework.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">2018</div>
+                <h3 class="timeline-title">Travel & Freelance</h3>
+                <p class="timeline-description">I spent time living in Los Angeles, studying at UC, and traveling across the US. This year also marked my transition to professional iOS development as I began freelancing for a credit card company, building their app from scratch using Swift and UIKit.</p>
+                <img src="../../src/resources/about/bigsur.jpeg" alt="Big Sur" class="timeline-image">
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2019-2021</div>
+                <h3 class="timeline-title">The Netherlands & Beyond</h3>
+                <p class="timeline-description">I moved to the Netherlands, continued freelance iOS development, and navigated through the pandemic. In 2021, I worked remotely from Sri Lanka and trekked the Annapurna Circuit in Nepal, one of the most challenging experiences of my life.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">2021-2023</div>
+                <h3 class="timeline-title">Code From Anywhere</h3>
+                <p class="timeline-description">Working with Code From Anywhere, I expanded my skills in React Native, ReactJS, TypeScript, and NodeJS. I built the Find ClarityAI iOS app using SwiftUI and whisper.cpp while traveling to Bali, Thailand, and Brazil.</p>
+                <img src="../../src/resources/about/find-clarity.png" alt="Find Clarity App" class="timeline-image">
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2022</div>
+                <h3 class="timeline-title">Apple Developer Academy</h3>
+                <p class="timeline-description">I joined the Apple Developer Academy at Unina in Italy, met Tim Cook, and connected with the wider iOS developer community during my four-month stay.</p>
+                <img src="../../src/resources/about/apple-dev.png" alt="Apple Developer Academy" class="timeline-image">
+              </div>
+            </div>
+            
+            <div class="timeline-item left">
+              <div class="timeline-content">
+                <div class="timeline-date">2024</div>
+                <h3 class="timeline-title">Klippa</h3>
+                <p class="timeline-description">I joined Klippa as a mobile developer in February 2024, working with document processing and OCR technology to enhance mobile and web experiences.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item right">
+              <div class="timeline-content">
+                <div class="timeline-date">2025</div>
+                <h3 class="timeline-title">Future Vision</h3>
+                <p class="timeline-description">My next big goal is ... ?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="skills-section">
+        <div class="content-container">
+          <h2 class="section-title">My Skills</h2>
+          
+          <div class="skills-container">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 10h-4V3H8v7H4l7 7 7-7z"></path>
+                  <path d="M18 17v4H6v-4"></path>
+                </svg>
+              </div>
+              <h3 class="skill-title">iOS Development</h3>
+              <p class="skill-description">Experienced in Swift, SwiftUI, UIKit, and iOS frameworks. I've created multiple commercial apps and am exploring VisionOS for Apple's Vision Pro.</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                  <path d="M2 17l10 5 10-5"></path>
+                  <path d="M2 12l10 5 10-5"></path>
+                </svg>
+              </div>
+              <h3 class="skill-title">Web Development</h3>
+              <p class="skill-description">Proficient in React, Next.js, TypeScript, HTML/CSS, and various JavaScript frameworks for building responsive and dynamic web applications.</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="skill-title">Mobile Game Development</h3>
+              <p class="skill-description">Experience creating cross-platform mobile games using libGDX and other game development frameworks for both iOS and Android platforms.</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="skill-title">AI Integration</h3>
+              <p class="skill-description">Implementing AI technologies into mobile apps, including voice recognition with whisper.cpp and exploring computer vision applications for next-gen experiences.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="content-container">
+        <div class="copyright">
+          <p>© Bruna Baudel 2025.<br /></p>
+          <p>
+            <strong>All rights reserved.</strong>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

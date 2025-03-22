@@ -1,0 +1,13 @@
+/* 3D Logo Container Styles */
+.logo-3d-container {
+    width: 320px;
+    height: 320px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+canvas {
+    display: block;
+}

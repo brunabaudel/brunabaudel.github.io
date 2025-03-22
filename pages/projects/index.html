@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height" />
+    <title>Bruna Baudel - iOS Engineer</title>
+    <meta name="description" content="Bruna Baudel's Personal Website" />
+    <meta name="author" content="Bruna Baudel" />
+    <style>
+        :root {
+            --primary-bg: linear-gradient(135deg, #d4e0ff 0%, #c3c9ff 50%, #d8c2ff 100%);
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --accent-color: #6366f1;
+            --secondary-accent: #818cf8;
+            --border-radius: 16px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+            background: var(--primary-bg);
+        }
+        
+        body {
+            color: var(--text-color);
+            padding: 32px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        /* Open Source Projects - Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 24px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .project-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 0;
+            gap: 8px;
+        }
+        
+        .github-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.4;
+            text-align: center;
+        }
+        
+        /* View More Button */
+        .view-more {
+            margin-top: 24px;
+            text-align: center;
+        }
+        
+        .view-more-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .view-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Published Projects - NEW IMPROVED STYLES */
+        .projects-section {
+            margin-top: 48px;
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Published Projects Grid */
+        .published-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        
+        /* Project Card */
+        .published-project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        
+        .published-project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+        }
+        
+        /* Project Image */
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .published-project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        /* Project Header */
+        .published-project-header {
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .project-info {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .project-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .app-store {
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .app-store:hover {
+            transform: translateY(-2px);
+        }
+        
+        .app-store img {
+            height: 24px;
+        }
+        
+        /* Project Body */
+        .project-body {
+            padding: 0 24px 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-desc {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Tech Tags */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            margin-bottom: 16px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--accent-color);
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 16px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        
+        /* Footer Action Area */
+        .project-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .view-project-btn {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--accent-color);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .view-project-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* Award Badge */
+        .award-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--accent-color);
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 1;
+        }
+        
+        .award-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: #f59e0b;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 24px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .published-projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .published-projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .project-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .published-project-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-bottom: 12px;
+            }
+            
+            .project-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .project-body {
+                text-align: center;
+            }
+            
+            .tech-tags {
+                justify-content: center;
+            }
+            
+            .project-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Open Source Section -->
+        <section class="open-source">
+            <h3 class="section-title">Open Source</h3>
+            <div class="projects-grid">
+                <!-- Custom Calendar -->
+                <a href="https://github.com/brunabaudel/customCalendar" target="_blank" class="project-card">
+                    <img src="../../src/resources/smallprojects/calendar.png" alt="Custom Calendar" class="project-img" />
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h4 class="project-title">Custom Calendar</h4>
+                            <img src="../../src/resources/icons8-github.svg" alt="GitHub" class="github-icon" />
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Scanner & Text Recognizer -->
+                <a href="https://github.com/brunabaudel/textRecognizer" target="_blank" class="project-card">
+                    <img src="../../src/resources/smallprojects/scanner.png" alt="Scanner & Text Recognizer" class="project-img" />
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h4 class="project-title">Scan & Text Recognizer</h4>
+                            <img src="../../src/resources/icons8-github.svg" alt="GitHub" class="github-icon" />
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Apple Music (Search) -->
+                <a href="https://github.com/brunabaudel/appleMusicSearch" target="_blank" class="project-card">
+                    <img src="../../src/resources/smallprojects/applemusic.png" alt="Apple Music (Search)" class="project-img" />
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h4 class="project-title">Apple Music (Search)</h4>
+                            <img src="../../src/resources/icons8-github.svg" alt="GitHub" class="github-icon" />
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Map Pin Explorer -->
+                <a href="https://github.com/brunabaudel/mapPin" target="_blank" class="project-card">
+                    <img src="../../src/resources/smallprojects/mapin.png" alt="Map Pin Explorer" class="project-img" />
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h4 class="project-title">Map Pin Explorer</h4>
+                            <img src="../../src/resources/icons8-github.svg" alt="GitHub" class="github-icon" />
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="view-more">
+                <a href="https://github.com/brunabaudel" target="_blank" class="view-more-btn">View More on GitHub</a>
+            </div>
+        </section>
+        
+        <!-- Published Projects -->
+        <section class="projects-section">
+            <h3 class="section-title">Published Projects</h3>
+            
+            <div class="published-projects-grid">
+                <!-- Wallshapes App -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/wallshapes-screenshots.png" alt="Wallshapes Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/wallshapes-logo.png" alt="Wallshapes" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Wallshapes App</h4>
+                            <a href="https://apps.apple.com/us/app/wallshapes-app/id1564660649" class="app-store">
+                                <img src="../../src/resources/projects/apple.svg" alt="App Store" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">A tool to create images with shapes. Design custom wallpapers with modern geometrical patterns.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">CoreAnimation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Find Clarity -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/find-clarity-screenshots.png" alt="Find Clarity Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/find-clarity-logo.png" alt="Find Clarity" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Find Clarity</h4>
+                            <a href="https://apps.apple.com/us/app/find-clarity/id1671806331" class="app-store">
+                                <img src="../../src/resources/projects/apple.svg" alt="App Store" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">An app that allows you to transcribe your recordings using AI, offline, for free. Convert speech to text with high accuracy.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">AVFoundation</span>
+                            <span class="tech-tag">whisper.cpp</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Avancard -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/avancard-screenshots.png" alt="Avancard Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/avancard-logo.png" alt="Avancard" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Avancard</h4>
+                            <a href="https://apps.apple.com/br/app/avancard/id1437423420" class="app-store">
+                                <img src="../../src/resources/projects/apple.svg" alt="App Store" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">An app for a credit card company to check the balance, statement, search for establishments, and make payments via QR Code.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">CoreData</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ScoutThis -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/scoutthis-screenshots.png" alt="ScoutThis Screenshots" class="project-image" />
+                        <div class="award-badge">
+                            <svg viewBox="0 0 24 24"><path d="M12 15.5l-4.5 2.5.9-5L5 9.2l5.1-.7L12 4l1.9 4.5 5.1.7-3.4 3.8.9 5z"/></svg>
+                            Award Winner
+                        </div>
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/scoutthis-logo.png" alt="ScoutThis" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">ScoutThis</h4>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">An app that keeps track and scout locations for future photo shoots. Add notes, voice memos and more.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">AVFoundation</span>
+                            <span class="tech-tag">MapKit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Places -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/places-screenshots.png" alt="Places Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/places-logo.png" alt="Places" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Places</h4>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">A shopping furniture app where you can browse furniture and place objects into your environment using AR.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">ARKit</span>
+                            <span class="tech-tag">SceneKit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- eVita -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/evita-screenshots.png" alt="eVita Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/evita-logo.png" alt="eVita" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">eVita</h4>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">A medicine interaction checker. Check for potential interactions between different medications.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Objective-C</span>
+                            <span class="tech-tag">UIKit</span>
+                            <span class="tech-tag">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shader -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/shader-screenshots.png" alt="Shader Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/shader-logo.png" alt="Shader" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Shader</h4>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">A game where you have to order the coloured shades to win. Test your color perception abilities.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">AVFoundation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amnes.AI -->
+                <div class="published-project-card">
+                    <div class="project-image-container">
+                        <img src="../../src/resources/projects/amnesai-screenshots.png" alt="Amnes.AI Screenshots" class="project-image" />
+                    </div>
+                    <div class="published-project-header">
+                        <img src="../../src/resources/projects/amnesai-logo.png" alt="Amnes.AI" class="project-icon" />
+                        <div class="project-info">
+                            <h4 class="project-name">Amnes.AI</h4>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-desc">An arcade game where the AI has to find her memory back and fight against robots that conquer the world.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">SpriteKit</span>
+                            <span class="tech-tag">GameplayKit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© Bruna Baudel 2025. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
