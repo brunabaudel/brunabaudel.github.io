@@ -640,6 +640,21 @@
                     </i>
                     <span>About</span>
                 </a>
+                <a href="#" class="nav-item" data-page="learn">
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Book base -->
+                            <path d="M4 19.5C4 18.1 5.1 17 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            
+                            <!-- Brain/knowledge symbol -->
+                            <path d="M12 6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"></path>
+                            <path d="M12 10v4"></path>
+                            <path d="M9 14h6"></path>
+                        </svg>
+                    </i>
+                    <span>Learn</span>
+                </a>
                 <a href="#" class="nav-item" data-page="more">
                     <i>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -705,6 +720,7 @@
                     'projects': { path: 'pages/projects/', filename: 'index.html' },
                     'articles': { path: 'pages/articles/', filename: 'index.html' },
                     'about': { path: 'pages/about/', filename: 'index.html' },
+                    'learn': { path: 'pages/learn/', filename: 'index.html' },
                     'more': { path: 'pages/more/', filename: 'index.html' }
                     // Add more pages as needed
                 };
@@ -724,6 +740,9 @@
                         // Insert the HTML content
                         contentContainer.innerHTML = html;
                         
+                        // NEW: Execute scripts in the loaded content
+                        executeScripts(contentContainer);
+                        
                         // Add event listeners to any article links in the loaded content
                         addArticleLinkListeners();
                     })
@@ -737,6 +756,28 @@
                             </div>
                         `;
                     });
+
+                    // Add this new function to execute scripts in dynamically loaded content
+                    function executeScripts(container) {
+                        // Find all script tags in the container
+                        const scripts = container.querySelectorAll('script');
+                        
+                        scripts.forEach(oldScript => {
+                            // Create a new script element
+                            const newScript = document.createElement('script');
+                            
+                            // Copy all attributes from the old script to the new script
+                            Array.from(oldScript.attributes).forEach(attr => {
+                                newScript.setAttribute(attr.name, attr.value);
+                            });
+                            
+                            // Copy the content of the script
+                            newScript.textContent = oldScript.textContent;
+                            
+                            // Replace the old script with the new one to trigger execution
+                            oldScript.parentNode.replaceChild(newScript, oldScript);
+                        });
+                    }
             }
             
             // Function to load an article
