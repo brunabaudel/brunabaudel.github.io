@@ -481,7 +481,7 @@
         </div>
         <div class="story" id="generatedStory"></div>
         <div class="error-message hidden" id="storyError"></div>
-        <button id="restartButton" class="primary-button hidden">Start New Session</button>
+        <button id="restartButton" class="primary-button hidden">Learn More Words for a New Story</button>
     </div>
 
     <script>
@@ -527,9 +527,19 @@
                 isLoading: false
             };
 
-            // Load API key from localStorage if available
+            // Load saved data from localStorage if available
             if (localStorage.getItem('languageAppApiKey')) {
                 apiKeyInput.value = localStorage.getItem('languageAppApiKey');
+            }
+            
+            if (localStorage.getItem('languageAppLanguage')) {
+                const savedLanguage = localStorage.getItem('languageAppLanguage');
+                languageSelect.value = savedLanguage;
+            }
+            
+            if (localStorage.getItem('languageAppLevel')) {
+                const savedLevel = localStorage.getItem('languageAppLevel');
+                levelSelect.value = savedLevel;
             }
 
             // Event Listeners
@@ -720,8 +730,10 @@
                     return;
                 }
                 
-                // Save API key to localStorage
+                // Save user preferences to localStorage
                 localStorage.setItem('languageAppApiKey', apiKeyInput.value);
+                localStorage.setItem('languageAppLanguage', languageSelect.value);
+                localStorage.setItem('languageAppLevel', levelSelect.value);
                 
                 // Add loading state to button
                 startButton.classList.add('loading');
@@ -808,11 +820,11 @@
             }
 
             function handleRestart() {
-                // Reset app state
+                // Reset app state but keep language and level
                 state = {
                     apiKey: localStorage.getItem('languageAppApiKey') || '',
-                    language: '',
-                    level: '',
+                    language: localStorage.getItem('languageAppLanguage') || '',
+                    level: localStorage.getItem('languageAppLevel') || '',
                     knownWords: 0,
                     totalAttemptedWords: 0,
                     targetKnownWords: 10,
@@ -821,28 +833,28 @@
                     isLoading: false
                 };
                 
-                // Reset form values but keep API key
-                apiKeyInput.value = state.apiKey;
-                languageSelect.selectedIndex = 0;
-                levelSelect.selectedIndex = 0;
+                // Start a new word learning session directly - skip the setup form
+                storyDisplay.classList.add('hidden');
+                wordDisplay.classList.remove('hidden');
                 
-                // Reset display
-                generatedStory.innerHTML = '';
+                // Reset display elements for the new session
                 progressBar.style.width = '0%';
                 progressText.textContent = '0/10 words';
                 currentWordElement.textContent = '';
-                currentWordElement.classList.remove('loading-word');
+                currentWordElement.classList.add('loading-word');
                 wordCounter.textContent = 'Known: 0';
-                
-                // Reset button state
-                startButton.classList.remove('loading');
-                startButton.disabled = false;
-                
-                // Show setup form
-                storyDisplay.classList.add('hidden');
-                wordDisplay.classList.add('hidden');
-                setupForm.classList.remove('hidden');
                 restartButton.classList.add('hidden');
+                
+                // Fetch new words and start again
+                fetchWordsFromChatGPT()
+                    .then(() => {
+                        displayCurrentWord();
+                        statusMessage.textContent = '';
+                    })
+                    .catch(error => {
+                        showError(wordError, `Error: ${error.message}`);
+                        statusMessage.textContent = '';
+                    });
             }
             
             console.log("Language learning app initialized with modern UI");
