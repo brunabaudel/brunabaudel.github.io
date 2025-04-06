@@ -682,235 +682,290 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const contentContainer = document.getElementById('content-container');
-            const menuItems = document.querySelectorAll('.nav-item');
-            
-            // Default page to load
-            loadPage('projects');
-            
-            // Set the first menu item as active
-            menuItems[0].classList.add('active');
-            
-            // Add click event to menu items
-            menuItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove active class from all items
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    
-                    // Add active class to clicked item
-                    this.classList.add('active');
-                    
-                    // Get the page to load from data attribute
-                    const page = this.getAttribute('data-page');
-                    
-                    // Load the page
-                    loadPage(page);
-                });
+        const contentContainer = document.getElementById('content-container');
+        const menuItems = document.querySelectorAll('.nav-item');
+        
+        // Get initial page from URL or default to 'projects'
+        const initialPage = getPageFromURL() || 'projects';
+        
+        // Load the initial page
+        loadPage(initialPage);
+        
+        // Set the corresponding menu item as active
+        const initialMenuItem = document.querySelector(`.nav-item[data-page="${initialPage}"]`);
+        if (initialMenuItem) {
+            menuItems.forEach(i => i.classList.remove('active'));
+            initialMenuItem.classList.add('active');
+        }
+        
+        // Add click event to menu items
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all items
+                menuItems.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get the page to load from data attribute
+                const page = this.getAttribute('data-page');
+                
+                // Update URL
+                updateURL(page);
+                
+                // Load the page
+                loadPage(page);
             });
+        });
+        
+        // Function to get page from URL
+        function getPageFromURL() {
+            const path = window.location.pathname;
+            // Remove leading slash and trailing slash if any
+            const cleanPath = path.replace(/^\/|\/$/g, '');
             
-            // Function to load page content
-            function loadPage(page) {
-                // Show loading indicator
-                contentContainer.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
+            // If the path is empty, return null (will use default)
+            if (!cleanPath) return null;
+            
+            // Check if the path is one of our pages
+            const validPages = ['projects', 'articles', 'about', 'learn', 'more'];
+            if (validPages.includes(cleanPath)) {
+                return cleanPath;
+            }
+            
+            // Check if it's an article URL (e.g., articles/article-name)
+            if (cleanPath.startsWith('articles/')) {
+                // This will be handled by the article loading logic
+                setTimeout(() => {
+                    loadArticle(cleanPath);
+                }, 0);
+                return 'articles';
+            }
+            
+            return null;
+        }
+        
+        // Function to update URL without reloading the page
+        function updateURL(page) {
+            const basePath = window.location.origin;
+            const newURL = `${basePath}/${page}`;
+            
+            // Use History API to update URL without reloading
+            window.history.pushState({ page: page }, '', newURL);
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.page) {
+                loadPage(e.state.page);
                 
-                // Define folder paths and filenames for each page
-                const pageConfig = {
-                    'projects': { path: 'pages/projects/', filename: 'index.html' },
-                    'articles': { path: 'pages/articles/', filename: 'index.html' },
-                    'about': { path: 'pages/about/', filename: 'index.html' },
-                    'learn': { path: 'pages/learn/', filename: 'index.html' },
-                    'more': { path: 'pages/more/', filename: 'index.html' }
-                    // Add more pages as needed
-                };
+                // Update active menu item
+                menuItems.forEach(i => i.classList.remove('active'));
+                const activeItem = document.querySelector(`.nav-item[data-page="${e.state.page}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            } else {
+                // If no state, try to get page from URL
+                const page = getPageFromURL() || 'projects';
+                loadPage(page);
                 
-                // Get the config for the page (or use defaults if not defined)
-                const config = pageConfig[page] || { path: '', filename: `${page}.html` };
-                
-                // Fetch the page content with the correct path and filename
-                fetch(`${config.path}${config.filename}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Page not found');
-                        }
-                        return response.text();
-                    })
-                    .then(html => {
-                        // Insert the HTML content
-                        contentContainer.innerHTML = html;
-                        
-                        // NEW: Execute scripts in the loaded content
-                        executeScripts(contentContainer);
-                        
-                        // Add event listeners to any article links in the loaded content
-                        addArticleLinkListeners();
-                    })
-                    .catch(error => {
-                        console.error('Error loading page:', error);
-                        contentContainer.innerHTML = `
-                            <div style="text-align: center; padding: 50px;">
-                                <h2>Error Loading Page</h2>
-                                <p>${error.message}</p>
-                                <p>Make sure the file ${config.path}${config.filename} exists.</p>
-                            </div>
-                        `;
-                    });
-
-                    // Add this new function to execute scripts in dynamically loaded content
-                    function executeScripts(container) {
-                        // Find all script tags in the container
-                        const scripts = container.querySelectorAll('script');
-                        
-                        scripts.forEach(oldScript => {
-                            // Create a new script element
-                            const newScript = document.createElement('script');
-                            
-                            // Copy all attributes from the old script to the new script
-                            Array.from(oldScript.attributes).forEach(attr => {
-                                newScript.setAttribute(attr.name, attr.value);
-                            });
-                            
-                            // Copy the content of the script
-                            newScript.textContent = oldScript.textContent;
-                            
-                            // Replace the old script with the new one to trigger execution
-                            oldScript.parentNode.replaceChild(newScript, oldScript);
-                        });
+                // Update active menu item
+                menuItems.forEach(i => i.classList.remove('active'));
+                const activeItem = document.querySelector(`.nav-item[data-page="${page}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            }
+        });
+        
+        // Function to load page content
+        function loadPage(page) {
+            // Show loading indicator
+            contentContainer.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
+            
+            // Define folder paths and filenames for each page
+            const pageConfig = {
+                'projects': { path: 'pages/projects/', filename: 'index.html' },
+                'articles': { path: 'pages/articles/', filename: 'index.html' },
+                'about': { path: 'pages/about/', filename: 'index.html' },
+                'learn': { path: 'pages/learn/', filename: 'index.html' },
+                'more': { path: 'pages/more/', filename: 'index.html' }
+                // Add more pages as needed
+            };
+            
+            // Get the config for the page (or use defaults if not defined)
+            const config = pageConfig[page] || { path: '', filename: `${page}.html` };
+            
+            // Fetch the page content with the correct path and filename
+            fetch(`${config.path}${config.filename}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Page not found');
                     }
+                    return response.text();
+                })
+                .then(html => {
+                    // Insert the HTML content
+                    contentContainer.innerHTML = html;
+                    
+                    // Execute scripts in the loaded content
+                    executeScripts(contentContainer);
+                    
+                    // Add event listeners to any article links in the loaded content
+                    addArticleLinkListeners();
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    contentContainer.innerHTML = `
+                        <div style="text-align: center; padding: 50px;">
+                            <h2>Error Loading Page</h2>
+                            <p>${error.message}</p>
+                            <p>Make sure the file ${config.path}${config.filename} exists.</p>
+                        </div>
+                    `;
+                });
+        }
+        
+        // Function to execute scripts in dynamically loaded content
+        function executeScripts(container) {
+            // Find all script tags in the container
+            const scripts = container.querySelectorAll('script');
+            
+            scripts.forEach(oldScript => {
+                // Create a new script element
+                const newScript = document.createElement('script');
+                
+                // Copy all attributes from the old script to the new script
+                Array.from(oldScript.attributes).forEach(attr => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+                
+                // Copy the content of the script
+                newScript.textContent = oldScript.textContent;
+                
+                // Replace the old script with the new one to trigger execution
+                oldScript.parentNode.replaceChild(newScript, oldScript);
+            });
+        }
+        
+        // Function to load an article
+        function loadArticle(articlePath) {
+            // Show loading indicator
+            contentContainer.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
+            
+            // If articlePath is a clean path (e.g. 'articles/my-article')
+            let fullPath = articlePath;
+            if (!articlePath.endsWith('.html')) {
+                // Convert path format to file path format
+                const parts = articlePath.split('/');
+                if (parts.length > 1) {
+                    fullPath = `pages/${articlePath}/index.html`;
+                } else {
+                    fullPath = `pages/articles/${articlePath}.html`;
+                }
             }
             
-            // Function to load an article
-            function loadArticle(articlePath) {
-                // Show loading indicator
-                contentContainer.innerHTML = '<div class="loading"><div class="loading-spinner"></div></div>';
-                
-                // Fetch the article content
-                fetch(articlePath)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Article not found');
-                        }
-                        return response.text();
-                    })
-                    .then(html => {
-                        // Extract just the article content from the HTML
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
+            // Fetch the article content
+            fetch(fullPath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Article not found');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    // Extract just the article content from the HTML
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Try to find the main article content
+                    let articleContent = doc.querySelector('.main-article');
+                    
+                    // If not found, try to extract from the body
+                    if (!articleContent) {
+                        articleContent = doc.querySelector('body');
+                    }
+                    
+                    // Insert the article content
+                    if (articleContent) {
+                        contentContainer.innerHTML = articleContent.outerHTML;
+                    } else {
+                        // Fallback to the entire HTML if we can't extract properly
+                        contentContainer.innerHTML = html;
+                    }
+                    
+                    // Add a back button at the top of the article
+                    const backButton = document.createElement('div');
+                    backButton.classList.add('back-button');
+                    backButton.style.margin = '0 0 20px 0';
+                    backButton.style.cursor = 'pointer';
+                    backButton.style.display = 'inline-block';
+                    backButton.style.padding = '8px 16px';
+                    backButton.style.backgroundColor = 'rgba(99, 102, 241, 0.1)';
+                    backButton.style.color = 'var(--accent-color)';
+                    backButton.style.borderRadius = '8px';
+                    
+                    backButton.innerHTML = `
+                        <span style="display: flex; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Back to Articles
+                        </span>
+                    `;
+                    
+                    backButton.addEventListener('click', function() {
+                        // Update URL
+                        updateURL('articles');
                         
-                        // Try to find the main article content
-                        let articleContent = doc.querySelector('.main-article');
-                        
-                        // If not found, try to extract from the body
-                        if (!articleContent) {
-                            articleContent = doc.querySelector('body');
-                        }
-                        
-                        // Insert the article content
-                        if (articleContent) {
-                            contentContainer.innerHTML = articleContent.outerHTML;
-                        } else {
-                            // Fallback to the entire HTML if we can't extract properly
-                            contentContainer.innerHTML = html;
-                        }
-                        
-                        // Add a back button at the top of the article
-                        const backButton = document.createElement('div');
-                        backButton.classList.add('back-button');
-                        backButton.style.margin = '0 0 20px 0';
-                        backButton.style.cursor = 'pointer';
-                        backButton.style.display = 'inline-block';
-                        backButton.style.padding = '8px 16px';
-                        backButton.style.backgroundColor = 'rgba(99, 102, 241, 0.1)';
-                        backButton.style.color = 'var(--accent-color)';
-                        backButton.style.borderRadius = '8px';
-                        
-                        backButton.innerHTML = `
-                            <span style="display: flex; align-items: center;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
-                                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                                    <polyline points="12 19 5 12 12 5"></polyline>
-                                </svg>
-                                Back to Articles
-                            </span>
-                        `;
-                        
-                        backButton.addEventListener('click', function() {
-                            const articlesMenuItem = document.querySelector('.nav-item[data-page="articles"]');
-                            if (articlesMenuItem) {
-                                articlesMenuItem.click();
-                            } else {
-                                loadPage('articles');
-                            }
-                        });
-                        
-                        // Insert the back button at the beginning of the content
-                        const content = document.querySelector('#content-container');
-                        if (content) {
-                            content.insertBefore(backButton, content.firstChild);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error loading article:', error);
-                        contentContainer.innerHTML = `
-                            <div style="text-align: center; padding: 50px;">
-                                <h2>Error Loading Article</h2>
-                                <p>${error.message}</p>
-                                <p>Make sure the file ${articlePath} exists.</p>
-                                <button onclick="window.history.back()" style="margin-top: 20px; padding: 10px 20px; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Go Back</button>
-                            </div>
-                        `;
-                    });
-            }
-            
-            // Function to add event listeners to article links
-            function addArticleLinkListeners() {
-                // Find all article links in the loaded content
-                const articleLinks = document.querySelectorAll('#content-container a[href*="articles"]');
-                
-                articleLinks.forEach(link => {
-                    // Modify the click behavior of article links
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Get the article path from the href attribute
-                        const articlePath = this.getAttribute('href');
-                        
-                        // Load the article content
-                        loadArticle(articlePath);
-                        
-                        // Update the active navigation item to 'Articles'
-                        menuItems.forEach(i => i.classList.remove('active'));
                         const articlesMenuItem = document.querySelector('.nav-item[data-page="articles"]');
                         if (articlesMenuItem) {
-                            articlesMenuItem.classList.add('active');
+                            articlesMenuItem.click();
+                        } else {
+                            loadPage('articles');
                         }
                     });
+                    
+                    // Insert the back button at the beginning of the content
+                    const content = document.querySelector('#content-container');
+                    if (content) {
+                        content.insertBefore(backButton, content.firstChild);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading article:', error);
+                    contentContainer.innerHTML = `
+                        <div style="text-align: center; padding: 50px;">
+                            <h2>Error Loading Article</h2>
+                            <p>${error.message}</p>
+                            <p>Make sure the file ${fullPath} exists.</p>
+                            <button onclick="window.history.back()" style="margin-top: 20px; padding: 10px 20px; background-color: var(--accent-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Go Back</button>
+                        </div>
+                    `;
                 });
-            }
+        }
+        
+        // Function to add event listeners to article links
+        function addArticleLinkListeners() {
+            // Find all article links in the loaded content
+            const articleLinks = document.querySelectorAll('#content-container a[href*="articles"]');
             
-            // Mobile menu toggle (if you have one)
-            const menuToggle = document.querySelector('.menu-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    sidebar.classList.toggle('open');
-                });
-            }
-
-            // Global event delegation for dynamically added article links
-            document.addEventListener('click', function(e) {
-                // Find the closest anchor tag if the click target is within one
-                const link = e.target.closest('a[href*="articles"]');
-                
-                // Check if we found a link and it's within our content container
-                if (link && contentContainer.contains(link)) {
-                    // Prevent the default behavior
+            articleLinks.forEach(link => {
+                // Modify the click behavior of article links
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     // Get the article path from the href attribute
-                    const articlePath = link.getAttribute('href');
+                    const articlePath = this.getAttribute('href');
+                    
+                    // Update URL with article path
+                    const basePath = window.location.origin;
+                    const newURL = `${basePath}/${articlePath}`;
+                    window.history.pushState({ page: 'articles', article: articlePath }, '', newURL);
                     
                     // Load the article content
                     loadArticle(articlePath);
@@ -921,9 +976,50 @@
                     if (articlesMenuItem) {
                         articlesMenuItem.classList.add('active');
                     }
-                }
+                });
             });
+        }
+        
+        // Global event delegation for dynamically added article links
+        document.addEventListener('click', function(e) {
+            // Find the closest anchor tag if the click target is within one
+            const link = e.target.closest('a[href*="articles"]');
+            
+            // Check if we found a link and it's within our content container
+            if (link && contentContainer.contains(link)) {
+                // Prevent the default behavior
+                e.preventDefault();
+                
+                // Get the article path from the href attribute
+                const articlePath = link.getAttribute('href');
+                
+                // Update URL with article path
+                const basePath = window.location.origin;
+                const newURL = `${basePath}/${articlePath}`;
+                window.history.pushState({ page: 'articles', article: articlePath }, '', newURL);
+                
+                // Load the article content
+                loadArticle(articlePath);
+                
+                // Update the active navigation item to 'Articles'
+                menuItems.forEach(i => i.classList.remove('active'));
+                const articlesMenuItem = document.querySelector('.nav-item[data-page="articles"]');
+                if (articlesMenuItem) {
+                    articlesMenuItem.classList.add('active');
+                }
+            }
         });
+        
+        // Mobile menu toggle (if you have one)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+        }
+    });
     </script>
 </body>
 </html>
