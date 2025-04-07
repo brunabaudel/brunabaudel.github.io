@@ -347,6 +347,69 @@
             border-left-color: #818cf8;
             animation: spin 0.8s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
         }
+
+        /* Custom select styling */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236366F1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #818cf8;
+            background-color: #f8fafc;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #6366F1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Style for the select options */
+        select option {
+            padding: 10px;
+            font-size: 15px;
+            background-color: white;
+            color: #333;
+        }
+
+        /* Add a nice label animation */
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            background-color: white;
+            padding: 0 8px;
+            font-size: 0.85rem;
+            color: #6366F1;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        /* Additional adjustments for spacing */
+        .form-group {
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Focus within for label effect */
+        .form-group:focus-within label {
+            color: #4F46E5;
+        }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
