@@ -88,7 +88,8 @@
       
       /* Hero Section */
       .hero-section {
-        height: 100vh;
+        min-height: 500px; /* Set minimum height instead of viewport-based height */
+        height: 85vh; /* For desktop */
         display: flex;
         align-items: center;
         position: relative;
@@ -99,7 +100,7 @@
         max-width: 800px;
         margin: 0 auto;
         text-align: center;
-        padding-top: 80px;
+        padding-top: 60px; /* Reduced padding-top from 80px to 60px */
       }
       
       .hero-image {
@@ -128,7 +129,7 @@
       
       /* Timeline Section */
       .timeline-section {
-        padding: 80px 0;
+        padding: 40px 0 80px; /* Changed from 80px 0 to 40px 0 80px to reduce top padding */
         background-color: #f8f9fa;
       }
       
@@ -324,6 +325,11 @@
           gap: 15px;
         }
         
+        .hero-section {
+          height: auto; /* Override vh-based height for tablets */
+          min-height: 480px;
+        }
+        
         .hero-title {
           font-size: 2.5rem;
         }
@@ -332,8 +338,16 @@
           font-size: 1.2rem;
         }
         
+        .hero-content {
+          padding-top: 40px; /* Adjusted for tablets */
+        }
+        
         .section-title {
           font-size: 2rem;
+        }
+        
+        .timeline-section {
+          padding: 30px 0 70px; /* Adjusted for tablets */
         }
         
         .timeline-content {
@@ -355,13 +369,35 @@
           font-size: 14px;
         }
         
+        .hero-section {
+          height: auto; /* Override vh-based height for mobile */
+          min-height: 450px; /* Shorter minimum height for mobile */
+          padding: 60px 0 30px; /* Add padding instead of relying on height */
+        }
+        
         .hero-image {
-          width: 150px;
-          height: 150px;
+          width: 120px; /* Smaller image for mobile */
+          height: 120px;
         }
         
         .hero-title {
           font-size: 2rem;
+        }
+        
+        .hero-content {
+          padding-top: 20px; /* Less padding on mobile */
+        }
+        
+        .hero-subtitle {
+          margin-bottom: 15px; /* Less margin on mobile */
+        }
+        
+        .timeline-section {
+          padding: 20px 0 60px; /* Less padding on mobile */
+        }
+        
+        .section-title {
+          margin-bottom: 40px; /* Less margin on mobile */
         }
         
         .timeline-item {
