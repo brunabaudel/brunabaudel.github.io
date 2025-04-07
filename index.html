@@ -16,6 +16,7 @@
             --accent-color: #6366f1;
             --border-radius: 16px;
             --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --mobile-menu-height: 60px;
         }
         
         * {
@@ -445,6 +446,53 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Mobile Bottom Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--mobile-menu-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-top: 1px solid rgba(231, 231, 255, 0.8);
+        }
+
+        .mobile-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 20%;
+            height: 100%;
+            color: #4b4b4b;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-item.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-nav-item i {
+            margin-bottom: 4px;
+        }
+
+        .mobile-nav-item span {
+            font-size: 10px;
+            font-weight: 500;
+        }
+
         /* Hide text in nav items when compact */
         @media (max-width: 992px) {
             .sidebar {
@@ -496,81 +544,37 @@
         /* For mobile view */
         @media (max-width: 576px) {
             .sidebar {
-                width: var(--sidebar-collapsed-width);
-                left: 0; /* Keep the sidebar visible */
+                display: none; /* Hide the sidebar on mobile */
             }
             
-            .sidebar .nav-item {
-                justify-content: center;
-                padding: 12px;
-                display: flex !important;
-            }
-            
-            .sidebar .nav-item i,
-            .sidebar .nav-item svg {
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                min-width: 20px !important;
-                min-height: 20px !important;
-            }
-            
-            .sidebar svg {
-                display: inline-block !important;
-                visibility: visible !important;
-            }
-            
-            .sidebar .nav-items {
-                display: flex !important;
-                flex-direction: column !important;
+            .mobile-nav {
+                display: block; /* Show mobile bottom navigation */
             }
             
             .main-content {
-                margin-left: var(--sidebar-collapsed-width);
-                width: calc(100% - var(--sidebar-collapsed-width));
-            }
-            
-            /* Option to have an expandable sidebar if needed */
-            .sidebar.open {
-                width: var(--sidebar-width);
-            }
-            
-            .sidebar.open .profile-name,
-            .sidebar.open .profile-role, 
-            .sidebar.open .profile-location,
-            .sidebar.open .nav-item span,
-            .sidebar.open .logout span {
-                display: block;
-            }
-            
-            .sidebar.open .social-links {
-                display: flex;
-            }
-            
-            .sidebar.open .nav-item {
-                justify-content: flex-start;
-                padding: 12px 16px;
-            }
-            
-            .sidebar.open .nav-item i {
-                margin-right: 12px;
+                margin-left: 0;
+                width: 100%;
+                padding: 16px;
+                padding-bottom: calc(var(--mobile-menu-height) + 16px); /* Add padding at the bottom to prevent content from being hidden under the mobile nav */
             }
         }
 
         /* Critical fixes to ensure icons are always visible */
         .sidebar .nav-item i,
-        .sidebar svg {
+        .sidebar svg,
+        .mobile-nav svg {
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
         }
 
-        .sidebar .nav-items {
+        .sidebar .nav-items,
+        .mobile-nav-items {
             display: flex !important;
-            flex-direction: column !important;
         }
 
-        .sidebar .nav-item {
+        .sidebar .nav-item,
+        .mobile-nav-item {
             display: flex !important;
         }
         
@@ -581,7 +585,7 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar Navigation (hidden on mobile) -->
     <div class="sidebar">
         <div class="top-section">
             <!-- Profile section with icon -->
@@ -669,6 +673,66 @@
         </div>
     </div>
 
+    <!-- Mobile Bottom Navigation (only visible on mobile) -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-items">
+            <a href="#" class="mobile-nav-item active" data-page="projects">
+                <i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </i>
+                <span>Projects</span>
+            </a>
+            <a href="#" class="mobile-nav-item" data-page="articles">
+                <i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </i>
+                <span>Articles</span>
+            </a>
+            <a href="#" class="mobile-nav-item" data-page="about">
+                <i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </i>
+                <span>About</span>
+            </a>
+            <a href="#" class="mobile-nav-item" data-page="learn">
+                <i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        <path d="M12 6V2"></path>
+                        <path d="M12 22v-4"></path>
+                        <path d="M16 12h2"></path>
+                        <path d="M6 12h8"></path>
+                    </svg>
+                </i>
+                <span>Learn</span>
+            </a>
+            <a href="#" class="mobile-nav-item" data-page="more">
+                <i>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="1"></circle>
+                        <circle cx="19" cy="12" r="1"></circle>
+                        <circle cx="5" cy="12" r="1"></circle>
+                    </svg>
+                </i>
+                <span>More</span>
+            </a>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <div class="main-content">
         <!-- Content Container where pages will be loaded -->
@@ -683,7 +747,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
         const contentContainer = document.getElementById('content-container');
-        const menuItems = document.querySelectorAll('.nav-item');
+        const desktopMenuItems = document.querySelectorAll('.sidebar .nav-item');
+        const mobileMenuItems = document.querySelectorAll('.mobile-nav-item');
         
         // Get initial page from URL or default to 'projects'
         const initialPage = getPageFromURL() || 'projects';
@@ -691,34 +756,55 @@
         // Load the initial page
         loadPage(initialPage);
         
-        // Set the corresponding menu item as active
-        const initialMenuItem = document.querySelector(`.nav-item[data-page="${initialPage}"]`);
-        if (initialMenuItem) {
-            menuItems.forEach(i => i.classList.remove('active'));
-            initialMenuItem.classList.add('active');
-        }
+        // Set the corresponding menu items as active
+        updateActiveMenuItem(initialPage);
         
-        // Add click event to menu items
-        menuItems.forEach(item => {
+        // Add click event to desktop menu items
+        desktopMenuItems.forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Remove active class from all items
-                menuItems.forEach(i => i.classList.remove('active'));
-                
-                // Add active class to clicked item
-                this.classList.add('active');
-                
-                // Get the page to load from data attribute
-                const page = this.getAttribute('data-page');
-                
-                // Update URL
-                updateURL(page);
-                
-                // Load the page
-                loadPage(page);
+                handleMenuClick(this);
             });
         });
+        
+        // Add click event to mobile menu items
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleMenuClick(this);
+            });
+        });
+        
+        // Common function to handle menu clicks
+        function handleMenuClick(item) {
+            const page = item.getAttribute('data-page');
+            
+            // Update URL
+            updateURL(page);
+            
+            // Load the page
+            loadPage(page);
+            
+            // Update active menu items
+            updateActiveMenuItem(page);
+        }
+        
+        // Function to update active menu items for both desktop and mobile
+        function updateActiveMenuItem(page) {
+            // Update desktop menu
+            desktopMenuItems.forEach(i => i.classList.remove('active'));
+            const desktopActiveItem = document.querySelector(`.sidebar .nav-item[data-page="${page}"]`);
+            if (desktopActiveItem) {
+                desktopActiveItem.classList.add('active');
+            }
+            
+            // Update mobile menu
+            mobileMenuItems.forEach(i => i.classList.remove('active'));
+            const mobileActiveItem = document.querySelector(`.mobile-nav-item[data-page="${page}"]`);
+            if (mobileActiveItem) {
+                mobileActiveItem.classList.add('active');
+            }
+        }
         
         // Function to get page from URL
         function getPageFromURL() {
@@ -760,24 +846,12 @@
         window.addEventListener('popstate', function(e) {
             if (e.state && e.state.page) {
                 loadPage(e.state.page);
-                
-                // Update active menu item
-                menuItems.forEach(i => i.classList.remove('active'));
-                const activeItem = document.querySelector(`.nav-item[data-page="${e.state.page}"]`);
-                if (activeItem) {
-                    activeItem.classList.add('active');
-                }
+                updateActiveMenuItem(e.state.page);
             } else {
                 // If no state, try to get page from URL
                 const page = getPageFromURL() || 'projects';
                 loadPage(page);
-                
-                // Update active menu item
-                menuItems.forEach(i => i.classList.remove('active'));
-                const activeItem = document.querySelector(`.nav-item[data-page="${page}"]`);
-                if (activeItem) {
-                    activeItem.classList.add('active');
-                }
+                updateActiveMenuItem(page);
             }
         });
         
@@ -927,6 +1001,7 @@
                             articlesMenuItem.click();
                         } else {
                             loadPage('articles');
+                            updateActiveMenuItem('articles');
                         }
                     });
                     
@@ -971,11 +1046,7 @@
                     loadArticle(articlePath);
                     
                     // Update the active navigation item to 'Articles'
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    const articlesMenuItem = document.querySelector('.nav-item[data-page="articles"]');
-                    if (articlesMenuItem) {
-                        articlesMenuItem.classList.add('active');
-                    }
+                    updateActiveMenuItem('articles');
                 });
             });
         }
@@ -1002,23 +1073,9 @@
                 loadArticle(articlePath);
                 
                 // Update the active navigation item to 'Articles'
-                menuItems.forEach(i => i.classList.remove('active'));
-                const articlesMenuItem = document.querySelector('.nav-item[data-page="articles"]');
-                if (articlesMenuItem) {
-                    articlesMenuItem.classList.add('active');
-                }
+                updateActiveMenuItem('articles');
             }
         });
-        
-        // Mobile menu toggle (if you have one)
-        const menuToggle = document.querySelector('.menu-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        
-        if (menuToggle) {
-            menuToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('open');
-            });
-        }
     });
     </script>
 </body>
